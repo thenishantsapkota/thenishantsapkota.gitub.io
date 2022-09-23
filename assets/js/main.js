@@ -108,24 +108,24 @@ var swiper = new Swiper(".swiper-container",{
 
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
-const sections = document.querySelectorAll('section[id]')
+// const sections = document.querySelectorAll('section[id]')
 
-function scrollActive(){
-    const scrollY = window.scrollY
+// function scrollActive(){
+//     const scrollY = window.scrollY
 
-    sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop - 50;
-        sectionId = current.getAttribute('id')
-        console.log(sectionId);
+//     sections.forEach(current =>{
+//         const sectionHeight = current.offsetHeight
+//         const sectionTop = current.offsetTop - 50;
+//         sectionId = current.getAttribute('id')
+//         console.log(sectionId);
 
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-        }else{
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
-        }
-    })
-}
+//         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+//             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+//         }else{
+//             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+//         }
+//     })
+// }
 // window.addEventListener('scroll', scrollActive)
 
 /*==================== CHANGE BACKGROUND HEADER ====================*/ 
