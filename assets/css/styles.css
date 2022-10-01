@@ -443,7 +443,7 @@ img {
 
 /*==================== SKILLS ====================*/
 .skills__container{
-  row-gap: 0;
+  gap: 3rem;
 }
 
 .skills__header{
