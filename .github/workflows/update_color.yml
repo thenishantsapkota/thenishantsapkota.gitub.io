@@ -1,7 +1,7 @@
 name: Update hue color
 'on':
   schedule:
-    - cron: '* * * * *'
+    - cron: '0 0 * * *'
 jobs:
   update_hue_color:
     runs-on: ubuntu-latest
