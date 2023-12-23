@@ -32,4 +32,4 @@ jobs:
           git pull origin master
           chmod +x script.sh
         env:
-          GH_TOKEN: '${{ secrets.GH_TOKEN }}'
+          GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
