@@ -1,7 +1,7 @@
 name: Update hue color
 on:
   schedule:
-    - cron: "3 * * * *"
+    - cron: "* * * * *"
 jobs:
   update_hue_color:
     runs-on: ubuntu-latest
@@ -34,7 +34,7 @@ jobs:
 
       - name: Commit and push changes
         run: |
-             git pull origin master
-             chmod +x readme.sh
+          git pull origin master
+          chmod +x readme.sh
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
