@@ -1,16 +1,9 @@
 #!/bin/bash
 
-# Generate a random number between 0 and 400
 hue=$(shuf -i 0-400 -n 1)
 
-# Replace the hue color in the CSS file
-sed -i "s/--hue-color: .*/--hue-color: $hue;/" styles.css
+sed -i "s/--hue-color: .*/--hue-color: $hue;/" ./assets/css/styles.css
 
-# Add the changes to git
-git add styles.css
-
-# Commit the changes
+git add ./assets/css/styles.css
 git commit -m "Update hue color"
-
-# Push the changes
 git push origin main
