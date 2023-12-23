@@ -23,23 +23,11 @@ jobs:
         with:
           repository: thenishantsapkota/thenishantsapkota.gitub.io
 
-      - name: Update hue color
+      - name: Run script
         run: |
-          # Generate a random number between 0 and 400
-          hue=$(shuf -i 0-400 -n 1)
-
-          # Replace the hue color in the CSS file
-          sed -i "s/--hue-color: .*/--hue-color: $hue;/" styles.css
+          chmod +x script.sh
+          ./script.sh
 
       - name: Check CSS file status
         run: |
           git status styles.css
-
-      - name: Commit and push changes
-        run: |
-          git pull origin main
-          git add styles.css
-          git commit -m "Update hue color"
-          git push origin main
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
