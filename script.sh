@@ -6,4 +6,4 @@ sed -i "s/--hue-color: .*/--hue-color: $hue;/" ./assets/css/styles.css
 
 git add ./assets/css/styles.css
 git commit -m "Update hue color"
-git push origin main
+git push origin master
