@@ -31,10 +31,10 @@ jobs:
       - name: Check CSS file status
         run: |
           git status assets/css/styles.css
-      
-      - name: Pull changes
+
+      - name: Commit and push changes
         run: |
-          git pull origin master
-          chmod +x script.sh
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+             git pull origin master
+             chmod +x readme.sh
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
