@@ -24,7 +24,14 @@ const navLink = document.querySelectorAll(".nav__link");
 
 function linkAction(){
     const navMenu = document.getElementById("nav-menu");
+    // Remove the 'show-menu' class
     navMenu.classList.remove("show-menu");
+
+    // Remove the 'active-link' class from all navlinks
+    navLink.forEach(n => n.classList.remove('active-link'));
+
+    // Add the 'active-link' class to the clicked navlink
+    this.classList.add('active-link');
 }
 navLink.forEach(n => n.addEventListener("click", linkAction))
 
@@ -55,12 +62,12 @@ tabs.forEach(tab => {
     tab.addEventListener("click", () => {
         const target = document.querySelector(tab.dataset.target);
 
-        tabContents.forEach(tabContent =>{
+        tabContents.forEach(tabContent => {
             tabContent.classList.remove("qualification__active");
         })
         target.classList.add("qualification__active");
 
-        tab.forEach(tab =>{
+        tabs.forEach(tab => {
             tab.classList.remove("qualification__active");
         })
         tab.classList.add("qualification__active");
@@ -153,20 +160,25 @@ function scrollUp(){
 window.addEventListener('scroll', scrollUp)
 
 /*================ SMOOTH SCROLL ========================*/
-$(document).ready(function(){
-    $("a").on("click", function(event){
-        if(this.hash !== ""){
-            event.preventDefault();
-            var hash = this.hash;
+document.addEventListener("DOMContentLoaded", function() {
+    var links = document.querySelectorAll("a");
 
-            $("html, body").animate({
-                scrollTop: $(hash).offset().top
-            }, 800, function(){
+    links.forEach(function(link) {
+        link.addEventListener("click", function(event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                var hash = this.hash;
+
+                window.scroll({
+                    top: document.querySelector(hash).offsetTop,
+                    behavior: 'smooth'
+                });
+
                 window.location.hash = hash;
-            })
-        }
-    })
-})
+            }
+        });
+    });
+});
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 // const sections = document.querySelectorAll('section[id]')
@@ -178,12 +190,14 @@ $(document).ready(function(){
 //         const sectionHeight = current.offsetHeight
 //         const sectionTop = current.offsetTop - 50;
 //         sectionId = current.getAttribute('id')
-//         console.log(sectionId);
 
-//         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-//             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-//         }else{
-//             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+//         let navLink = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
+//         if(navLink) { ==
+//             if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+//                 navLink.classList.add('active-link')
+//             }else{
+//                 navLink.classList.remove('active-link')
+//             }
 //         }
 //     })
 // }
