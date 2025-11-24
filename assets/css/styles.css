@@ -7,7 +7,7 @@
 
     /*========== Colors ==========*/
     /* Change favorite color */
-    --hue-color: 394;
+    --hue-color: 57;
 
     /* HSL color mode */
     --first-color: hsl(var(--hue-color), 69%, 61%);
