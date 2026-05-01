@@ -1,806 +1,1186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--==================== UNICONS ====================-->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <!--==================== PRIMARY SEO ====================-->
+  <title>Nishant Sapkota — TypeScript Developer & Backend Software Engineer</title>
+  <meta name="description"
+    content="Nishant Sapkota is a TypeScript Developer and Backend Software Engineer from Damak, Nepal. Experienced in Express.js, NestJS, React.js, Django, and Python — building APIs, distributed services, and clean systems." />
+  <meta name="keywords"
+    content="Nishant Sapkota, thenishantsapkota, snishant306, TypeScript developer, backend developer Nepal, NestJS developer, Express.js developer, React developer, Django developer, software engineer Damak, full stack developer Nepal, Pokhara University computer engineering" />
+  <meta name="author" content="Nishant Sapkota" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="theme-color" content="#0a0a0f" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="geo.region" content="NP-P1" />
+  <meta name="geo.placename" content="Damak, Jhapa, Nepal" />
+  <link rel="canonical" href="https://snishant.com.np/" />
 
-    <!--==================== SWIPER CSS ====================-->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+  <!--==================== OPEN GRAPH ====================-->
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="Nishant Sapkota" />
+  <meta property="og:title" content="Nishant Sapkota — TypeScript Developer" />
+  <meta property="og:description"
+    content="TypeScript Developer experienced in Express.js, NestJS, and React.js. Backend software engineer from Damak, Nepal." />
+  <meta property="og:url" content="https://snishant.com.np/" />
+  <meta property="og:image" content="https://snishant.com.np/assets/img/perfil.png" />
+  <meta property="og:image:alt" content="Portrait of Nishant Sapkota" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="profile:first_name" content="Nishant" />
+  <meta property="profile:last_name" content="Sapkota" />
+  <meta property="profile:username" content="thenishantsapkota" />
 
-    <!--==================== CSS ====================-->
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <!--==================== TWITTER CARD ====================-->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@snishant306" />
+  <meta name="twitter:creator" content="@snishant306" />
+  <meta name="twitter:title" content="Nishant Sapkota — TypeScript Developer" />
+  <meta name="twitter:description" content="TypeScript Developer experienced in Express.js, NestJS, and React.js. Based in Damak, Nepal." />
+  <meta name="twitter:image" content="https://snishant.com.np/assets/img/perfil.png" />
 
-    <title>Nishant Sapkota - Aspiring Full Stack Developer</title>
+  <!--==================== ICONS ====================-->
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="assets/img/perfil.png" />
+
+  <!--==================== HUE-COLOR (rewritten daily by GH Action) ====================-->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!--==================== FONTS ====================-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap"
+    rel="stylesheet" />
+
+  <!--==================== TAILWIND CSS ====================-->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            accent: {
+              DEFAULT: 'hsl(var(--hue-color) 82% 62%)',
+              soft: 'hsl(var(--hue-color) 88% 75%)',
+              deep: 'hsl(var(--hue-color) 65% 48%)',
+              ink: 'hsl(var(--hue-color) 30% 12%)',
+            },
+          },
+          backgroundImage: {
+            'accent-gradient': 'linear-gradient(135deg, hsl(var(--hue-color) 88% 70%), hsl(var(--hue-color) 65% 50%))',
+            'accent-radial': 'radial-gradient(circle at 30% 30%, hsl(var(--hue-color) 88% 72%), hsl(var(--hue-color) 65% 45%))',
+          },
+          boxShadow: {
+            glow: '0 0 60px -10px hsl(var(--hue-color) 80% 60% / 0.45)',
+            'glow-lg': '0 0 120px -20px hsl(var(--hue-color) 80% 60% / 0.55)',
+          },
+          animation: {
+            'spin-slow': 'spin 16s linear infinite',
+            'float': 'float 9s ease-in-out infinite',
+            'fade-up': 'fadeUp 0.7s ease-out both',
+            'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+            'blink': 'blink 1s step-end infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+              '50%': { transform: 'translate(20px, -30px) scale(1.05)' },
+            },
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(24px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            pulseSoft: {
+              '0%, 100%': { opacity: '0.6' },
+              '50%': { opacity: '1' },
+            },
+            blink: {
+              '0%, 50%': { opacity: '1' },
+              '50.01%, 100%': { opacity: '0' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!--==================== JSON-LD STRUCTURED DATA ====================-->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://snishant.com.np/#person",
+        "name": "Nishant Sapkota",
+        "alternateName": ["thenishantsapkota", "snishant306"],
+        "givenName": "Nishant",
+        "familyName": "Sapkota",
+        "url": "https://snishant.com.np/",
+        "image": "https://snishant.com.np/assets/img/perfil.png",
+        "jobTitle": "TypeScript Developer & Backend Software Engineer",
+        "description": "TypeScript Developer experienced in Express.js, NestJS, and React.js. Backend software engineer from Damak, Nepal.",
+        "email": "mailto:hello@snishant.com.np",
+        "telephone": "+977-9801615642",
+        "gender": "Male",
+        "nationality": { "@type": "Country", "name": "Nepal" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Damak",
+          "addressRegion": "Jhapa",
+          "addressCountry": "NP"
+        },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Pokhara University" },
+          { "@type": "EducationalOrganization", "name": "Madan Bhandari Memorial Academy Nepal" },
+          { "@type": "HighSchool", "name": "Siddhartha HSBS" },
+          { "@type": "School", "name": "Suryodaya English School" }
+        ],
+        "worksFor": { "@type": "Organization", "name": "Codexx Pvt. Ltd." },
+        "knowsAbout": ["TypeScript", "JavaScript", "Python", "Express.js", "NestJS", "React.js", "Django", "Node.js", "Backend Development", "API Design", "PostgreSQL", "Redis", "AWS S3", "WebSockets", "Software Testing", "Postman", "Selenium"],
+        "sameAs": [
+          "https://github.com/thenishantsapkota",
+          "https://www.linkedin.com/in/nishant-sapkota-960a3b14b/",
+          "https://twitter.com/snishant306",
+          "https://facebook.com/thenishantsapkota",
+          "https://instagram.com/thenishantsapkota"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://snishant.com.np/#website",
+        "url": "https://snishant.com.np/",
+        "name": "Nishant Sapkota",
+        "description": "Personal portfolio of Nishant Sapkota — backend software engineer.",
+        "publisher": { "@id": "https://snishant.com.np/#person" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://snishant.com.np/#profilepage",
+        "url": "https://snishant.com.np/",
+        "name": "Nishant Sapkota — Portfolio",
+        "about": { "@id": "https://snishant.com.np/#person" },
+        "isPartOf": { "@id": "https://snishant.com.np/#website" }
+      }
+    ]
+  }
+  </script>
 </head>
 
-<body>
-    <!--==================== HEADER ====================-->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">Nishant</a>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list grid">
-                    <li class="nav__item">
-                        <a href="#" class="nav__link active-link">
-                            <i class="uil uil-estate nav__icon"></i> Home
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#about" class="nav__link">
-                            <i class="uil uil-user nav__icon"></i> About
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#skills" class="nav__link">
-                            <i class="uil uil-file-alt nav__icon"></i> Skills
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#services" class="nav__link">
-                            <i class="uil uil-briefcase-alt nav__icon"></i> Services
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#resume" class="nav__link">
-                            <i class="uil uil-scenery nav__icon"></i> Portfolio
-                        </a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link">
-                            <i class="uil uil-message nav__icon"></i> Contact Me
-                        </a>
-                    </li>
-                </ul>
-                <i class="uil uil-times nav__close" id="nav-close"></i>
-            </div>
-
-            <div class="nav__btns">
-                <!-- Theme Change Buttons -->
-                <i class="uil uil-moon change-theme" id="theme-button"></i>
-
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="uil uil-apps"></i>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!--==================== MAIN ====================-->
-    <main class="main">
-        <!--==================== HOME ====================-->
-        <section class="home section" id="home">
-            <div class="home__container container grid">
-                <div class="home__content grid">
-                    <div class="home__social">
-                        <a href="https://www.linkedin.com/in/nishant-sapkota-960a3b14b/" target="_blank"
-                            class="home__social-icon">
-                            <i class="uil uil-linkedin-alt"></i>
-                        </a>
-
-                        <a href="https://facebook.com/thenishantsapkota" target="_blank" class="home__social-icon">
-                            <i class="uil uil-facebook-f"></i>
-                        </a>
-                        <a href="https://github.com/thenishantsapkota" target="_blank" class="home__social-icon">
-                            <i class="uil uil-github-alt"></i>
-                        </a>
-                    </div>
-
-                    <div class="home__img">
-                        <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <mask id="mask0" mask-type="alpha">
-                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547
-                                    130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775
-                                    97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666
-                                    0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-                            </mask>
-                            <g mask="url(#mask0)">
-                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346
-                                    165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403
-                                    129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028
-                                    -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-
-                                <image class="home__blob-img" x="-30" y="-70" xlink:href="assets/img/perfil.png" />
-                            </g>
-                        </svg>
-                    </div>
-
-                    <div class="home__data">
-                        <h1 class="home__title">Hi, I'm Nishant</h1>
-                        <h3 class="home__subtitle">Backend Developer</h3>
-                        <p class="home__description">Hello there! This is me. I love computers, books, nature, space.
-                            Love to spend time alone infront of my Computer.
-                            Currently Studying BE Computer in Madan Bhandari Memorial Academy Nepal.
-                        </p>
-                        <a href="#contact" class="button button--flex">
-                            Contact Me <i class="uil uil-message button__icon"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="home__scroll">
-                    <a href="#about" class="home__scroll-button button--flex">
-                        <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-                        <span class="home__scroll-name">Scroll down</span>
-                        <i class="uil uil-arrow-down home__scroll-arrow"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!--==================== ABOUT ====================-->
-        <section class="about section" id="about">
-            <h2 class="section__title">About Me</h2>
-            <span class="section__subtitle">My introduction</span>
-
-            <div class="about__container container grid">
-                <img src="assets/img/about.jpg" alt="" class="about__img">
-
-                <div class="about__data">
-                    <p class="about__description">Hello! This is Nishant. Currently I live in Damak,Nepal. I like to do
-                        computer programs while listening to music.
-                        Right now, I'm studying Computer Science & Engineering in <a href="https://mbman.org.np"
-                            class="url">Madan Bhandari Memorial Academy Nepal,Urlabari</a>. I love computers. I love
-                        programming. Since my very childhood I have some kind of feelings toward computers. Most of my
-                        time is passed in front of my computer exploring new things. I love to learn new things.
-                        Like everyone I am also interested in Machine Learning, Deep Learning, Data Science.
-                    </p>
-
-                    <div class="about__info">
-                        <div>
-                            <span class="about__info-title">2.5+</span>
-                            <span class="about__info-name">Years <br> Experience</span>
-                        </div>
-
-                        <div>
-                            <span class="about__info-title">10+</span>
-                            <span class="about__info-name">Completed <br> Project</span>
-                        </div>
-
-                        <div>
-                            <span class="about__info-title">4</span>
-                            <span class="about__info-name">Companies <br> Worked</span>
-                        </div>
-                    </div>
-                    <div class="about__buttons">
-                        <a download="" href="assets/pdf/resume.pdf" class="button button--flex">
-                            Download CV<i class="uil uil-download-alt button__icon"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--==================== SKILLS ====================-->
-        <section class="skills section" id="skills">
-            <h2 class="section__title">Skills</h2>
-            <span class="section__subtitle">My Technical Level</span>
-
-            <div class="skills__container container grid">
-                <!-- SKILL 1 -->
-                <div class="skills__content">
-                    <div class="skills__header">
-                        <i class="uil uil-brackets-curly skills__icon"></i>
-
-                        <div>
-                            <h1 class="skills__title">QA Engineer</h1>
-                            <span class="skills__subtitle">More than 1.5 Years</span>
-                        </div>
-
-                        <!-- <i class="uil uil-angle-down skills__arrow"></i> -->
-                    </div>
-
-                    <div class="skills__list grid">
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">Postman</h3>
-                                <span class="skills__number">90%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__postman"></span>
-                            </div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">Selenium</h3>
-                                <span class="skills__number">40%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__selenium"></span>
-                            </div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">Manual Testing</h3>
-                                <span class="skills__number">80%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__manual"></span>
-                            </div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">Jira</h3>
-                                <span class="skills__number">70%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__jira"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SKILL 2 -->
-                <div class="skills__content">
-                    <div class="skills__header">
-                        <i class="uil uil-server-network skills__icon"></i>
-
-                        <div>
-                            <h1 class="skills__title">Backend Development</h1>
-                            <span class="skills__subtitle">More than 1 Year</span>
-                        </div>
-
-                        <!-- <i class="uil uil-angle-down skills__arrow"></i> -->
-                    </div>
-
-                    <div class="skills__list grid">
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">NestJS</h3>
-                                <span class="skills__number">80%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__django"></span>
-                            </div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">Express</h3>
-                                <span class="skills__number">70%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__flask"></span>
-                            </div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">Django</h3>
-                                <span class="skills__number">70%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__fastapi"></span>
-                            </div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">PHP</h3>
-                                <span class="skills__number">50%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__php"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SKILL 3 -->
-                <div class="skills__content">
-                    <div class="skills__header">
-                        <i class="uil uil-font skills__icon"></i>
-
-                        <div>
-                            <h1 class="skills__title">Frontend Development</h1>
-                            <span class="skills__subtitle">1 Year</span>
-                        </div>
-
-                        <!-- <i class="uil uil-angle-down skills__arrow"></i> -->
-                    </div>
-
-                    <div class="skills__list grid">
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">HTML</h3>
-                                <span class="skills__number">80%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__html"></span>
-                            </div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">CSS</h3>
-                                <span class="skills__number">50%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__css"></span>
-                            </div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">JavaScript</h3>
-                                <span class="skills__number">70%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__javascript"></span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-
-        </section>
-
-        <!--==================== QUALIFICATION ====================-->
-        <section class="qualification section">
-            <h2 class="section__title">Qualification</h2>
-            <span class="section__subtitle">My Qualifications</span>
-
-            <div class="qualification__container container">
-                <div class="qualification__tabs">
-                    <div class="qualification__button button--flex" data-target="#education">
-                        <i class="uil uil-graduation-cap qualification__icon"></i>
-                        Education
-                    </div>
-
-                    <div class="qualification__button button--flex" data-target="#work">
-                        <i class="uil uil-briefcase-alt qualification__icon"></i>
-                        Work
-                    </div>
-                </div>
-                <div class="qualification__sections">
-                    <!-- Qualification Content  1 -->
-                    <div class="qualification__content qualification__active" data-content id="education">
-                        <!-- Qualification 1 -->
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title">SEE</h3>
-                                <span class="qualification__subtitle">Suryodaya English School</span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i> 2017
-                                </div>
-                            </div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-
-                        </div>
-
-                        <!-- Qualification 2 -->
-                        <div class="qualification__data">
-                            <div></div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 class="qualification__title">High School(+2)</h3>
-                                <span class="qualification__subtitle">Siddhartha HSBS</span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i> 2017 - 2019
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Qualification 3 -->
-                        <div class="qualification__data">
-                            <!-- <div></div> -->
-                            <div>
-                                <h3 class="qualification__title">Computer Engineering</h3>
-                                <span class="qualification__subtitle">Pokhara University</span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i> 2019 - Present
-                                </div>
-                            </div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Qualification Content  2 -->
-                    <div class="qualification__content" data-content id="work">
-                        <!-- Qualification 1 -->
-                        <div class="qualification__data">
-                            <div></div>
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                            <div>
-                                <h3 class="qualification__title">QA Engineer</h3>
-                                <span class="qualification__subtitle">Clamphook Pvt Ltd.</span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i> 2021 - 11 Months
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- Qualification 2 -->
-                        <div class="qualification__data">
-
-                            <div>
-                                <h3 class="qualification__title">Lead QA Engineer</h3>
-                                <span class="qualification__subtitle">Rasan Project</span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i> 2022 - 6 Months
-                                </div>
-                            </div>
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                        </div>
-                        <!-- Qualification 3 -->
-                        <div class="qualification__data">
-                            <div></div>
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                            <div>
-                                <h3 class="qualification__title">Software Engineer Intern (Backend)</h3>
-                                <span class="qualification__subtitle">Acid Integrations Pvt. Ltd.</span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i> June 2023 - September 2023
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="qualification__data">
-
-                            <div>
-                                <h3 class="qualification__title">Software Engineer (Backend)</h3>
-                                <span class="qualification__subtitle">Acid Integrations Pvt. Ltd.</span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i> September 2023 - Now
-                                </div>
-                            </div>
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                        </div>
-
-                        <div class="qualification__data">
-                            <div></div>
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                            <div>
-                                <h3 class="qualification__title">Software Engineer (Backend)</h3>
-                                <span class="qualification__subtitle">Manage Vehicle Pty. Ltd.</span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i> April 2024 - September 2024
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <!--==================== SERVICES ====================-->
-        <section class="services section" id="services">
-            <h2 class="section__title">Services</h2>
-            <span class="section__subtitle">The services I offer</span>
-
-            <div class="services__container container grid">
-                <!-- Service 1 -->
-                <div class="services__content">
-                    <div>
-                        <i class="uil uil-flask services__icon"></i>
-                        <h3 class="services__title">Software <br> Testing</h3>
-                    </div>
-                    <span class="button--flex button button--small button--link services__button">
-                        View More
-                        <i class="uil uil-arrow-right button__icon"></i>
-                    </span>
-
-                    <div class="services__modal">
-                        <div class="services__modal-content">
-                            <h4 class="services__modal-title">Software <br> Tester</h4>
-                            <i class="uil uil-times services__modal-close"></i>
-
-                            <ul class="services__modal-services grid">
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>I test the software to check it's functionality.</p>
-                                </li>
-
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>I maintain product quality.</p>
-                                </li>
-
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>I find bugs in the product</p>
-                                </li>
-
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>I write test cases and test plans to solve the issues.</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="services__content">
-                    <div>
-                        <i class="uil uil-server services__icon"></i>
-                        <h3 class="services__title">Backend <br> Development</h3>
-                    </div>
-                    <span class="button--flex button button--small button--link services__button">
-                        View More
-                        <i class="uil uil-arrow-right button__icon"></i>
-                    </span>
-
-                    <div class="services__modal">
-                        <div class="services__modal-content">
-                            <h4 class="services__modal-title">Backend <br> Developer</h4>
-                            <i class="uil uil-times services__modal-close"></i>
-
-                            <ul class="services__modal-services grid">
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>I write clean code to develop functional web applications</p>
-                                </li>
-
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>I troubleshoot and debug applications</p>
-                                </li>
-
-                                <li class="services__modal-service">
-                                    <i class="uil uil-check-circle services__modal-icon"></i>
-                                    <p>I build reusable code and libraries for future use</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!--==================== PORTFOLIO ====================-->
-        <section class="portfolio section" id="resume">
-            <h2 class="section__title">Portfolio</h2>
-            <span class="section__subtitle">Most recent work</span>
-
-            <div class="portfolio__container container swiper-container">
-                <div class="swiper-wrapper">
-                    <!-- Portfolio 1 -->
-                    <div class="portfolio__content grid swiper-slide">
-                        <img src="assets/img/portfolio1.jpg" alt="" class="portfolio__img">
-
-                        <div class="portfolio__data">
-                            <h3 class="portfolio__title">Character Certificate Management System</h3>
-                            <p class="portfolio__description">A dynamic character certificate management
-                                system that works for many educational institutes.
-                            </p>
-                            <a href="https://github.com/thenishantsapkota/CCMS" target="_blank"
-                                class="button button--flex button--small portfolio__button">
-                                Github
-                                <i class="uil uil-github button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Portfolio 2 -->
-                    <div class="portfolio__content grid swiper-slide">
-                        <img src="assets/img/portfolio2.jpg" alt="" class="portfolio__img">
-
-
-                        <div class="portfolio__data">
-                            <h3 class="portfolio__title">Spotbee</h3>
-                            <p class="portfolio__description">A Python script that generates
-                                YouTube URLs from Spotify Playlist links.
-                            </p>
-                            <a href="https://github.com/thenishantsapkota/spotbee" target="_blank"
-                                class="button button--flex button--small portfolio__button">
-                                Github
-                                <i class="uil uil-github button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Portfolio 3 -->
-                    <div class="portfolio__content grid swiper-slide">
-                        <img src="assets/img/portfolio3.jpg" alt="" class="portfolio__img">
-
-
-                        <div class="portfolio__data">
-                            <h3 class="portfolio__title">Supermarket Management System</h3>
-                            <p class="portfolio__description">A simple GUI application written in Java
-                                which I made while learning Java programming language.
-                            </p>
-                            <a href="https://github.com/thenishantsapkota/Supermarket-System" target="_blank"
-                                class="button button--flex button--small portfolio__button">
-                                Github
-                                <i class="uil uil-github button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Portfolio 4 -->
-                    <div class="portfolio__content grid swiper-slide">
-                        <img src="assets/img/portfolio3.jpg" alt="" class="portfolio__img">
-
-
-                        <div class="portfolio__data">
-                            <h3 class="portfolio__title">DTown Lounge and Bistro Website</h3>
-                            <p class="portfolio__description">A simple single page website created for D-Town Lounge and
-                                Bistro
-                            </p>
-                            <a href="https://dtownbistro.com.np" target="_blank"
-                                class="button button--flex button--small portfolio__button">
-                                Website
-                                <i class="uil uil-web button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Swiper Nav Buttons -->
-                <div class="swiper-button-next">
-                    <i class="uil uil-angle-right swiper-portfolio-icon"></i>
-                </div>
-                <div class="swiper-button-prev">
-                    <i class="uil uil-angle-left swiper-portfolio-icon"></i>
-                </div>
-
-                <!-- Swiper Pagination -->
-                <div class="swiper-pagination"></div>
-            </div>
-
-        </section>
-        <!--==================== CONTACT ME ====================-->
-        <section class="contact section" id="contact">
-            <h2 class="section__title">Contact Me</h2>
-            <span class="section__subtitle">Get in touch</span>
-
-            <div class="contact__container container grid">
-                <div>
-                    <div class="contact__information">
-                        <i class="uil uil-phone contact__icon"></i>
-
-                        <div>
-                            <h3 class="contact__title">Mobile Number</h3>
-                            <span class="contact__subtitle">+977-9801615642</span>
-                        </div>
-                    </div>
-
-                    <div class="contact__information">
-                        <i class="uil uil-envelope contact__icon"></i>
-
-                        <div>
-                            <h3 class="contact__title">Email</h3>
-                            <span class="contact__subtitle">snishant306@gmail.com</span>
-                        </div>
-                    </div>
-
-                    <div class="contact__information">
-                        <i class="uil uil-location-point contact__icon"></i>
-
-                        <div>
-                            <h3 class="contact__title">Location</h3>
-                            <span class="contact__subtitle">Damak, Jhapa</span>
-                        </div>
-                    </div>
-                </div>
-
-                <form action="" class="contact__form grid">
-                    <div class="contact__inputs grid">
-                        <div class="contact__content">
-                            <label for="" class="contact__label">Name</label>
-                            <input type="text" class="contact__input">
-                        </div>
-
-                        <div class="contact__content">
-                            <label for="" class="contact__label">Email</label>
-                            <input type="text" class="contact__input">
-                        </div>
-                    </div>
-                    <div class="contact__content">
-                        <label for="" class="contact__label">Subject</label>
-                        <input type="text" class="contact__input">
-                    </div>
-                    <div class="contact__content">
-                        <label for="" class="contact__label">Email</label>
-                        <textarea name="" id="" cols="0" rows="7" class="contact__input"></textarea>
-                    </div>
-
-                    <div>
-                        <a href="" class="button button--flex">
-                            Send Message
-                            <i class="uil uil-message button__icon"></i>
-                        </a>
-                    </div>
-                </form>
-            </div>
-
-        </section>
-    </main>
-
-    <!--==================== FOOTER ====================-->
-    <footer class="footer">
-        <div class="footer__bg">
-            <div class="footer__container container grid">
-                <div>
-                    <h1 class="footer__title">Nishant</h1>
-                    <span class="footer__subtitle">Backend Developer</span>
-                </div>
-
-                <ul class="footer__links">
-                    <li>
-                        <a href="#services" class="footer__link">Services</a>
-                    </li>
-                    <li>
-                        <a href="#portfolio" class="footer__link">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="#contact" class="footer__link">Contact</a>
-                    </li>
-                </ul>
-
-                <div class="footer__socials">
-                    <a href="https://facebook.com/thenishantsapkota" class="footer__social" target="_blank">
-                        <i class="uil uil-facebook-f"></i>
-                    </a>
-
-                    <a href="https://instagram.com/thenishantsapkota" class="footer__social" target="_blank">
-                        <i class="uil uil-instagram"></i>
-                    </a>
-
-                    <a href="https://twitter.com/@snishant306" class="footer__social" target="_blank">
-                        <i class="uil uil-twitter-alt"></i>
-                    </a>
-                </div>
-
-                <p class="footer__copy">&#169; Nishant Sapkota. All rights reserved</p>
-            </div>
+<body
+  class="bg-zinc-50 dark:bg-[#0a0a0f] text-zinc-700 dark:text-zinc-300 font-sans antialiased selection:bg-accent/30 selection:text-accent overflow-x-hidden"
+  data-secret="↑ ↑ ↓ ↓ ← → ← → B A">
+
+  <!-- Skip link for accessibility -->
+  <a href="#main"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-accent focus:text-white">Skip
+    to content</a>
+
+  <!-- Decorative background (3D + blobs + grid) -->
+  <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div
+      class="absolute -top-40 -right-32 h-[36rem] w-[36rem] rounded-full bg-accent-radial opacity-20 dark:opacity-25 blur-3xl animate-float">
+    </div>
+    <div
+      class="absolute top-[40%] -left-32 h-[28rem] w-[28rem] rounded-full bg-accent-radial opacity-15 dark:opacity-20 blur-3xl animate-float"
+      style="animation-delay: -4s;"></div>
+    <canvas id="three-bg" class="absolute inset-0 w-full h-full opacity-70 dark:opacity-80"></canvas>
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.06)_1px,transparent_0)] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_0)] [background-size:32px_32px]">
+    </div>
+  </div>
+
+  <!--==================== HEADER ====================-->
+  <header id="header"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-white/70 dark:bg-[#0a0a0f]/70 border-b border-zinc-200/50 dark:border-white/5">
+    <nav aria-label="Primary" class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#home"
+        class="font-bold text-lg tracking-tight text-zinc-900 dark:text-white hover:text-accent transition-colors">
+        <span class="text-accent">⚡</span> Nishant
+      </a>
+
+      <!-- Desktop nav -->
+      <ul class="hidden md:flex items-center gap-1 text-sm font-medium">
+        <li><a href="#about"
+            class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-accent transition">About</a>
+        </li>
+        <li><a href="#experience"
+            class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-accent transition">Experience</a>
+        </li>
+        <li><a href="#skills"
+            class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-accent transition">Skills</a>
+        </li>
+        <li><a href="#projects"
+            class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-accent transition">Projects</a>
+        </li>
+        <li><a href="#contact"
+            class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-accent transition">Contact</a>
+        </li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
+          class="h-9 w-9 inline-flex items-center justify-center rounded-lg border border-zinc-200 dark:border-white/10 hover:border-accent hover:text-accent transition">
+          <svg id="icon-sun" class="hidden dark:block h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+          <svg id="icon-moon" class="block dark:hidden h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+        <button id="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="mobile-menu"
+          aria-expanded="false"
+          class="md:hidden h-9 w-9 inline-flex items-center justify-center rounded-lg border border-zinc-200 dark:border-white/10 hover:border-accent hover:text-accent transition">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 6h18M3 12h18M3 18h18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" hidden class="md:hidden border-t border-zinc-200/60 dark:border-white/5 bg-white/95 dark:bg-[#0a0a0f]/95">
+      <ul class="px-6 py-4 flex flex-col gap-1 text-sm font-medium">
+        <li><a href="#about" class="block px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5">About</a></li>
+        <li><a href="#experience" class="block px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5">Experience</a></li>
+        <li><a href="#skills" class="block px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5">Skills</a></li>
+        <li><a href="#projects" class="block px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5">Projects</a></li>
+        <li><a href="#contact" class="block px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!--==================== MAIN ====================-->
+  <main id="main">
+
+    <!--==================== HERO ====================-->
+    <section id="home" class="relative pt-32 pb-24 sm:pt-40 sm:pb-32" aria-labelledby="hero-heading">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div class="animate-fade-up order-2 md:order-1">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20 mb-6">
+            <span class="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-soft"></span>
+            Available for new opportunities
+          </div>
+
+          <h1 id="hero-heading" class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.05]">
+            Hi, I'm <span class="bg-clip-text text-transparent bg-accent-gradient">Nishant Sapkota</span>
+          </h1>
+
+          <p class="mt-5 text-2xl sm:text-3xl font-semibold text-zinc-700 dark:text-zinc-200 min-h-[2.5rem]">
+            I'm a <span id="typewriter" class="text-accent">TypeScript Developer</span><span class="inline-block w-[3px] h-[1.1em] bg-accent ml-1 align-[-0.18em] animate-blink" aria-hidden="true"></span>
+          </p>
+
+          <p class="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+            Experienced in <strong class="text-zinc-900 dark:text-white font-semibold">Express.js</strong>, <strong class="text-zinc-900 dark:text-white font-semibold">NestJS</strong>, and <strong class="text-zinc-900 dark:text-white font-semibold">React.js</strong> — building APIs, distributed services, and clean systems. Computer Engineering graduate from Pokhara University, based in Damak, Nepal. Constantly learning new technologies.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#contact"
+              class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-accent-gradient text-white font-semibold shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 transition-all">
+              Get in touch
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="assets/pdf/resume.pdf" download="Nishant-Sapkota-Resume.pdf"
+              class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-300 dark:border-white/10 hover:border-accent hover:text-accent font-semibold transition-all">
+              Download CV
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+              </svg>
+            </a>
+          </div>
+
+          <ul class="mt-10 flex items-center gap-4" aria-label="Social links">
+            <li>
+              <a href="https://github.com/thenishantsapkota" target="_blank" rel="me noopener" aria-label="GitHub"
+                class="h-10 w-10 inline-flex items-center justify-center rounded-xl border border-zinc-200 dark:border-white/10 hover:border-accent hover:text-accent transition">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.26 5.69.41.36.78 1.05.78 2.12v3.14c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/nishant-sapkota-960a3b14b/" target="_blank" rel="me noopener"
+                aria-label="LinkedIn"
+                class="h-10 w-10 inline-flex items-center justify-center rounded-xl border border-zinc-200 dark:border-white/10 hover:border-accent hover:text-accent transition">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/snishant306" target="_blank" rel="me noopener" aria-label="Twitter"
+                class="h-10 w-10 inline-flex items-center justify-center rounded-xl border border-zinc-200 dark:border-white/10 hover:border-accent hover:text-accent transition">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:hello@snishant.com.np" rel="me" aria-label="Email"
+                class="h-10 w-10 inline-flex items-center justify-center rounded-xl border border-zinc-200 dark:border-white/10 hover:border-accent hover:text-accent transition">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+              </a>
+            </li>
+          </ul>
         </div>
 
-    </footer>
+        <!-- Photo -->
+        <div class="order-1 md:order-2 flex justify-center md:justify-end">
+          <div class="relative">
+            <div
+              class="absolute -inset-4 rounded-full bg-accent-gradient opacity-40 blur-2xl animate-pulse-soft">
+            </div>
+            <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full">
+              <div class="absolute inset-0 rounded-full bg-accent-gradient animate-spin-slow"></div>
+              <div class="absolute inset-1 rounded-full bg-white dark:bg-[#0a0a0f]"></div>
+              <img src="assets/img/perfil.png" alt="Portrait of Nishant Sapkota — backend software engineer"
+                class="absolute inset-3 rounded-full object-cover w-[calc(100%-1.5rem)] h-[calc(100%-1.5rem)]"
+                loading="eager" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!--==================== SCROLL TOP ====================-->
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="uil uil-arrow-up scrollup__icon"></i>
-    </a>
+    <!--==================== ABOUT ====================-->
+    <section id="about" class="py-24" aria-labelledby="about-heading">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sm font-mono text-accent tracking-widest uppercase">01 — About</p>
+          <h2 id="about-heading" class="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+            About me
+          </h2>
+        </div>
 
-    <!--==================== SWIPER JS ====================-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
+        <div class="grid md:grid-cols-5 gap-10 items-center">
+          <div class="md:col-span-2">
+            <div class="relative aspect-square rounded-3xl overflow-hidden border border-zinc-200 dark:border-white/10 shadow-lg">
+              <img src="assets/img/about.jpg" alt="Nishant Sapkota at work"
+                class="w-full h-full object-cover" loading="lazy" decoding="async" />
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-accent/30 via-transparent to-transparent mix-blend-overlay">
+              </div>
+            </div>
+          </div>
 
-    <!--==================== MAIN JS ====================-->
-    <script src="assets/js/main.js"></script>
+          <div class="md:col-span-3">
+            <p class="text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+              I'm Nishant — a TypeScript Developer based in <strong class="text-zinc-900 dark:text-white">Damak, Nepal</strong>.
+              I graduated in Computer Engineering (2019–2024) from <a href="https://mbman.org.np" target="_blank" rel="noopener"
+                class="text-accent hover:underline">Madan Bhandari Memorial Academy Nepal</a>, Urlabari-03, Morang under Pokhara University.
+            </p>
+            <p class="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+              I started in QA, learned how systems break, and that knowledge made me a better backend engineer. Today I
+              build APIs and services in Express.js, NestJS, and Django — pragmatic stuff that ships and stays up.
+            </p>
+            <p class="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+              Outside of code: Data Structures &amp; Algorithms, current affairs, technology, music, anime, movies, carrom board, and the global economy.
+            </p>
 
-    <!-- AJAX -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <dl class="mt-8 grid grid-cols-3 gap-4">
+              <div class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-4 text-center hover:border-accent transition">
+                <dt class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500">Experience</dt>
+                <dd class="mt-1 text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">4+ <span class="text-base font-medium text-zinc-500">yrs</span></dd>
+              </div>
+              <div class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-4 text-center hover:border-accent transition">
+                <dt class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500">Projects</dt>
+                <dd class="mt-1 text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">10+</dd>
+              </div>
+              <div class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-4 text-center hover:border-accent transition">
+                <dt class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500">Companies</dt>
+                <dd class="mt-1 text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">5</dd>
+              </div>
+            </dl>
+
+            <a href="assets/pdf/resume.pdf" download="Nishant-Sapkota-Resume.pdf"
+              class="mt-8 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-accent-gradient text-white font-semibold shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 transition-all">
+              Download CV
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== EXPERIENCE ====================-->
+    <section id="experience" class="py-24" aria-labelledby="experience-heading">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <p class="text-sm font-mono text-accent tracking-widest uppercase">02 — Journey</p>
+          <h2 id="experience-heading" class="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+            Experience &amp; education
+          </h2>
+        </div>
+
+        <!-- Tabs -->
+        <div role="tablist" aria-label="Journey filter"
+          class="flex justify-center gap-2 mb-12 p-1 max-w-sm mx-auto rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02]">
+          <button role="tab" aria-selected="true" aria-controls="tab-work" id="tab-btn-work"
+            class="js-tab flex-1 px-4 py-2 rounded-xl text-sm font-semibold transition data-[active=true]:bg-accent-gradient data-[active=true]:text-white"
+            data-target="tab-work" data-active="true">
+            Work
+          </button>
+          <button role="tab" aria-selected="false" aria-controls="tab-edu" id="tab-btn-edu"
+            class="js-tab flex-1 px-4 py-2 rounded-xl text-sm font-semibold transition data-[active=true]:bg-accent-gradient data-[active=true]:text-white"
+            data-target="tab-edu" data-active="false">
+            Education
+          </button>
+        </div>
+
+        <!-- Work timeline -->
+        <div id="tab-work" role="tabpanel" aria-labelledby="tab-btn-work" class="js-tab-panel">
+          <ol class="relative border-l border-zinc-200 dark:border-white/10 ml-3 sm:ml-6 space-y-8">
+            <li class="ms-6 sm:ms-10 relative">
+              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
+              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Software Engineer (Backend)</h3>
+                  <span class="text-xs font-mono text-accent">Jan 2025 — Present</span>
+                </div>
+                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Codexx Pvt. Ltd. <span class="text-zinc-400">·</span> Remote (Kathmandu)</p>
+                <ul class="mt-3 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400 list-disc list-outside ml-5">
+                  <li>Building backend services with Node.js and Express.</li>
+                  <li>Payment gateway integrations and database query optimization.</li>
+                  <li>Real-time analytics dashboard powered by WebSockets.</li>
+                  <li>Owning monorepo architecture and mentoring junior developers.</li>
+                </ul>
+              </article>
+            </li>
+            <li class="ms-6 sm:ms-10 relative">
+              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
+              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Software Engineer</h3>
+                  <span class="text-xs font-mono text-accent">Jun 2023 — Apr 2025</span>
+                </div>
+                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Acid Integrations Pvt. Ltd. <span class="text-zinc-400">·</span> Remote (Ontario, Canada)</p>
+                <ul class="mt-3 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400 list-disc list-outside ml-5">
+                  <li>Designed Redis-based queue and batch-processing systems.</li>
+                  <li>Built 11Hype social media &amp; scouting tool with LLMs and computer vision.</li>
+                  <li>Healthcare motion-tracking pipelines for physiotherapy.</li>
+                  <li>Job Manager for activity tracking and evaluations.</li>
+                </ul>
+              </article>
+            </li>
+            <li class="ms-6 sm:ms-10 relative">
+              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
+              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Consultant Software Engineer (Backend)</h3>
+                  <span class="text-xs font-mono text-accent">Apr 2024 — Sep 2024</span>
+                </div>
+                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Manage Vehicle Pty. Ltd. <span class="text-zinc-400">·</span> Contract (Australia)</p>
+                <ul class="mt-3 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400 list-disc list-outside ml-5">
+                  <li>Integrated DVR systems into the platform.</li>
+                  <li>Migrated legacy PHP services to Node.js.</li>
+                  <li>Implemented AWS S3 file operations.</li>
+                </ul>
+              </article>
+            </li>
+            <li class="ms-6 sm:ms-10 relative">
+              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
+              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Associate Software Engineer (QA)</h3>
+                  <span class="text-xs font-mono text-accent">Jan 2022 — Aug 2022</span>
+                </div>
+                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Rasan Technologies Pvt. Ltd. <span class="text-zinc-400">·</span> Remote (Kathmandu)</p>
+                <ul class="mt-3 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400 list-disc list-outside ml-5">
+                  <li>Worked on a B2B platform built with Python and Django.</li>
+                  <li>Manual testing across endpoints, web, and mobile applications.</li>
+                </ul>
+              </article>
+            </li>
+            <li class="ms-6 sm:ms-10 relative">
+              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
+              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Associate Software Engineer (QA)</h3>
+                  <span class="text-xs font-mono text-accent">Jun 2021 — Dec 2021</span>
+                </div>
+                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Clamphook Pvt. Ltd. <span class="text-zinc-400">·</span> Remote (Kathmandu)</p>
+                <ul class="mt-3 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400 list-disc list-outside ml-5">
+                  <li>Tested an IOE learning platform built in Python.</li>
+                  <li>Bug tracking and reproducible regression reporting.</li>
+                </ul>
+              </article>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Education timeline -->
+        <div id="tab-edu" role="tabpanel" aria-labelledby="tab-btn-edu" class="js-tab-panel hidden">
+          <ol class="relative border-l border-zinc-200 dark:border-white/10 ml-3 sm:ml-6 space-y-8">
+            <li class="ms-6 sm:ms-10 relative">
+              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
+              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">B.E. Computer Engineering</h3>
+                  <span class="text-xs font-mono text-accent">2019 — 2024</span>
+                </div>
+                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Madan Bhandari Memorial Academy Nepal <span class="text-zinc-400">·</span> Pokhara University</p>
+                <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-500">Urlabari-03, Morang</p>
+              </article>
+            </li>
+            <li class="ms-6 sm:ms-10 relative">
+              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
+              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">High School (+2)</h3>
+                  <span class="text-xs font-mono text-accent">2017 — 2019</span>
+                </div>
+                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Siddhartha HSBS</p>
+              </article>
+            </li>
+            <li class="ms-6 sm:ms-10 relative">
+              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
+              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">SEE</h3>
+                  <span class="text-xs font-mono text-accent">2017</span>
+                </div>
+                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Suryodaya English School</p>
+              </article>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== SKILLS ====================-->
+    <section id="skills" class="py-24" aria-labelledby="skills-heading">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sm font-mono text-accent tracking-widest uppercase">03 — Toolkit</p>
+          <h2 id="skills-heading" class="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+            Skills &amp; services
+          </h2>
+          <p class="mt-3 text-zinc-600 dark:text-zinc-400">What I work with day to day.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Languages -->
+          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all">
+            <div class="h-12 w-12 rounded-2xl bg-accent/10 text-accent flex items-center justify-center mb-5 group-hover:bg-accent group-hover:text-white transition-colors">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 17 10 11 4 5" />
+                <line x1="12" y1="19" x2="20" y2="19" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Languages</h3>
+            <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-500">My daily drivers.</p>
+            <ul class="mt-5 flex flex-wrap gap-2">
+              <li class="px-3 py-1 rounded-lg bg-accent/10 text-accent text-xs font-medium">TypeScript</li>
+              <li class="px-3 py-1 rounded-lg bg-accent/10 text-accent text-xs font-medium">JavaScript</li>
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Python</li>
+            </ul>
+          </article>
+
+          <!-- Frameworks -->
+          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all">
+            <div class="h-12 w-12 rounded-2xl bg-accent/10 text-accent flex items-center justify-center mb-5 group-hover:bg-accent group-hover:text-white transition-colors">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Frameworks</h3>
+            <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-500">What I build with.</p>
+            <ul class="mt-5 flex flex-wrap gap-2">
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Express.js</li>
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">NestJS</li>
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">React.js</li>
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Django</li>
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Node.js</li>
+            </ul>
+          </article>
+
+          <!-- Tools & Cloud -->
+          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all">
+            <div class="h-12 w-12 rounded-2xl bg-accent/10 text-accent flex items-center justify-center mb-5 group-hover:bg-accent group-hover:text-white transition-colors">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Tools &amp; Cloud</h3>
+            <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-500">Bread and butter.</p>
+            <ul class="mt-5 flex flex-wrap gap-2">
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">PostgreSQL</li>
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Redis</li>
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">AWS S3</li>
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">WebSockets</li>
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Git</li>
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Linux</li>
+            </ul>
+          </article>
+
+          <!-- QA -->
+          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all">
+            <div class="h-12 w-12 rounded-2xl bg-accent/10 text-accent flex items-center justify-center mb-5 group-hover:bg-accent group-hover:text-white transition-colors">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 2v6L4 21h16L15 8V2" />
+                <path d="M9 2h6" />
+                <path d="M7 16h10" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-zinc-900 dark:text-white">QA</h3>
+            <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-500">Where I started.</p>
+            <ul class="mt-5 flex flex-wrap gap-2">
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Postman</li>
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Selenium</li>
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Manual Testing</li>
+              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Jira</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== PROJECTS ====================-->
+    <section id="projects" class="py-24" aria-labelledby="projects-heading">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sm font-mono text-accent tracking-widest uppercase">04 — Selected work</p>
+          <h2 id="projects-heading" class="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+            Projects
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- PyBlogger -->
+          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all flex flex-col">
+            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold text-zinc-900 dark:text-white">PyBlogger</h3>
+            <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 flex-1">A Django-powered blogging application with clean post management and reader experience.</p>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Python</li>
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Django</li>
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">2022</li>
+            </ul>
+            <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener"
+              class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all">
+              View on GitHub
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
+            </a>
+          </article>
+
+          <!-- CCMS -->
+          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all flex flex-col">
+            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6"/>
+                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+              </svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold text-zinc-900 dark:text-white">Character Certificate Management System</h3>
+            <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 flex-1">A dynamic certificate management system designed for educational institutes — generation, tracking, and verification.</p>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Python</li>
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Django</li>
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">2022</li>
+            </ul>
+            <a href="https://github.com/thenishantsapkota/CCMS" target="_blank" rel="noopener"
+              class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all">
+              View on GitHub
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
+            </a>
+          </article>
+
+          <!-- JobSeeker -->
+          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all flex flex-col">
+            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold text-zinc-900 dark:text-white">JobSeeker</h3>
+            <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 flex-1">A Django-based job portal connecting applicants with opportunities.</p>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Python</li>
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Django</li>
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">2022</li>
+            </ul>
+            <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener"
+              class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all">
+              View on GitHub
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
+            </a>
+          </article>
+
+          <!-- PU Result PDF to JSON -->
+          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all flex flex-col">
+            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <path d="M9 13h6M9 17h4"/>
+              </svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold text-zinc-900 dark:text-white">PU Result PDF to JSON</h3>
+            <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 flex-1">A utility that parses Pokhara University result PDFs into structured JSON for downstream tooling.</p>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Python</li>
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">PDF</li>
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">2022</li>
+            </ul>
+            <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener"
+              class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all">
+              View on GitHub
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
+            </a>
+          </article>
+
+          <!-- SpotBee -->
+          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all flex flex-col">
+            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l12-2v13"/>
+                <circle cx="6" cy="18" r="3"/>
+                <circle cx="18" cy="16" r="3"/>
+              </svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold text-zinc-900 dark:text-white">SpotBee</h3>
+            <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 flex-1">A Python tool that resolves YouTube URLs for every track in a Spotify playlist link.</p>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Python</li>
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">API</li>
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">2021</li>
+            </ul>
+            <a href="https://github.com/thenishantsapkota/spotbee" target="_blank" rel="noopener"
+              class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all">
+              View on GitHub
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
+            </a>
+          </article>
+
+          <!-- DTown -->
+          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all flex flex-col">
+            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 11h18M5 11V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5M5 11v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"/>
+              </svg>
+            </div>
+            <h3 class="mt-5 text-lg font-bold text-zinc-900 dark:text-white">DTown Lounge &amp; Bistro</h3>
+            <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 flex-1">A clean, fast single-page website built for a local lounge &amp; bistro.</p>
+            <ul class="mt-4 flex flex-wrap gap-2">
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">HTML</li>
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">CSS</li>
+              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Live</li>
+            </ul>
+            <a href="https://dtownbistro.com.np" target="_blank" rel="noopener"
+              class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all">
+              Visit website
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== CONTACT ====================-->
+    <section id="contact" class="py-24" aria-labelledby="contact-heading">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <p class="text-sm font-mono text-accent tracking-widest uppercase">05 — Contact</p>
+          <h2 id="contact-heading" class="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+            Let's build something
+          </h2>
+          <p class="mt-3 text-zinc-600 dark:text-zinc-400">Open to new roles, freelance, or a quick chat.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-4 mb-10">
+          <a href="tel:+9779801615642"
+            class="group flex items-center gap-4 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-5 hover:border-accent transition">
+            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs text-zinc-500 dark:text-zinc-500">Phone</p>
+              <p class="text-sm font-semibold text-zinc-900 dark:text-white">+977 980 161 5642</p>
+            </div>
+          </a>
+
+          <a href="mailto:hello@snishant.com.np"
+            class="group flex items-center gap-4 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-5 hover:border-accent transition">
+            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2"/>
+                <path d="m3 7 9 6 9-6"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs text-zinc-500 dark:text-zinc-500">Email</p>
+              <p class="text-sm font-semibold text-zinc-900 dark:text-white">hello@snishant.com.np</p>
+            </div>
+          </a>
+
+          <div class="flex items-center gap-4 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-5">
+            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs text-zinc-500 dark:text-zinc-500">Location</p>
+              <p class="text-sm font-semibold text-zinc-900 dark:text-white">Damak, Jhapa, Nepal</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-8 sm:p-12 text-center relative overflow-hidden">
+          <div class="absolute inset-0 -z-0 bg-accent-radial opacity-10 blur-2xl"></div>
+          <h3 class="relative text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">Have a project in mind?</h3>
+          <p class="relative mt-2 text-zinc-600 dark:text-zinc-400">Drop a line — I'll get back within a day.</p>
+          <a href="mailto:hello@snishant.com.np?subject=Hello%20Nishant"
+            class="relative mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent-gradient text-white font-semibold shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 transition-all">
+            Send a message
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--==================== FOOTER ====================-->
+  <footer class="border-t border-zinc-200 dark:border-white/5 py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-sm text-zinc-500 dark:text-zinc-500 text-center sm:text-left">
+        <p>
+          &copy; <span id="year">2026</span> Nishant Sapkota · Built with Tailwind CSS · Hue rotates daily 🎨
+        </p>
+        <p class="mt-1.5 font-mono text-[10px] tracking-[0.35em] text-zinc-400/50 dark:text-zinc-600/60 hover:text-accent dark:hover:text-accent transition-colors cursor-default select-none"
+           title="A wild cheat code appears…">
+          ↑↑↓↓←→←→ba
+        </p>
+      </div>
+      <ul class="flex items-center gap-3" aria-label="Social links">
+        <li><a href="https://github.com/thenishantsapkota" target="_blank" rel="me noopener" class="text-zinc-500 hover:text-accent transition" aria-label="GitHub"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.26 5.69.41.36.78 1.05.78 2.12v3.14c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg></a></li>
+        <li><a href="https://www.linkedin.com/in/nishant-sapkota-960a3b14b/" target="_blank" rel="me noopener" class="text-zinc-500 hover:text-accent transition" aria-label="LinkedIn"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a></li>
+        <li><a href="https://twitter.com/snishant306" target="_blank" rel="me noopener" class="text-zinc-500 hover:text-accent transition" aria-label="Twitter"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li>
+        <li><a href="https://instagram.com/thenishantsapkota" target="_blank" rel="me noopener" class="text-zinc-500 hover:text-accent transition" aria-label="Instagram"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scroll up -->
+  <a href="#home" id="scroll-up" aria-label="Scroll to top"
+    class="fixed bottom-6 right-6 z-40 h-11 w-11 rounded-full bg-accent-gradient text-white shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 transition-all opacity-0 pointer-events-none flex items-center justify-center">
+    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </a>
+
+  <!--==================== INLINE SCRIPT ====================-->
+  <script>
+    // Theme: default dark; restore stored preference
+    (function () {
+      const stored = localStorage.getItem('theme');
+      if (stored === 'light') document.documentElement.classList.remove('dark');
+      else document.documentElement.classList.add('dark');
+    })();
+
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // Mobile nav
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    navToggle.addEventListener('click', () => {
+      const open = !mobileMenu.hidden;
+      mobileMenu.hidden = open;
+      navToggle.setAttribute('aria-expanded', String(!open));
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.hidden = true;
+      navToggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Tabs
+    const tabs = document.querySelectorAll('.js-tab');
+    const panels = document.querySelectorAll('.js-tab-panel');
+    tabs.forEach(t => t.addEventListener('click', () => {
+      tabs.forEach(x => { x.dataset.active = 'false'; x.setAttribute('aria-selected', 'false'); });
+      panels.forEach(p => p.classList.add('hidden'));
+      t.dataset.active = 'true';
+      t.setAttribute('aria-selected', 'true');
+      document.getElementById(t.dataset.target).classList.remove('hidden');
+    }));
+
+    // Scroll-up + header shadow
+    const scrollUp = document.getElementById('scroll-up');
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollUp.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        scrollUp.classList.add('opacity-0', 'pointer-events-none');
+      }
+      if (window.scrollY > 20) {
+        header.classList.add('shadow-sm');
+      } else {
+        header.classList.remove('shadow-sm');
+      }
+    }, { passive: true });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Hue helper
+    function getHue() {
+      const v = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hue-color'), 10);
+      return Number.isFinite(v) ? v : 330;
+    }
+
+    // Typewriter
+    (function () {
+      const target = document.getElementById('typewriter');
+      if (!target) return;
+      const phrases = [
+        'TypeScript Developer',
+        'Backend Engineer',
+        'Express.js Developer',
+        'NestJS Developer',
+        'React.js Developer',
+      ];
+      const TYPE = 70, DEL = 35, HOLD = 1500, PAUSE = 400;
+      let pi = 0, ci = 0, deleting = false;
+
+      function tick() {
+        const phrase = phrases[pi];
+        if (!deleting) {
+          ci++;
+          target.textContent = phrase.slice(0, ci);
+          if (ci === phrase.length) {
+            deleting = true;
+            return setTimeout(tick, HOLD);
+          }
+          return setTimeout(tick, TYPE);
+        } else {
+          ci--;
+          target.textContent = phrase.slice(0, ci);
+          if (ci === 0) {
+            deleting = false;
+            pi = (pi + 1) % phrases.length;
+            return setTimeout(tick, PAUSE);
+          }
+          return setTimeout(tick, DEL);
+        }
+      }
+      target.textContent = '';
+      tick();
+    })();
+  </script>
+
+  <!--==================== KONAMI GAME OVERLAY ====================-->
+  <div id="game-overlay" role="dialog" aria-modal="true" aria-labelledby="game-title"
+    class="hidden fixed inset-0 z-[200] bg-black/85 backdrop-blur-md items-center justify-center p-4">
+    <div class="w-full max-w-3xl rounded-3xl border border-accent/40 bg-zinc-950 shadow-glow-lg overflow-hidden">
+
+      <!-- Header -->
+      <header class="flex items-center justify-between px-5 py-3 border-b border-white/10">
+        <div class="flex items-center gap-2">
+          <button id="game-back" type="button" aria-label="Back to menu" hidden
+            class="h-8 w-8 inline-flex items-center justify-center rounded-lg text-zinc-400 hover:text-accent hover:bg-white/5 transition">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <h2 id="game-title" class="text-sm font-mono text-accent tracking-widest uppercase">
+            🎮 Cheat code unlocked
+          </h2>
+        </div>
+        <button id="game-close" type="button" aria-label="Close"
+          class="h-8 w-8 inline-flex items-center justify-center rounded-lg text-zinc-400 hover:text-accent hover:bg-white/5 transition">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </header>
+
+      <!-- Chooser -->
+      <section id="view-chooser" class="p-6 sm:p-8">
+        <p class="text-zinc-300 mb-5 text-sm">Pick your poison.</p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <button data-game="dino" type="button"
+            class="group text-left p-6 rounded-2xl border border-white/10 hover:border-accent hover:-translate-y-0.5 transition-all bg-white/[0.02]">
+            <div class="text-3xl mb-3">🦖</div>
+            <h3 class="text-white font-bold text-lg">Dino Run</h3>
+            <p class="text-zinc-400 text-sm mt-1">Jump cacti, duck birds. Don't die.</p>
+            <p class="mt-4 text-xs font-mono text-accent inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+              Play
+              <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </p>
+          </button>
+          <button data-game="reaction" type="button"
+            class="group text-left p-6 rounded-2xl border border-white/10 hover:border-accent hover:-translate-y-0.5 transition-all bg-white/[0.02]">
+            <div class="text-3xl mb-3">⚡</div>
+            <h3 class="text-white font-bold text-lg">Reaction Time</h3>
+            <p class="text-zinc-400 text-sm mt-1">Wait for green. Click as fast as you can.</p>
+            <p class="mt-4 text-xs font-mono text-accent inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+              Play
+              <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </p>
+          </button>
+        </div>
+      </section>
+
+      <!-- Dino Run -->
+      <section id="view-dino" hidden>
+        <div class="relative">
+          <canvas id="dino-canvas" width="800" height="240" class="block w-full bg-zinc-950"></canvas>
+          <div id="dino-hud" class="absolute top-3 right-4 font-mono text-xs text-accent">
+            <span>HI <span id="dino-hi">00000</span></span>
+            <span class="ml-3">SCORE <span id="dino-score">00000</span></span>
+          </div>
+          <div id="dino-msg"
+            class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center pointer-events-none"></div>
+        </div>
+      </section>
+
+      <!-- Reaction Time -->
+      <section id="view-reaction" hidden>
+        <div id="reaction-stage"
+          class="aspect-[16/6] flex flex-col items-center justify-center cursor-pointer select-none transition-colors duration-150 px-6 bg-zinc-900 hover:bg-zinc-800">
+          <p id="reaction-msg" class="text-white text-2xl sm:text-3xl font-extrabold text-center">Click to start</p>
+          <p id="reaction-sub" class="mt-2 text-zinc-400 text-sm text-center">Wait for green, then click as fast as you can.</p>
+        </div>
+        <div class="px-5 py-3 flex items-center justify-between text-xs font-mono text-zinc-500 border-t border-white/10">
+          <span>Best: <span id="reaction-best" class="text-accent">— ms</span></span>
+          <span>Last: <span id="reaction-last" class="text-zinc-300">— ms</span></span>
+        </div>
+      </section>
+
+      <p class="px-5 py-3 text-[11px] font-mono text-zinc-500 border-t border-white/10">
+        Konami: ↑ ↑ ↓ ↓ ← → ← → B A · Esc to go back · close to exit
+      </p>
+    </div>
+  </div>
+
+  <!--==================== THREE.JS BACKGROUND ====================-->
+  <script type="module">
+    import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+
+    const canvas = document.getElementById('three-bg');
+    if (canvas && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const reduceForMobile = window.innerWidth < 768;
+      const PARTICLE_COUNT = reduceForMobile ? 80 : 220;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(70, 1, 0.1, 100);
+      camera.position.z = 5;
+
+      const hueDeg = (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hue-color'), 10) || 330) % 360;
+      const accent = new THREE.Color().setHSL(hueDeg / 360, 0.82, 0.62);
+
+      // Particle cloud
+      const positions = new Float32Array(PARTICLE_COUNT * 3);
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * 14;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 14;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 14;
+      }
+      const pgeo = new THREE.BufferGeometry();
+      pgeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const particles = new THREE.Points(
+        pgeo,
+        new THREE.PointsMaterial({ color: accent, size: 0.04, transparent: true, opacity: 0.7, sizeAttenuation: true })
+      );
+      scene.add(particles);
+
+      // Resize handling
+      function resize() {
+        const w = canvas.clientWidth, h = canvas.clientHeight;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+
+      // Mouse interaction
+      let mouseX = 0, mouseY = 0;
+      window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth) - 0.5;
+        mouseY = (e.clientY / window.innerHeight) - 0.5;
+      }, { passive: true });
+
+      // Pause when tab hidden
+      let running = true;
+      document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) animate(); });
+
+      function animate() {
+        if (!running) return;
+        requestAnimationFrame(animate);
+        particles.rotation.y += (mouseX * 0.3 - particles.rotation.y) * 0.02 + 0.0008;
+        particles.rotation.x += (mouseY * 0.2 - particles.rotation.x) * 0.02 + 0.0004;
+        renderer.render(scene, camera);
+      }
+      animate();
+    }
+  </script>
+
+  <!--
+    psst — there's a classic cheat code hiding on this page.
+    arrows + buttons. you'll know it when you see it. 🦖
+  -->
+  <script src="assets/js/games.js" defer></script>
+
 </body>
 
 </html>

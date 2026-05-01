@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://snishant.com.np/sitemap.xml
