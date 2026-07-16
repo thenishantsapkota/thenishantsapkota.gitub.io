@@ -2,5 +2,5 @@
  * The hue value below is rewritten daily by .github/workflows/update_color.yml (see script.sh).
  * Do not change the format of the next non-comment line. */
 :root {
-    --hue-color: 10;
+    --hue-color: 301;
 }
