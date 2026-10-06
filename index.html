@@ -115,12 +115,17 @@
     ::selection { background: var(--accent); color: rgb(var(--bg)); }
     :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 
-    /* Film grain */
+    /* Film grain (static: no per-frame cost) */
     .grain {
       position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: .05;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
     .dark .grain { opacity: .07; }
+
+    /* Text scrims so copy stays readable over the 3D world */
+    .scrim-l { background: linear-gradient(90deg, rgb(var(--bg) / .82) 0%, rgb(var(--bg) / .55) 38%, transparent 62%); }
+    .scrim-b { background: linear-gradient(0deg, rgb(var(--bg) / .9) 0%, rgb(var(--bg) / .5) 45%, transparent 100%); }
+    .scrim-t { background: linear-gradient(180deg, rgb(var(--bg) / .85) 0%, transparent 100%); }
 
     /* Scroll reveal (only hides when JS is running) */
     .js [data-reveal] { opacity: 0; transform: translateY(18px); filter: blur(6px);
@@ -130,20 +135,29 @@
       transition: opacity .8s var(--ease), filter .8s var(--ease), transform .8s var(--ease); }
     .js [data-words].is-in .w { opacity: 1; filter: none; transform: none; }
 
-    /* Spotlight border + wash that follows the cursor */
-    .spot { position: relative; isolation: isolate; --mx: 50%; --my: 50%; }
-    .spot::before, .spot::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
-      opacity: 0; transition: opacity .4s var(--ease); }
-    .spot::before { padding: 1px; z-index: 1;
-      background: radial-gradient(260px circle at var(--mx) var(--my), var(--accent), transparent 70%);
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor; mask-composite: exclude; }
-    .spot::after { z-index: -1;
-      background: radial-gradient(420px circle at var(--mx) var(--my), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%); }
-    .spot:hover::before, .spot:hover::after { opacity: 1; }
+    /* About: words light up as you scroll */
+    #about-words .aw { opacity: .16; transition: opacity .35s linear; }
+    #about-words .aw.on { opacity: 1; }
+    #about-words .aw.hl.on { color: var(--accent); }
 
-    /* Parallax: uses `translate` so it composes with reveal `transform` */
-    [data-px], [data-px-x] { will-change: translate; }
+    /* Border beam around the primary CTA */
+    @property --beam { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+    .beam { position: relative; isolation: isolate; }
+    .beam::before { content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 2px; z-index: -1;
+      background: conic-gradient(from var(--beam), transparent 0 62%, var(--accent) 80%, rgb(var(--fg)) 86%, transparent 92%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+      animation: beam 3.2s linear infinite; }
+    @keyframes beam { to { --beam: 360deg; } }
+
+    /* Magnetic buttons */
+    [data-magnetic] { transition: translate .35s var(--ease); }
+
+    /* Spotlight rows (fallback lists) */
+    .spot { position: relative; isolation: isolate; --mx: 50%; --my: 50%; }
+    .spot::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1; opacity: 0;
+      background: radial-gradient(420px circle at var(--mx) var(--my), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%);
+      transition: opacity .4s var(--ease); }
+    .spot:hover::after { opacity: 1; }
 
     /* Marquee */
     .marquee { mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
@@ -151,17 +165,40 @@
     .marquee:hover .marquee-track { animation-play-state: paused; }
     @keyframes marquee { to { transform: translateX(-50%); } }
 
-    /* Nav active pill */
+    /* Nav */
     .nav-link[aria-current="true"] { color: rgb(var(--fg)); background: rgb(var(--fg) / .07); }
 
-    /* 3D portrait tilt */
+    /* Work rail */
+    #work-rail button[aria-current="true"] .rail-label { color: rgb(var(--fg)); }
+    #work-rail button[aria-current="true"] .rail-dot { background: var(--accent); transform: scale(1.4); }
+
+    /* Stack legend */
+    [data-cat] { transition: background .25s var(--ease), border-color .25s var(--ease); }
+    [data-cat]:hover, [data-cat]:focus-visible { background: rgb(var(--fg) / .05); border-color: rgb(var(--fg) / .25); }
+    #stack-stage { touch-action: pan-y; cursor: grab; -webkit-user-select: none; user-select: none; }
+    #stack-stage.is-dragging, #globe-drag.is-dragging { cursor: grabbing; }
+    #globe-drag { touch-action: pan-y; cursor: grab; -webkit-user-select: none; user-select: none; }
+
+    /* Brand icons (vendored Simple Icons, tinted with CSS masks) */
+    .ico { display: inline-block; width: 14px; height: 14px; flex: none; background: var(--c, rgb(var(--fg)));
+      -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat; }
+
+    /* Portrait tilt */
     .tilt { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .5s var(--ease); }
 
-    .pulse-dot { box-shadow: 0 0 0 0 var(--accent); animation: ping 2.4s var(--ease) infinite; }
+    .pulse-dot { animation: ping 2.4s var(--ease) infinite; }
     @keyframes ping { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent); } 100% { box-shadow: 0 0 0 10px transparent; } }
 
+    /* Without WebGL: unpin the 3D chapters and show plain lists */
+    .no-webgl [data-pin] { height: auto !important; }
+    .no-webgl .stage { position: relative !important; height: auto !important; padding-top: 7rem; padding-bottom: 4rem; }
+    .no-webgl .only-3d { display: none !important; }
+    .no-webgl .stage > div { height: auto !important; justify-content: flex-start !important; }
+    .no-webgl .fallback { position: static !important; width: auto !important; height: auto !important; margin: 0 !important;
+      overflow: visible !important; clip: auto !important; white-space: normal !important; }
+
     @media (prefers-reduced-motion: reduce) {
-      .marquee-track, .pulse-dot { animation: none; }
+      .marquee-track, .pulse-dot, .beam::before { animation: none; }
       .js [data-reveal], .js [data-words] .w { opacity: 1; transform: none; filter: none; transition: none; }
       html { scroll-behavior: auto; }
     }
@@ -237,8 +274,8 @@
     class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-fg focus:text-bg">Skip
     to content</a>
 
-  <!-- 3D ridgeline (three.js) -->
-  <canvas id="ridge" aria-hidden="true" class="fixed inset-0 -z-10 h-[100lvh] w-full"></canvas>
+  <!-- The 3D world (three.js) — see assets/js/world.js -->
+  <canvas id="world" aria-hidden="true" class="fixed inset-0 -z-10 h-[100lvh] w-full"></canvas>
   <div aria-hidden="true" class="grain"></div>
 
   <!--==================== HEADER ====================-->
@@ -253,11 +290,11 @@
       </a>
       <span class="mx-1 hidden h-5 w-px bg-fg/10 md:block"></span>
       <ul class="hidden md:flex items-center text-sm">
-        <li><a href="#about" class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">About</a></li>
-        <li><a href="#experience" class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">Work</a></li>
-        <li><a href="#skills" class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">Stack</a></li>
-        <li><a href="#projects" class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">Projects</a></li>
-        <li><a href="#contact" class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">Contact</a></li>
+        <li><a href="#about" data-hover-scramble class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">About</a></li>
+        <li><a href="#experience" data-hover-scramble class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">Work</a></li>
+        <li><a href="#skills" data-hover-scramble class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">Stack</a></li>
+        <li><a href="#projects" data-hover-scramble class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">Projects</a></li>
+        <li><a href="#contact" data-hover-scramble class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">Contact</a></li>
       </ul>
       <span class="mx-1 h-5 w-px bg-fg/10"></span>
       <button id="theme-toggle" type="button" aria-label="Toggle colour theme"
@@ -290,9 +327,9 @@
   <main id="main">
 
     <!--==================== HERO ====================-->
-    <section id="home" class="relative flex min-h-[100dvh] flex-col justify-end pt-28 pb-10 sm:pb-14" aria-labelledby="hero-heading">
+    <section id="home" data-chapter="hero" class="relative flex min-h-[100svh] flex-col justify-end pt-28 pb-10 sm:pb-14" aria-labelledby="hero-heading">
       <div class="mx-auto grid w-full max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-12 lg:items-end">
-        <div class="lg:col-span-8" data-px="-0.25" data-px-scroll data-fade>
+        <div class="lg:col-span-8" data-px="-0.25" data-fade>
           <p data-reveal class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-muted">
             <span class="inline-flex items-center gap-2 text-fg"><span class="pulse-dot h-1.5 w-1.5 rounded-full bg-accent"></span>Senior Full Stack Engineer at Codexx</span>
             <span aria-hidden="true">/</span>
@@ -309,8 +346,8 @@
           </p>
 
           <div data-reveal style="--d:.5s" class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
-            <a href="#contact"
-              class="group inline-flex items-center gap-3 rounded-full bg-fg py-2 pl-5 pr-2 text-sm font-medium text-bg transition hover:-translate-y-0.5 active:translate-y-0 active:scale-[.98]">
+            <a href="#contact" data-magnetic
+              class="beam group inline-flex items-center gap-3 rounded-full bg-fg py-2 pl-5 pr-2 text-sm font-medium text-bg active:scale-[.98]">
               Start a conversation
               <span class="grid h-8 w-8 place-items-center rounded-full bg-bg/15 transition-transform group-hover:translate-x-0.5">
                 <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
@@ -326,8 +363,7 @@
           </div>
         </div>
 
-        <!-- Portrait -->
-        <figure data-reveal data-px="0.12" data-px-scroll style="--d:.2s" class="lg:col-span-4 hidden sm:block">
+        <figure data-reveal data-px="0.12" style="--d:.2s" class="lg:col-span-4 hidden sm:block">
           <div class="tilt js-tilt relative ml-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[28px] border border-fg/10 bg-surface">
             <img src="assets/img/perfil.jpg" alt="Nishant Sapkota standing in front of prayer flags and snow-capped Himalayan peaks"
               class="h-full w-full object-cover object-[50%_45%]" loading="eager" decoding="async" />
@@ -338,10 +374,9 @@
         </figure>
       </div>
 
-      <!-- Terrain HUD -->
-      <div class="mx-auto mt-12 flex w-full max-w-7xl items-center justify-between gap-4 px-5 font-mono text-[11px] text-muted sm:px-8" aria-hidden="true">
-        <span class="hidden sm:inline">Move to raise the range · click to send a tremor</span>
-        <span class="sm:hidden">Tap the range</span>
+      <div class="only-3d mx-auto mt-12 flex w-full max-w-7xl items-center justify-between gap-4 px-5 font-mono text-[11px] text-muted sm:px-8" aria-hidden="true">
+        <span class="hidden sm:inline">Move to raise the range · click to send a tremor · scroll to climb</span>
+        <span class="sm:hidden">Tap the range · scroll to climb</span>
         <span class="tnum">elev <span id="hud-elev" class="text-fg">0000</span> m · <span id="hud-coord">27.98°N 86.92°E</span></span>
       </div>
     </section>
@@ -349,346 +384,198 @@
     <!--==================== MARQUEE ====================-->
     <div class="marquee border-y border-fg/10 bg-bg/70 py-5 overflow-hidden" aria-label="Technologies I use">
       <ul class="marquee-track flex w-max items-center gap-10 whitespace-nowrap font-serif text-2xl text-fg/70">
-        <li>TypeScript</li><li class="text-accent" aria-hidden="true">✶</li><li>Node.js</li><li class="text-accent" aria-hidden="true">✶</li>
-        <li>NestJS</li><li class="text-accent" aria-hidden="true">✶</li><li>Express</li><li class="text-accent" aria-hidden="true">✶</li>
-        <li>PostgreSQL</li><li class="text-accent" aria-hidden="true">✶</li><li>Redis</li><li class="text-accent" aria-hidden="true">✶</li>
-        <li>WebSockets</li><li class="text-accent" aria-hidden="true">✶</li><li>AWS S3</li><li class="text-accent" aria-hidden="true">✶</li>
-        <li>Django</li><li class="text-accent" aria-hidden="true">✶</li><li>React</li><li class="text-accent" aria-hidden="true">✶</li>
-        <!-- duplicate for seamless loop -->
-        <li aria-hidden="true">TypeScript</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">Node.js</li><li class="text-accent" aria-hidden="true">✶</li>
-        <li aria-hidden="true">NestJS</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">Express</li><li class="text-accent" aria-hidden="true">✶</li>
-        <li aria-hidden="true">PostgreSQL</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">Redis</li><li class="text-accent" aria-hidden="true">✶</li>
-        <li aria-hidden="true">WebSockets</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">AWS S3</li><li class="text-accent" aria-hidden="true">✶</li>
-        <li aria-hidden="true">Django</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">React</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li>TypeScript</li><li class="text-accent" aria-hidden="true">✶</li><li>React</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li>Next.js</li><li class="text-accent" aria-hidden="true">✶</li><li>NestJS</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li>Express</li><li class="text-accent" aria-hidden="true">✶</li><li>PostgreSQL</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li>Redis</li><li class="text-accent" aria-hidden="true">✶</li><li>WebSockets</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li>AWS S3</li><li class="text-accent" aria-hidden="true">✶</li><li>Django</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li aria-hidden="true">TypeScript</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">React</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li aria-hidden="true">Next.js</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">NestJS</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li aria-hidden="true">Express</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">PostgreSQL</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li aria-hidden="true">Redis</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">WebSockets</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li aria-hidden="true">AWS S3</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">Django</li><li class="text-accent" aria-hidden="true">✶</li>
       </ul>
     </div>
 
-    <!-- Content sits on a solid sheet so the 3D range stays atmospheric -->
-    <div id="sheet" class="relative bg-bg">
-
-    <!--==================== ABOUT ====================-->
-    <section id="about" class="relative overflow-hidden pt-28 pb-32 sm:pt-36 sm:pb-40" aria-labelledby="about-heading">
-      <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-12">
-        <div class="lg:col-span-4 lg:self-start" data-reveal data-px="0.1">
-          <p class="font-mono text-xs text-muted">(01) about</p>
-          <h2 id="about-heading" class="mt-3 text-4xl font-semibold tracking-[-0.035em] text-fg sm:text-5xl">
-            Started in QA. <span class="font-serif font-normal italic text-muted">Stayed for the full stack.</span>
+    <!--==================== ABOUT (pinned statement) ====================-->
+    <section id="about" data-chapter="about" class="relative h-[220svh]" aria-labelledby="about-heading">
+      <div class="sticky top-0 flex h-[100svh] items-center overflow-hidden">
+        <div aria-hidden="true" class="scrim-l absolute inset-0"></div>
+        <div class="relative mx-auto w-full max-w-7xl px-5 sm:px-8">
+          <p class="font-mono text-xs text-muted" data-scramble>(01) about</p>
+          <h2 id="about-heading" class="mt-4 text-[clamp(2.5rem,6vw,5.25rem)] font-semibold leading-[.95] tracking-[-0.045em] text-fg">
+            Started in QA.<br /><span class="font-serif font-normal italic text-accent">Stayed for the full stack.</span>
           </h2>
-        </div>
+          <p id="about-words" class="mt-10 max-w-[42ch] text-[clamp(1.25rem,2.3vw,1.9rem)] font-medium leading-[1.3] tracking-[-0.01em] text-fg">
+            I'm a <em class="not-italic">Senior Full Stack Engineer</em> from Damak, Nepal, working mostly in TypeScript. QA taught me how systems fall over — so I build React interfaces that handle the unhappy paths, and NestJS, Express and Django services that are <em class="not-italic">boring to operate.</em>
+          </p>
 
-        <div class="lg:col-span-7 lg:col-start-6">
-          <div class="space-y-6 text-lg leading-relaxed text-fg/75 max-w-[62ch]" data-reveal style="--d:.1s">
-            <p>
-              I'm a full stack engineer, mostly in TypeScript, from <span class="text-fg">Damak, Nepal</span>. I studied Computer Engineering
-              (2019–2024) at <a href="https://mbman.org.np" target="_blank" rel="noopener" class="text-fg underline decoration-fg/30 underline-offset-4 hover:decoration-accent">Madan Bhandari Memorial Academy Nepal</a>
-              under Pokhara University.
-            </p>
-            <p>
-              My first jobs were in QA, which taught me how systems fall over. That shapes how I build across the stack: React
-              interfaces that handle the unhappy paths, and NestJS, Express and Django services that are boring to operate and easy to reason about.
-            </p>
-            <p class="text-muted">
-              Away from the keyboard: algorithms puzzles, the global economy, anime, films, music and the occasional carrom match.
-            </p>
-          </div>
-
-          <dl class="mt-14 grid grid-cols-3 border-t border-fg/10" data-reveal style="--d:.2s">
-            <div class="pt-6 pr-4">
-              <dd class="tnum text-5xl font-semibold tracking-[-0.04em] text-fg sm:text-6xl">4<span class="text-accent">+</span></dd>
+          <dl class="mt-12 grid max-w-2xl grid-cols-3 border-t border-fg/10">
+            <div class="pt-5 pr-4">
+              <dd class="tnum text-4xl font-semibold tracking-[-0.04em] text-fg sm:text-6xl"><span data-count="4">0</span><span class="text-accent">+</span></dd>
               <dt class="mt-2 text-sm text-muted">years shipping</dt>
             </div>
-            <div class="border-l border-fg/10 pt-6 px-4">
-              <dd class="tnum text-5xl font-semibold tracking-[-0.04em] text-fg sm:text-6xl">10<span class="text-accent">+</span></dd>
+            <div class="border-l border-fg/10 px-4 pt-5">
+              <dd class="tnum text-4xl font-semibold tracking-[-0.04em] text-fg sm:text-6xl"><span data-count="10">0</span><span class="text-accent">+</span></dd>
               <dt class="mt-2 text-sm text-muted">projects</dt>
             </div>
-            <div class="border-l border-fg/10 pt-6 pl-4">
-              <dd class="tnum text-5xl font-semibold tracking-[-0.04em] text-fg sm:text-6xl">5</dd>
+            <div class="border-l border-fg/10 pl-4 pt-5">
+              <dd class="tnum text-4xl font-semibold tracking-[-0.04em] text-fg sm:text-6xl"><span data-count="5">0</span></dd>
               <dt class="mt-2 text-sm text-muted">teams, 3 countries</dt>
             </div>
           </dl>
+          <p class="mt-8 font-mono text-xs text-muted">off the keyboard: algorithm puzzles · the global economy · anime · films · music · carrom</p>
         </div>
       </div>
     </section>
 
-    <!--==================== EXPERIENCE ====================-->
-    <section id="experience" class="relative overflow-hidden pb-32 sm:pb-40" aria-labelledby="experience-heading">
-      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
-        <div class="flex flex-wrap items-end justify-between gap-4" data-reveal>
-          <div>
-            <p class="font-mono text-xs text-muted">(02) work</p>
-            <h2 id="experience-heading" class="mt-3 text-4xl font-semibold tracking-[-0.035em] text-fg sm:text-5xl">Where I've worked</h2>
+    <!--==================== WORK (3D path) ====================-->
+    <section id="experience" data-chapter="work" data-pin class="relative h-[620svh]" aria-labelledby="experience-heading">
+      <div class="stage sticky top-0 h-[100svh] overflow-hidden">
+        <div aria-hidden="true" class="only-3d scrim-t absolute inset-x-0 top-0 h-48"></div>
+        <div aria-hidden="true" class="only-3d scrim-b absolute inset-x-0 bottom-0 h-56"></div>
+        <div class="relative mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-5 pt-24 pb-8 sm:px-8 sm:pb-10">
+          <div class="flex items-end justify-between gap-6">
+            <div>
+              <p class="font-mono text-xs text-muted" data-scramble>(02) work</p>
+              <h2 id="experience-heading" class="mt-3 text-4xl font-semibold tracking-[-0.035em] text-fg sm:text-6xl">Where I've worked</h2>
+            </div>
+            <p id="work-count" class="only-3d font-mono text-sm text-fg tnum" aria-hidden="true">01 / 06</p>
           </div>
-          <p class="font-mono text-xs text-muted">2021 → now</p>
+
+          <div class="only-3d">
+            <div class="relative h-px w-full bg-fg/15">
+              <div id="work-bar" class="absolute inset-0 origin-left bg-accent" style="transform: scaleX(0)"></div>
+            </div>
+            <ol id="work-rail" class="mt-4 grid grid-cols-6 gap-2" aria-label="Jump to a role">
+              <li><button type="button" data-i="0" class="group flex w-full flex-col items-start gap-2 text-left"><span class="rail-dot h-1.5 w-1.5 rounded-full bg-fg/30 transition"></span><span class="rail-label hidden font-mono text-[11px] text-muted transition sm:block">Codexx · 2025</span></button></li>
+              <li><button type="button" data-i="1" class="group flex w-full flex-col items-start gap-2 text-left"><span class="rail-dot h-1.5 w-1.5 rounded-full bg-fg/30 transition"></span><span class="rail-label hidden font-mono text-[11px] text-muted transition sm:block">Acid · 2023</span></button></li>
+              <li><button type="button" data-i="2" class="group flex w-full flex-col items-start gap-2 text-left"><span class="rail-dot h-1.5 w-1.5 rounded-full bg-fg/30 transition"></span><span class="rail-label hidden font-mono text-[11px] text-muted transition sm:block">Manage Vehicle · 2024</span></button></li>
+              <li><button type="button" data-i="3" class="group flex w-full flex-col items-start gap-2 text-left"><span class="rail-dot h-1.5 w-1.5 rounded-full bg-fg/30 transition"></span><span class="rail-label hidden font-mono text-[11px] text-muted transition sm:block">Rasan · 2022</span></button></li>
+              <li><button type="button" data-i="4" class="group flex w-full flex-col items-start gap-2 text-left"><span class="rail-dot h-1.5 w-1.5 rounded-full bg-fg/30 transition"></span><span class="rail-label hidden font-mono text-[11px] text-muted transition sm:block">Clamphook · 2021</span></button></li>
+              <li><button type="button" data-i="5" class="group flex w-full flex-col items-start gap-2 text-left"><span class="rail-dot h-1.5 w-1.5 rounded-full bg-fg/30 transition"></span><span class="rail-label hidden font-mono text-[11px] text-muted transition sm:block">Education · 2019</span></button></li>
+            </ol>
+          </div>
+
+          <!-- Plain list: read by screen readers, shown when WebGL is unavailable -->
+          <ol class="fallback sr-only mt-10 border-t border-fg/10">
+            <li class="grid gap-2 border-b border-fg/10 py-6 md:grid-cols-12"><p class="font-mono text-xs text-accent md:col-span-3">Jan 2025 — Present · Remote, Kathmandu</p><div class="md:col-span-9"><h3 class="text-xl font-semibold text-fg">Senior Full Stack Engineer at Codexx</h3><p class="mt-2 text-fg/70">Node.js and Express services, payment gateway integrations and query tuning, real-time analytics over WebSockets, monorepo ownership and mentoring juniors.</p></div></li>
+            <li class="grid gap-2 border-b border-fg/10 py-6 md:grid-cols-12"><p class="font-mono text-xs text-accent md:col-span-3">Jun 2023 — Apr 2025 · Remote, Ontario, Canada</p><div class="md:col-span-9"><h3 class="text-xl font-semibold text-fg">Software Engineer at Acid Integrations</h3><p class="mt-2 text-fg/70">Redis-backed queues and batch processing, 11Hype scouting tool with LLMs and computer vision, motion-tracking pipelines for physiotherapy, Job Manager for activity tracking.</p></div></li>
+            <li class="grid gap-2 border-b border-fg/10 py-6 md:grid-cols-12"><p class="font-mono text-xs text-accent md:col-span-3">Apr 2024 — Sep 2024 · Contract, Australia</p><div class="md:col-span-9"><h3 class="text-xl font-semibold text-fg">Consultant Backend Engineer at Manage Vehicle</h3><p class="mt-2 text-fg/70">DVR system integration, legacy PHP services migrated to Node.js, AWS S3 file operations.</p></div></li>
+            <li class="grid gap-2 border-b border-fg/10 py-6 md:grid-cols-12"><p class="font-mono text-xs text-accent md:col-span-3">Jan 2022 — Aug 2022 · Remote, Kathmandu</p><div class="md:col-span-9"><h3 class="text-xl font-semibold text-fg">Associate Engineer, QA at Rasan Technologies</h3><p class="mt-2 text-fg/70">B2B platform on Python and Django; manual testing across API, web and mobile.</p></div></li>
+            <li class="grid gap-2 border-b border-fg/10 py-6 md:grid-cols-12"><p class="font-mono text-xs text-accent md:col-span-3">Jun 2021 — Dec 2021 · Remote, Kathmandu</p><div class="md:col-span-9"><h3 class="text-xl font-semibold text-fg">Associate Engineer, QA at Clamphook</h3><p class="mt-2 text-fg/70">Tested an IOE learning platform in Python; bug tracking and reproducible regression reports.</p></div></li>
+            <li class="grid gap-2 border-b border-fg/10 py-6 md:grid-cols-12"><p class="font-mono text-xs text-accent md:col-span-3">Education</p><div class="md:col-span-9"><h3 class="text-xl font-semibold text-fg">B.E. Computer Engineering, Pokhara University (2019 — 2024)</h3><p class="mt-2 text-fg/70">Madan Bhandari Memorial Academy Nepal, Urlabari-03, Morang. +2 at Siddhartha HSBS (2017 — 2019). SEE at Suryodaya English School (2017).</p></div></li>
+          </ol>
         </div>
+      </div>
+    </section>
 
-        <ol class="mt-14 border-t border-fg/10">
-          <li data-reveal class="spot group grid gap-4 rounded-2xl border-b border-fg/10 px-4 py-8 sm:px-6 md:grid-cols-12 md:gap-8">
-            <div class="md:col-span-3">
-              <p class="font-mono text-xs text-accent tnum">Jan 2025 — Present</p>
-              <p class="mt-2 text-sm text-muted">Remote · Kathmandu</p>
-            </div>
-            <div class="md:col-span-9">
-              <h3 class="text-2xl font-semibold tracking-tight text-fg">Senior Full Stack Engineer <span class="font-serif font-normal italic text-muted">at</span> Codexx</h3>
-              <ul class="mt-4 grid gap-x-8 gap-y-2 text-[15px] text-fg/70 sm:grid-cols-2">
-                <li>— Backend services in Node.js and Express</li>
-                <li>— Payment gateway integrations, query tuning</li>
-                <li>— Real-time analytics over WebSockets</li>
-                <li>— Monorepo ownership, mentoring juniors</li>
-              </ul>
-            </div>
-          </li>
-          <li data-reveal class="spot group grid gap-4 rounded-2xl border-b border-fg/10 px-4 py-8 sm:px-6 md:grid-cols-12 md:gap-8">
-            <div class="md:col-span-3">
-              <p class="font-mono text-xs text-accent tnum">Jun 2023 — Apr 2025</p>
-              <p class="mt-2 text-sm text-muted">Remote · Ontario, Canada</p>
-            </div>
-            <div class="md:col-span-9">
-              <h3 class="text-2xl font-semibold tracking-tight text-fg">Software Engineer <span class="font-serif font-normal italic text-muted">at</span> Acid Integrations</h3>
-              <ul class="mt-4 grid gap-x-8 gap-y-2 text-[15px] text-fg/70 sm:grid-cols-2">
-                <li>— Redis-backed queues and batch processing</li>
-                <li>— 11Hype: scouting tool with LLMs + computer vision</li>
-                <li>— Motion-tracking pipelines for physiotherapy</li>
-                <li>— Job Manager for activity tracking and evaluations</li>
-              </ul>
-            </div>
-          </li>
-          <li data-reveal class="spot group grid gap-4 rounded-2xl border-b border-fg/10 px-4 py-8 sm:px-6 md:grid-cols-12 md:gap-8">
-            <div class="md:col-span-3">
-              <p class="font-mono text-xs text-accent tnum">Apr 2024 — Sep 2024</p>
-              <p class="mt-2 text-sm text-muted">Contract · Australia</p>
-            </div>
-            <div class="md:col-span-9">
-              <h3 class="text-2xl font-semibold tracking-tight text-fg">Consultant Backend Engineer <span class="font-serif font-normal italic text-muted">at</span> Manage Vehicle</h3>
-              <ul class="mt-4 grid gap-x-8 gap-y-2 text-[15px] text-fg/70 sm:grid-cols-2">
-                <li>— DVR system integration</li>
-                <li>— Legacy PHP services migrated to Node.js</li>
-                <li>— AWS S3 file operations</li>
-              </ul>
-            </div>
-          </li>
-          <li data-reveal class="spot group grid gap-4 rounded-2xl border-b border-fg/10 px-4 py-8 sm:px-6 md:grid-cols-12 md:gap-8">
-            <div class="md:col-span-3">
-              <p class="font-mono text-xs text-accent tnum">Jan 2022 — Aug 2022</p>
-              <p class="mt-2 text-sm text-muted">Remote · Kathmandu</p>
-            </div>
-            <div class="md:col-span-9">
-              <h3 class="text-2xl font-semibold tracking-tight text-fg">Associate Engineer, QA <span class="font-serif font-normal italic text-muted">at</span> Rasan Technologies</h3>
-              <ul class="mt-4 grid gap-x-8 gap-y-2 text-[15px] text-fg/70 sm:grid-cols-2">
-                <li>— B2B platform on Python and Django</li>
-                <li>— Manual testing across API, web and mobile</li>
-              </ul>
-            </div>
-          </li>
-          <li data-reveal class="spot group grid gap-4 rounded-2xl border-b border-fg/10 px-4 py-8 sm:px-6 md:grid-cols-12 md:gap-8">
-            <div class="md:col-span-3">
-              <p class="font-mono text-xs text-accent tnum">Jun 2021 — Dec 2021</p>
-              <p class="mt-2 text-sm text-muted">Remote · Kathmandu</p>
-            </div>
-            <div class="md:col-span-9">
-              <h3 class="text-2xl font-semibold tracking-tight text-fg">Associate Engineer, QA <span class="font-serif font-normal italic text-muted">at</span> Clamphook</h3>
-              <ul class="mt-4 grid gap-x-8 gap-y-2 text-[15px] text-fg/70 sm:grid-cols-2">
-                <li>— Tested an IOE learning platform in Python</li>
-                <li>— Bug tracking, reproducible regression reports</li>
-              </ul>
-            </div>
-          </li>
-        </ol>
-
-        <!-- Education -->
-        <div class="mt-20 grid gap-8 lg:grid-cols-12" data-reveal>
-          <h3 class="font-mono text-xs text-muted lg:col-span-3">education</h3>
-          <ul class="grid gap-px overflow-hidden rounded-2xl border border-fg/10 bg-fg/10 sm:grid-cols-3 lg:col-span-9">
-            <li class="bg-bg p-6">
-              <p class="font-mono text-xs text-muted tnum">2019 — 2024</p>
-              <p class="mt-3 font-medium text-fg">B.E. Computer Engineering</p>
-              <p class="mt-1 text-sm text-muted">Madan Bhandari Memorial Academy Nepal, Pokhara University · Urlabari-03, Morang</p>
-            </li>
-            <li class="bg-bg p-6">
-              <p class="font-mono text-xs text-muted tnum">2017 — 2019</p>
-              <p class="mt-3 font-medium text-fg">High School (+2)</p>
-              <p class="mt-1 text-sm text-muted">Siddhartha HSBS</p>
-            </li>
-            <li class="bg-bg p-6">
-              <p class="font-mono text-xs text-muted tnum">2017</p>
-              <p class="mt-3 font-medium text-fg">SEE</p>
-              <p class="mt-1 text-sm text-muted">Suryodaya English School</p>
-            </li>
+    <!--==================== STACK (3D sphere) ====================-->
+    <section id="skills" data-chapter="stack" data-pin class="relative h-[240svh]" aria-labelledby="skills-heading">
+      <div id="stack-stage" class="stage sticky top-0 h-[100svh] overflow-hidden">
+        <div aria-hidden="true" class="only-3d scrim-l absolute inset-0 hidden md:block"></div>
+        <div aria-hidden="true" class="only-3d scrim-t absolute inset-x-0 top-0 h-48 md:hidden"></div>
+        <div aria-hidden="true" class="only-3d scrim-b absolute inset-x-0 bottom-0 h-72 md:hidden"></div>
+        <div class="relative mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-5 pt-24 pb-8 sm:px-8 md:justify-center md:pb-10">
+          <div class="md:max-w-sm">
+            <p class="font-mono text-xs text-muted" data-scramble>(03) stack</p>
+            <h2 id="skills-heading" class="mt-3 text-4xl font-semibold tracking-[-0.035em] text-fg sm:text-6xl">What I reach for</h2>
+            <p class="only-3d mt-4 text-fg/65">Drag the sphere to spin it. Hover a group to light it up.</p>
+          </div>
+          <ul class="mt-8 grid grid-cols-2 gap-2 md:max-w-sm md:grid-cols-1">
+            <li><button type="button" data-cat="lang" class="w-full rounded-xl border border-fg/10 bg-bg/40 px-4 py-3 text-left">
+              <span class="flex items-center gap-2 text-sm font-medium text-fg"><span class="h-2 w-2 rounded-full bg-accent"></span>Languages</span>
+              <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-muted"><span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/typescript.svg);--c:#3178C6"></i>TypeScript</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/javascript.svg);--c:#F7DF1E"></i>JavaScript</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/python.svg);--c:#3776AB"></i>Python</span></span></button></li>
+            <li><button type="button" data-cat="fw" class="w-full rounded-xl border border-fg/10 bg-bg/40 px-4 py-3 text-left">
+              <span class="flex items-center gap-2 text-sm font-medium text-fg"><span class="h-2 w-2 rounded-full bg-fg"></span>Frameworks</span>
+              <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-muted"><span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/react.svg);--c:#61DAFB"></i>React</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/nextdotjs.svg)"></i>Next.js</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/nestjs.svg);--c:#E0234E"></i>NestJS</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/express.svg)"></i>Express</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/nodedotjs.svg);--c:#5FA04E"></i>Node.js</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/django.svg);--c:#44B78B"></i>Django</span></span></button></li>
+            <li><button type="button" data-cat="data" class="w-full rounded-xl border border-fg/10 bg-bg/40 px-4 py-3 text-left">
+              <span class="flex items-center gap-2 text-sm font-medium text-fg"><span class="h-2 w-2 rounded-full bg-muted"></span>Data &amp; infra</span>
+              <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-muted"><span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/postgresql.svg);--c:#4169E1"></i>PostgreSQL</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/redis.svg);--c:#FF4438"></i>Redis</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/amazons3.svg);--c:#569A31"></i>AWS S3</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/socketdotio.svg)"></i>WebSockets</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/git.svg);--c:#F05032"></i>Git</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/linux.svg);--c:#FCC624"></i>Linux</span></span></button></li>
+            <li><button type="button" data-cat="qa" class="w-full rounded-xl border border-fg/10 bg-bg/40 px-4 py-3 text-left">
+              <span class="flex items-center gap-2 text-sm font-medium text-fg"><span class="h-2 w-2 rounded-full bg-fg/35"></span>QA roots</span>
+              <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-muted"><span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/postman.svg);--c:#FF6C37"></i>Postman</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/selenium.svg);--c:#43B02A"></i>Selenium</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/jira.svg);--c:#2684FF"></i>Jira</span> <span class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>manual testing</span></span></button></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!--==================== SKILLS (bento) ====================-->
-    <section id="skills" class="relative overflow-hidden pb-32 sm:pb-40" aria-labelledby="skills-heading">
-      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
-        <div data-reveal>
-          <p class="font-mono text-xs text-muted">(03) stack</p>
-          <h2 id="skills-heading" class="mt-3 text-4xl font-semibold tracking-[-0.035em] text-fg sm:text-5xl">What I reach for</h2>
-        </div>
-
-        <div class="mt-14 grid gap-3 md:grid-cols-6">
-          <article data-reveal data-px="0.04" class="spot rounded-3xl border border-fg/10 bg-surface/70 p-7 md:col-span-4 md:row-span-2 flex flex-col justify-between min-h-[18rem]">
-            <p class="font-mono text-xs text-muted">languages / daily</p>
-            <ul class="mt-8 space-y-1 text-[clamp(2.5rem,6vw,4.75rem)] font-semibold leading-[1] tracking-[-0.05em] text-fg">
-              <li>TypeScript</li>
-              <li class="text-fg/60">JavaScript</li>
-              <li class="font-serif font-normal italic text-fg/40">Python</li>
-            </ul>
-          </article>
-
-          <article data-reveal data-px="-0.06" style="--d:.08s" class="spot rounded-3xl border border-fg/10 bg-surface/70 p-7 md:col-span-2">
-            <p class="font-mono text-xs text-muted">right now</p>
-            <p class="mt-6 text-lg leading-snug text-fg">Payments, WebSockets and a monorepo at <span class="text-accent">Codexx</span>.</p>
-          </article>
-
-          <article data-reveal data-px="-0.1" style="--d:.12s" class="spot rounded-3xl border border-fg/10 bg-surface/70 p-7 md:col-span-2">
-            <p class="font-mono text-xs text-muted">frameworks</p>
-            <p class="mt-6 text-lg leading-snug text-fg">NestJS, Express, Node.js, Django, React</p>
-          </article>
-
-          <article data-reveal class="spot rounded-3xl border border-fg/10 bg-surface/70 p-7 md:col-span-3">
-            <p class="font-mono text-xs text-muted">data &amp; infra</p>
-            <ul class="mt-6 flex flex-wrap gap-2 text-sm">
-              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">PostgreSQL</li>
-              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">Redis</li>
-              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">AWS S3</li>
-              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">WebSockets</li>
-              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">Git</li>
-              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">Linux</li>
-            </ul>
-          </article>
-
-          <article data-reveal style="--d:.08s" class="spot rounded-3xl border border-fg/10 bg-surface/70 p-7 md:col-span-3">
-            <p class="font-mono text-xs text-muted">qa roots</p>
-            <ul class="mt-6 flex flex-wrap gap-2 text-sm">
-              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">Postman</li>
-              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">Selenium</li>
-              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">Manual testing</li>
-              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">Jira</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!--==================== PROJECTS ====================-->
-    <section id="projects" class="relative overflow-hidden pb-32 sm:pb-40" aria-labelledby="projects-heading">
-      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
-        <div class="flex flex-wrap items-end justify-between gap-4" data-reveal>
-          <div>
-            <p class="font-mono text-xs text-muted">(04) projects</p>
-            <h2 id="projects-heading" class="mt-3 text-4xl font-semibold tracking-[-0.035em] text-fg sm:text-5xl">Things I've built</h2>
+    <!--==================== PROJECTS (3D ring) ====================-->
+    <section id="projects" data-chapter="projects" data-pin class="relative h-[720svh]" aria-labelledby="projects-heading">
+      <div id="projects-stage" class="stage sticky top-0 h-[100svh] overflow-hidden">
+        <div aria-hidden="true" class="only-3d scrim-t absolute inset-x-0 top-0 h-48"></div>
+        <div aria-hidden="true" class="only-3d scrim-b absolute inset-x-0 bottom-0 h-80"></div>
+        <div aria-hidden="true" class="only-3d scrim-l absolute inset-0 hidden md:block"></div>
+        <div class="relative mx-auto flex h-full w-full max-w-7xl flex-col justify-between px-5 pt-24 pb-8 sm:px-8 sm:pb-10">
+          <div class="flex items-end justify-between gap-6">
+            <div>
+              <p class="font-mono text-xs text-muted" data-scramble>(04) projects</p>
+              <h2 id="projects-heading" class="mt-3 text-4xl font-semibold tracking-[-0.035em] text-fg sm:text-6xl">Things I've built</h2>
+            </div>
+            <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener" class="hidden font-mono text-xs text-muted transition hover:text-fg sm:block">all repos on GitHub ↗</a>
           </div>
-          <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener" class="font-mono text-xs text-muted hover:text-fg transition">all repos on GitHub ↗</a>
-        </div>
 
-        <ul class="mt-14 border-t border-fg/10">
-          <li data-reveal>
-            <a href="https://www.deluxehakka.com/" target="_blank" rel="noopener"
-              class="spot group grid items-baseline gap-2 rounded-2xl border-b border-fg/10 px-4 py-7 sm:px-6 md:grid-cols-12 md:gap-6">
-              <span class="font-mono text-xs text-muted tnum md:col-span-1">01</span>
-              <h3 class="text-2xl font-semibold tracking-tight text-fg transition-transform duration-500 group-hover:translate-x-1 md:col-span-4">Deluxe Hakka &amp; Momo</h3>
-              <p class="text-[15px] text-fg/65 md:col-span-5">Online ordering, order tracking and catering requests for a halal Indo-Chinese restaurant in Mississauga.</p>
-              <span class="flex items-center justify-between gap-3 font-mono text-xs text-muted md:col-span-2 md:justify-end">Next.js · 2026
-                <span class="text-fg transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">↗</span></span>
-            </a>
-          </li>
-          <li data-reveal>
-            <a href="https://github.com/thenishantsapkota/spotbee" target="_blank" rel="noopener"
-              class="spot group grid items-baseline gap-2 rounded-2xl border-b border-fg/10 px-4 py-7 sm:px-6 md:grid-cols-12 md:gap-6">
-              <span class="font-mono text-xs text-muted tnum md:col-span-1">02</span>
-              <h3 class="text-2xl font-semibold tracking-tight text-fg transition-transform duration-500 group-hover:translate-x-1 md:col-span-4">SpotBee</h3>
-              <p class="text-[15px] text-fg/65 md:col-span-5">Paste a Spotify playlist, get a YouTube link for every track.</p>
-              <span class="flex items-center justify-between gap-3 font-mono text-xs text-muted md:col-span-2 md:justify-end">Python · 2021
-                <span class="text-fg transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">↗</span></span>
-            </a>
-          </li>
-          <li data-reveal>
-            <a href="https://github.com/thenishantsapkota/CCMS" target="_blank" rel="noopener"
-              class="spot group grid items-baseline gap-2 rounded-2xl border-b border-fg/10 px-4 py-7 sm:px-6 md:grid-cols-12 md:gap-6">
-              <span class="font-mono text-xs text-muted tnum md:col-span-1">03</span>
-              <h3 class="text-2xl font-semibold tracking-tight text-fg transition-transform duration-500 group-hover:translate-x-1 md:col-span-4">Character Certificate Manager</h3>
-              <p class="text-[15px] text-fg/65 md:col-span-5">Issue, track and verify character certificates for schools and colleges.</p>
-              <span class="flex items-center justify-between gap-3 font-mono text-xs text-muted md:col-span-2 md:justify-end">Django · 2022
-                <span class="text-fg transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">↗</span></span>
-            </a>
-          </li>
-          <li data-reveal>
-            <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener"
-              class="spot group grid items-baseline gap-2 rounded-2xl border-b border-fg/10 px-4 py-7 sm:px-6 md:grid-cols-12 md:gap-6">
-              <span class="font-mono text-xs text-muted tnum md:col-span-1">04</span>
-              <h3 class="text-2xl font-semibold tracking-tight text-fg transition-transform duration-500 group-hover:translate-x-1 md:col-span-4">PU Result → JSON</h3>
-              <p class="text-[15px] text-fg/65 md:col-span-5">Parses Pokhara University result PDFs into structured JSON.</p>
-              <span class="flex items-center justify-between gap-3 font-mono text-xs text-muted md:col-span-2 md:justify-end">Python · 2022
-                <span class="text-fg transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">↗</span></span>
-            </a>
-          </li>
-          <li data-reveal>
-            <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener"
-              class="spot group grid items-baseline gap-2 rounded-2xl border-b border-fg/10 px-4 py-7 sm:px-6 md:grid-cols-12 md:gap-6">
-              <span class="font-mono text-xs text-muted tnum md:col-span-1">05</span>
-              <h3 class="text-2xl font-semibold tracking-tight text-fg transition-transform duration-500 group-hover:translate-x-1 md:col-span-4">PyBlogger</h3>
-              <p class="text-[15px] text-fg/65 md:col-span-5">A small Django blog with post management and a clean reading view.</p>
-              <span class="flex items-center justify-between gap-3 font-mono text-xs text-muted md:col-span-2 md:justify-end">Django · 2022
-                <span class="text-fg transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">↗</span></span>
-            </a>
-          </li>
-          <li data-reveal>
-            <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener"
-              class="spot group grid items-baseline gap-2 rounded-2xl border-b border-fg/10 px-4 py-7 sm:px-6 md:grid-cols-12 md:gap-6">
-              <span class="font-mono text-xs text-muted tnum md:col-span-1">06</span>
-              <h3 class="text-2xl font-semibold tracking-tight text-fg transition-transform duration-500 group-hover:translate-x-1 md:col-span-4">JobSeeker</h3>
-              <p class="text-[15px] text-fg/65 md:col-span-5">Job portal matching applicants with openings.</p>
-              <span class="flex items-center justify-between gap-3 font-mono text-xs text-muted md:col-span-2 md:justify-end">Django · 2022
-                <span class="text-fg transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">↗</span></span>
-            </a>
-          </li>
-          <li data-reveal>
-            <a href="https://dtownbistro.com.np" target="_blank" rel="noopener"
-              class="spot group grid items-baseline gap-2 rounded-2xl border-b border-fg/10 px-4 py-7 sm:px-6 md:grid-cols-12 md:gap-6">
-              <span class="font-mono text-xs text-muted tnum md:col-span-1">07</span>
-              <h3 class="text-2xl font-semibold tracking-tight text-fg transition-transform duration-500 group-hover:translate-x-1 md:col-span-4">DTown Lounge &amp; Bistro</h3>
-              <p class="text-[15px] text-fg/65 md:col-span-5">Single-page site for a local lounge. Live.</p>
-              <span class="flex items-center justify-between gap-3 font-mono text-xs text-muted md:col-span-2 md:justify-end">HTML/CSS · live
-                <span class="text-fg transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">↗</span></span>
-            </a>
-          </li>
-        </ul>
+          <div class="only-3d md:max-w-md" aria-live="polite">
+            <p id="proj-index" class="font-mono text-xs text-muted tnum">01 / 07</p>
+            <h3 id="proj-title" class="mt-3 text-3xl font-semibold tracking-[-0.03em] text-fg sm:text-5xl">Deluxe Hakka &amp; Momo</h3>
+            <p id="proj-desc" class="mt-3 max-w-[44ch] text-fg/70">Online ordering, order tracking and catering requests for a halal Indo-Chinese restaurant in Mississauga.</p>
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <a id="proj-link" href="https://www.deluxehakka.com/" target="_blank" rel="noopener" data-magnetic
+                class="inline-flex items-center gap-2 rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg active:scale-[.98]"><span>Visit site</span> ↗</a>
+              <button id="proj-prev" type="button" aria-label="Previous project" class="grid h-10 w-10 place-items-center rounded-full border border-fg/15 text-fg transition hover:border-fg/40 active:scale-95">←</button>
+              <button id="proj-next" type="button" aria-label="Next project" class="grid h-10 w-10 place-items-center rounded-full border border-fg/15 text-fg transition hover:border-fg/40 active:scale-95">→</button>
+              <span id="proj-meta" class="font-mono text-xs text-muted">Next.js · 2026</span>
+            </div>
+          </div>
+
+          <ul class="fallback sr-only mt-10 border-t border-fg/10">
+            <li><a href="https://www.deluxehakka.com/" target="_blank" rel="noopener" class="spot grid gap-2 rounded-xl border-b border-fg/10 px-3 py-5 md:grid-cols-12"><h3 class="text-xl font-semibold text-fg md:col-span-4">Deluxe Hakka &amp; Momo</h3><p class="text-fg/70 md:col-span-6">Online ordering, order tracking and catering requests for a halal Indo-Chinese restaurant in Mississauga.</p><span class="font-mono text-xs text-muted md:col-span-2">Next.js · 2026 ↗</span></a></li>
+            <li><a href="https://dtownbistro.com.np" target="_blank" rel="noopener" class="spot grid gap-2 rounded-xl border-b border-fg/10 px-3 py-5 md:grid-cols-12"><h3 class="text-xl font-semibold text-fg md:col-span-4">D-Town, Damak</h3><p class="text-fg/70 md:col-span-6">Food, a pool, DJ nights and rooms at Himabi Chowk — one fast page that sells all of it.</p><span class="font-mono text-xs text-muted md:col-span-2">HTML/CSS · live ↗</span></a></li>
+            <li><a href="https://github.com/thenishantsapkota/spotbee" target="_blank" rel="noopener" class="spot grid gap-2 rounded-xl border-b border-fg/10 px-3 py-5 md:grid-cols-12"><h3 class="text-xl font-semibold text-fg md:col-span-4">SpotBee</h3><p class="text-fg/70 md:col-span-6">Paste a Spotify playlist, get a YouTube link for every track.</p><span class="font-mono text-xs text-muted md:col-span-2">Python · 2021 ↗</span></a></li>
+            <li><a href="https://github.com/thenishantsapkota/CCMS" target="_blank" rel="noopener" class="spot grid gap-2 rounded-xl border-b border-fg/10 px-3 py-5 md:grid-cols-12"><h3 class="text-xl font-semibold text-fg md:col-span-4">Character Certificate Manager</h3><p class="text-fg/70 md:col-span-6">Issue, track and verify character certificates for schools and colleges.</p><span class="font-mono text-xs text-muted md:col-span-2">Django · 2022 ↗</span></a></li>
+            <li><a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener" class="spot grid gap-2 rounded-xl border-b border-fg/10 px-3 py-5 md:grid-cols-12"><h3 class="text-xl font-semibold text-fg md:col-span-4">PU Result → JSON</h3><p class="text-fg/70 md:col-span-6">Parses Pokhara University result PDFs into structured JSON.</p><span class="font-mono text-xs text-muted md:col-span-2">Python · 2022 ↗</span></a></li>
+            <li><a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener" class="spot grid gap-2 rounded-xl border-b border-fg/10 px-3 py-5 md:grid-cols-12"><h3 class="text-xl font-semibold text-fg md:col-span-4">PyBlogger</h3><p class="text-fg/70 md:col-span-6">A small Django blog with post management and a clean reading view.</p><span class="font-mono text-xs text-muted md:col-span-2">Django · 2022 ↗</span></a></li>
+            <li><a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener" class="spot grid gap-2 rounded-xl border-b border-fg/10 px-3 py-5 md:grid-cols-12"><h3 class="text-xl font-semibold text-fg md:col-span-4">JobSeeker</h3><p class="text-fg/70 md:col-span-6">Job portal matching applicants with openings.</p><span class="font-mono text-xs text-muted md:col-span-2">Django · 2022 ↗</span></a></li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    </div>
-
-    <!--==================== CONTACT ====================-->
-    <section id="contact" class="relative flex min-h-[90dvh] flex-col justify-center py-32" aria-labelledby="contact-heading">
-      <div class="mx-auto w-full max-w-7xl px-5 sm:px-8">
-        <p class="font-mono text-xs text-muted" data-reveal>(05) contact</p>
-        <h2 id="contact-heading" data-reveal data-px="-0.08" style="--d:.05s"
-          class="mt-4 max-w-[16ch] text-[clamp(2.75rem,8vw,7rem)] font-semibold leading-[.92] tracking-[-0.05em] text-fg">
+    <!--==================== CONTACT (globe) ====================-->
+    <section id="contact" data-chapter="contact" class="relative flex min-h-[100svh] flex-col justify-center py-32" aria-labelledby="contact-heading">
+      <div aria-hidden="true" class="only-3d scrim-l absolute inset-0 hidden md:block"></div>
+      <div aria-hidden="true" class="only-3d absolute inset-x-0 top-0 h-[80%] md:hidden" style="background: linear-gradient(180deg, rgb(var(--bg) / .9) 55%, transparent)"></div>
+      <div id="globe-drag" aria-hidden="true" class="only-3d absolute bottom-0 right-0 left-0 top-[58%] md:left-1/2 md:top-0">
+        <span class="pointer-events-none absolute bottom-6 right-5 font-mono text-[11px] text-muted sm:right-8">drag the globe ↻</span>
+      </div>
+      <div class="pointer-events-none relative mx-auto w-full max-w-7xl px-5 sm:px-8 [&>*]:pointer-events-auto">
+        <p class="font-mono text-xs text-muted" data-scramble>(05) contact</p>
+        <h2 id="contact-heading" data-reveal style="--d:.05s"
+          class="mt-4 max-w-[13ch] text-[clamp(2.75rem,7.5vw,6.5rem)] font-semibold leading-[.92] tracking-[-0.05em] text-fg">
           Got a product that needs <span class="font-serif font-normal italic text-accent">care?</span>
         </h2>
-        <p class="mt-12 max-w-[48ch] text-lg text-fg/70" data-reveal style="--d:.1s">Open to full-time roles, contract work and the odd interesting side project. I usually reply within a day.</p>
+        <p class="mt-10 max-w-[44ch] text-lg text-fg/70" data-reveal style="--d:.1s">Open to full-time roles, contract work and the odd interesting side project. I've shipped for teams in Nepal, Canada and Australia, and I usually reply within a day.</p>
 
-        <div class="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center" data-reveal style="--d:.15s">
+        <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center" data-reveal style="--d:.15s">
           <a href="mailto:hello@snishant.com.np?subject=Hello%20Nishant"
-            class="group inline-flex items-center gap-3 text-[clamp(1.4rem,3.4vw,2.5rem)] font-medium tracking-tight text-fg underline decoration-fg/20 underline-offset-8 transition hover:decoration-accent">
+            class="text-[clamp(1.4rem,3.2vw,2.4rem)] font-medium tracking-tight text-fg underline decoration-fg/20 underline-offset-8 transition hover:decoration-accent">
             hello@snishant.com.np
           </a>
-          <button id="copy-email" type="button" data-email="hello@snishant.com.np"
-            class="w-fit rounded-full border border-fg/15 px-4 py-2 font-mono text-xs text-muted transition hover:border-fg/40 hover:text-fg active:scale-95">
+          <button id="copy-email" type="button" data-email="hello@snishant.com.np" data-magnetic
+            class="w-fit rounded-full border border-fg/15 bg-bg/40 px-4 py-2 font-mono text-xs text-muted transition hover:border-fg/40 hover:text-fg active:scale-95">
             <span>copy</span>
           </button>
         </div>
 
-        <dl class="mt-16 grid gap-6 border-t border-fg/10 pt-8 font-mono text-xs sm:grid-cols-3" data-reveal style="--d:.2s">
-          <div><dt class="text-muted">phone</dt><dd class="mt-2 text-sm text-fg"><a href="tel:+9779801615642" class="hover:text-accent transition tnum">+977 980 161 5642</a></dd></div>
+        <dl class="mt-14 grid max-w-2xl gap-6 border-t border-fg/10 pt-8 font-mono text-xs sm:grid-cols-3" data-reveal style="--d:.2s">
+          <div><dt class="text-muted">phone</dt><dd class="mt-2 text-sm text-fg"><a href="tel:+9779801615642" class="tnum transition hover:text-accent">+977 980 161 5642</a></dd></div>
           <div><dt class="text-muted">based in</dt><dd class="mt-2 text-sm text-fg">Damak, Jhapa · <span class="js-clock tnum">--:--</span></dd></div>
           <div><dt class="text-muted">elsewhere</dt>
             <dd class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-fg">
-              <a href="https://github.com/thenishantsapkota" target="_blank" rel="me noopener" class="hover:text-accent transition">GitHub</a>
-              <a href="https://www.linkedin.com/in/nishant-sapkota-960a3b14b/" target="_blank" rel="me noopener" class="hover:text-accent transition">LinkedIn</a>
-              <a href="https://twitter.com/snishant306" target="_blank" rel="me noopener" class="hover:text-accent transition">X</a>
-              <a href="https://instagram.com/thenishantsapkota" target="_blank" rel="me noopener" class="hover:text-accent transition">Instagram</a>
+              <a href="https://github.com/thenishantsapkota" target="_blank" rel="me noopener" class="transition hover:text-accent">GitHub</a>
+              <a href="https://www.linkedin.com/in/nishant-sapkota-960a3b14b/" target="_blank" rel="me noopener" class="transition hover:text-accent">LinkedIn</a>
+              <a href="https://twitter.com/snishant306" target="_blank" rel="me noopener" class="transition hover:text-accent">X</a>
+              <a href="https://instagram.com/thenishantsapkota" target="_blank" rel="me noopener" class="transition hover:text-accent">Instagram</a>
             </dd>
           </div>
         </dl>
@@ -697,18 +584,19 @@
   </main>
 
   <!--==================== FOOTER ====================-->
-  <footer class="border-t border-fg/10 bg-bg">
+  <footer class="relative border-t border-fg/10 bg-bg/70">
     <div class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-8 font-mono text-[11px] text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8">
       <p>© <span id="year">2026</span> Nishant Sapkota · accent hue changes every day (today: <span id="hue-val" class="text-accent tnum">—</span>°)</p>
-      <p class="tracking-[0.35em] text-muted/50 transition-colors hover:text-accent cursor-default select-none" title="A wild cheat code appears…">↑↑↓↓←→←→ba</p>
+      <p class="cursor-default select-none tracking-[0.35em] text-muted/50 transition-colors hover:text-accent" title="A wild cheat code appears…">↑↑↓↓←→←→ba</p>
     </div>
   </footer>
 
-  <!--==================== INLINE SCRIPT ====================-->
+  <!--==================== PAGE SCRIPT ====================-->
   <script>
     (function () {
       const root = document.documentElement;
       const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const clamp = (v, a, b) => Math.min(Math.max(v, a), b);
 
       // Theme
       document.getElementById('theme-toggle').addEventListener('click', () => {
@@ -720,22 +608,17 @@
       // Mobile nav
       const navToggle = document.getElementById('nav-toggle');
       const mobileMenu = document.getElementById('mobile-menu');
-      navToggle.addEventListener('click', () => {
-        const open = !mobileMenu.hidden;
-        mobileMenu.hidden = open;
-        navToggle.setAttribute('aria-expanded', String(!open));
-        navToggle.textContent = open ? 'Menu' : 'Close';
-      });
-      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-        mobileMenu.hidden = true;
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.textContent = 'Menu';
-      }));
+      const setMenu = (open) => {
+        mobileMenu.hidden = !open;
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.textContent = open ? 'Close' : 'Menu';
+      };
+      navToggle.addEventListener('click', () => setMenu(mobileMenu.hidden));
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
 
       // Year + hue label
       document.getElementById('year').textContent = new Date().getFullYear();
-      const hue = (parseInt(getComputedStyle(root).getPropertyValue('--hue-color'), 10) || 330) % 360;
-      document.getElementById('hue-val').textContent = hue;
+      document.getElementById('hue-val').textContent = (parseInt(getComputedStyle(root).getPropertyValue('--hue-color'), 10) || 330) % 360;
 
       // Local time in Nepal
       const fmt = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Kathmandu' });
@@ -743,10 +626,9 @@
       const tickClock = () => { const t = fmt.format(new Date()); clocks.forEach(c => c.textContent = t); };
       tickClock(); setInterval(tickClock, 15000);
 
-      // Split hero tagline into words for a staggered blur-in
-      document.querySelectorAll('[data-words]').forEach(el => {
-        let i = 0;
-        const wrap = (node) => {
+      // Split text into word spans
+      function splitWords(el, cls, onWord) {
+        const walk = (node, inEm) => {
           [...node.childNodes].forEach(child => {
             if (child.nodeType === 3) {
               const frag = document.createDocumentFragment();
@@ -754,27 +636,72 @@
                 if (!part) return;
                 if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
                 const s = document.createElement('span');
-                s.className = 'w'; s.textContent = part;
-                s.style.transitionDelay = (0.25 + i++ * 0.045) + 's';
+                s.className = cls + (inEm ? ' hl' : '');
+                s.textContent = part;
+                onWord && onWord(s);
                 frag.appendChild(s);
               });
               child.replaceWith(frag);
-            } else if (child.nodeType === 1) wrap(child);
+            } else if (child.nodeType === 1) walk(child, inEm || child.tagName === 'EM');
           });
         };
-        wrap(el);
-      });
-
-      // Reveal on scroll
-      const revealables = document.querySelectorAll('[data-reveal], [data-words]');
-      if ('IntersectionObserver' in window && !reduce) {
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
-        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-        revealables.forEach(el => io.observe(el));
-      } else {
-        revealables.forEach(el => el.classList.add('is-in'));
+        walk(el, false);
       }
+      document.querySelectorAll('[data-words]').forEach(el => {
+        let i = 0;
+        splitWords(el, 'w', s => { s.style.transitionDelay = (0.25 + i++ * 0.045) + 's'; });
+      });
+      const aboutWords = document.getElementById('about-words');
+      splitWords(aboutWords, 'aw');
+      const aws = [...aboutWords.querySelectorAll('.aw')];
+
+      // Text scramble (hyper-text)
+      const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      function scramble(el) {
+        const text = el.dataset.text || (el.dataset.text = el.textContent);
+        if (reduce) return;
+        cancelAnimationFrame(el._raf);
+        let frame = 0;
+        const total = 14;
+        const run = () => {
+          frame++;
+          const p = frame / total;
+          el.textContent = [...text].map((ch, k) => (ch === ' ' || k / text.length < p) ? ch : GLYPHS[(Math.random() * GLYPHS.length) | 0]).join('');
+          if (frame < total) el._raf = requestAnimationFrame(run); else el.textContent = text;
+        };
+        run();
+      }
+      document.querySelectorAll('[data-hover-scramble]').forEach(el => el.addEventListener('pointerenter', () => scramble(el)));
+
+      // Counters
+      function countUp(el) {
+        const to = +el.dataset.count;
+        if (reduce) { el.textContent = to; return; }
+        const t0 = performance.now(), dur = 1400;
+        const step = (now) => {
+          const p = clamp((now - t0) / dur, 0, 1);
+          el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+
+      // Reveal on scroll (+ scramble labels, start counters)
+      const io = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          if (el.hasAttribute('data-scramble')) scramble(el);
+          else if (el.hasAttribute('data-count')) countUp(el);
+          else el.classList.add('is-in');
+          io.unobserve(el);
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }) : null;
+      document.querySelectorAll('[data-reveal], [data-words], [data-scramble], [data-count]').forEach(el => {
+        if (io && !reduce) io.observe(el);
+        else if (el.hasAttribute('data-count')) el.textContent = el.dataset.count;
+        else el.classList.add('is-in');
+      });
 
       // Active section in nav
       const links = [...document.querySelectorAll('.nav-link')];
@@ -788,7 +715,37 @@
         document.querySelectorAll('main section[id]').forEach(s => so.observe(s));
       }
 
-      // Spotlight follow
+      // Scroll-driven bits: hero parallax + about word reveal (one rAF per scroll)
+      const hero = document.querySelector('[data-fade]');
+      const heroFig = document.querySelector('figure[data-px]');
+      const aboutSec = document.getElementById('about');
+      let ticking = false;
+      function onScrollFrame() {
+        ticking = false;
+        const y = window.scrollY, vh = window.innerHeight;
+        if (!reduce && y < vh * 1.2) {
+          hero.style.translate = '0 ' + (y * 0.25).toFixed(1) + 'px';
+          hero.style.opacity = Math.max(0, 1 - y / (vh * 0.8)).toFixed(3);
+          if (heroFig) heroFig.style.translate = '0 ' + (-y * 0.12).toFixed(1) + 'px';
+        }
+        const r = aboutSec.getBoundingClientRect();
+        const p = clamp((-r.top + vh * 0.35) / Math.max(r.height - vh, 1), 0, 1);
+        const lit = p * aws.length * 1.1;
+        for (let i = 0; i < aws.length; i++) aws[i].classList.toggle('on', i < lit);
+      }
+      window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScrollFrame); } }, { passive: true });
+      onScrollFrame();
+
+      // Magnetic buttons
+      if (!reduce && matchMedia('(hover: hover)').matches) document.querySelectorAll('[data-magnetic]').forEach(el => {
+        el.addEventListener('pointermove', (e) => {
+          const r = el.getBoundingClientRect();
+          el.style.translate = ((e.clientX - r.left - r.width / 2) * 0.25).toFixed(1) + 'px ' + ((e.clientY - r.top - r.height / 2) * 0.35).toFixed(1) + 'px';
+        });
+        el.addEventListener('pointerleave', () => { el.style.translate = '0 0'; });
+      });
+
+      // Spotlight follow (fallback rows)
       document.querySelectorAll('.spot').forEach(el => {
         el.addEventListener('pointermove', (e) => {
           const r = el.getBoundingClientRect();
@@ -801,370 +758,25 @@
       if (!reduce) document.querySelectorAll('.js-tilt').forEach(el => {
         el.addEventListener('pointermove', (e) => {
           const r = el.getBoundingClientRect();
-          const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
-          el.style.setProperty('--ry', (x * 10) + 'deg');
-          el.style.setProperty('--rx', (-y * 10) + 'deg');
+          el.style.setProperty('--ry', (((e.clientX - r.left) / r.width - 0.5) * 10) + 'deg');
+          el.style.setProperty('--rx', (-((e.clientY - r.top) / r.height - 0.5) * 10) + 'deg');
         });
         el.addEventListener('pointerleave', () => { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); });
       });
-
-      // Parallax: one rAF-coalesced scroll pass, transform-only, skipped off-screen
-      const pxEls = [...document.querySelectorAll('[data-px], [data-px-x]')];
-      if (!reduce && pxEls.length) {
-        const desktop = matchMedia('(min-width: 768px)');
-        let ticking = false;
-        const update = () => {
-          ticking = false;
-          const vh = window.innerHeight, mid = vh / 2, strength = desktop.matches ? 1 : 0.5;
-          for (const el of pxEls) {
-            const r = el.getBoundingClientRect();
-            const ty = parseFloat(el.style.translate ? el.style.translate.split(' ')[1] || 0 : 0) || 0;
-            const top = r.top - ty;
-            if (top > vh * 1.5 || top + r.height < -vh * 0.5) continue;
-            const delta = el.hasAttribute('data-px-scroll') ? -window.scrollY : (top + r.height / 2 - mid) * strength;
-            if (el.dataset.pxX) {
-              el.style.translate = (delta * parseFloat(el.dataset.pxX)).toFixed(1) + 'px 0';
-            } else {
-              el.style.translate = '0 ' + (delta * parseFloat(el.dataset.px)).toFixed(1) + 'px';
-            }
-            if (el.hasAttribute('data-fade')) el.style.opacity = Math.max(0, 1 - window.scrollY / (vh * 0.8)).toFixed(3);
-          }
-        };
-        const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', onScroll, { passive: true });
-        update();
-      }
 
       // Copy email
       const copyBtn = document.getElementById('copy-email');
       copyBtn.addEventListener('click', async () => {
         const label = copyBtn.querySelector('span');
-        try {
-          await navigator.clipboard.writeText(copyBtn.dataset.email);
-          label.textContent = 'copied';
-        } catch (e) {
-          label.textContent = 'press ⌘C';
-        }
+        try { await navigator.clipboard.writeText(copyBtn.dataset.email); label.textContent = 'copied'; }
+        catch (e) { label.textContent = 'press ⌘C'; }
         setTimeout(() => { label.textContent = 'copy'; }, 1800);
       });
     })();
   </script>
 
-  <!--==================== THREE.JS RIDGELINE ====================-->
-  <script type="module">
-    import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+  <script type="module" src="assets/js/world.js" onerror="document.documentElement.classList.add('no-webgl')"></script>
 
-    const canvas = document.getElementById('ridge');
-    const root = document.documentElement;
-    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const small = window.innerWidth < 768;
-
-    let renderer;
-    try {
-      renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
-    } catch (e) { canvas.remove(); }
-
-    if (renderer) {
-      let dpr = Math.min(window.devicePixelRatio, small ? 1.5 : 1.75);
-      renderer.setPixelRatio(dpr);
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 120);
-
-      // ---- Heightfield (CPU, so the HUD can read exact elevations) ----
-      const W = 40, D = 30, ZF = 7; // width, depth, front edge z
-      const NX = small ? 120 : 220, NZ = small ? 80 : 140;
-
-      function hash(x, y) {
-        const s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453;
-        return s - Math.floor(s);
-      }
-      function vnoise(x, y) {
-        const ix = Math.floor(x), iy = Math.floor(y), fx = x - ix, fy = y - iy;
-        const ux = fx * fx * (3 - 2 * fx), uy = fy * fy * (3 - 2 * fy);
-        const a = hash(ix, iy), b = hash(ix + 1, iy), c = hash(ix, iy + 1), d = hash(ix + 1, iy + 1);
-        return a + (b - a) * ux + (c - a) * uy + (a - b - c + d) * ux * uy;
-      }
-      // Ridged fbm: sharp crests like the Himalaya
-      function ridged(x, y) {
-        let sum = 0, amp = 0.55, freq = 1, prev = 1;
-        for (let o = 0; o < 5; o++) {
-          let n = 1 - Math.abs(vnoise(x * freq, y * freq) * 2 - 1);
-          n = n * n;
-          sum += n * amp * prev;
-          prev = n;
-          freq *= 2.05; amp *= 0.5;
-        }
-        return sum;
-      }
-      function heightAt(x, z) {
-        // range rises toward the back (negative z) and leaves a valley up front
-        const zn = (ZF - z) / D; // 0 = front edge, 1 = far edge
-        const back = THREE.MathUtils.smoothstep(zn, 0.3, 0.8);
-        const h = ridged(x * 0.15 + 3.1, z * 0.15 + 7.7);
-        return Math.pow(h, 2.1) * (0.25 + back * 13.0);
-      }
-
-      const count = NX * NZ;
-      const pos = new Float32Array(count * 3);
-      const hts = new Float32Array(count);
-      const seeds = new Float32Array(count);
-      let maxH = 0, k = 0;
-      for (let j = 0; j < NZ; j++) {
-        for (let i = 0; i < NX; i++) {
-          const x = (i / (NX - 1) - 0.5) * W;
-          const z = ZF - (j / (NZ - 1)) * D;
-          const h = heightAt(x, z);
-          pos[k * 3] = x; pos[k * 3 + 1] = 0; pos[k * 3 + 2] = z;
-          hts[k] = h; seeds[k] = Math.random();
-          if (h > maxH) maxH = h;
-          k++;
-        }
-      }
-      const geo = new THREE.BufferGeometry();
-      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-      geo.setAttribute('aH', new THREE.BufferAttribute(hts, 1));
-      geo.setAttribute('aSeed', new THREE.BufferAttribute(seeds, 1));
-
-      const MAX_RIPPLES = 6;
-      const uniforms = {
-        uTime: { value: 0 },
-        uPR: { value: renderer.getPixelRatio() },
-        uSize: { value: small ? 30 : 36 },
-        uMaxH: { value: maxH },
-        uMouse: { value: new THREE.Vector3(999, 0, 999) },
-        uMouseAmt: { value: 0 },
-        uRipples: { value: Array.from({ length: MAX_RIPPLES }, () => new THREE.Vector4(0, 0, -100, 0)) },
-        uBase: { value: new THREE.Color() },
-        uAccent: { value: new THREE.Color() },
-        uSnow: { value: new THREE.Color() },
-        uOpacity: { value: 1 },
-      };
-
-      const mat = new THREE.ShaderMaterial({
-        uniforms,
-        transparent: true,
-        depthWrite: false,
-        vertexShader: /* glsl */`
-          attribute float aH;
-          attribute float aSeed;
-          uniform float uTime, uPR, uSize, uMaxH, uMouseAmt;
-          uniform vec3 uMouse;
-          uniform vec4 uRipples[${MAX_RIPPLES}];
-          varying float vGlow, vSnow, vFade;
-
-          void main() {
-            vec3 p = position;
-            p.y = aH;
-
-            // cursor: a soft swell that pushes the range upward
-            float dm = distance(p.xz, uMouse.xz);
-            float swell = exp(-dm * dm * 0.45) * uMouseAmt;
-            p.y += swell * 1.1;
-
-            // click tremors: expanding rings
-            float ring = 0.0;
-            for (int i = 0; i < ${MAX_RIPPLES}; i++) {
-              vec4 r = uRipples[i];
-              float t = uTime - r.z;
-              if (t < 0.0 || t > 4.0) continue;
-              float d = distance(p.xz, r.xy);
-              float front = t * 5.5;
-              float w = exp(-pow((d - front) * 1.6, 2.0)) * exp(-t * 0.9) * r.w;
-              ring += w;
-            }
-            p.y += ring * 0.75;
-
-            // the air moves a little
-            p.y += sin(p.x * 0.7 + uTime * 0.5 + aSeed * 6.2831) * 0.025;
-
-            vec4 mv = modelViewMatrix * vec4(p, 1.0);
-            gl_Position = projectionMatrix * mv;
-
-            float hn = aH / uMaxH;
-            vGlow = clamp(swell * 1.2 + ring * 1.4, 0.0, 1.0);
-            vSnow = smoothstep(0.25, 0.75, hn);
-            vFade = smoothstep(60.0, 22.0, -mv.z) * smoothstep(1.0, 4.5, -mv.z);
-            gl_PointSize = max(uSize * uPR * (0.35 + hn * 1.4 + vGlow * 1.6) / -mv.z, (1.4 + hn * 1.6) * uPR);
-          }
-        `,
-        fragmentShader: /* glsl */`
-          uniform vec3 uBase, uAccent, uSnow;
-          uniform float uOpacity;
-          varying float vGlow, vSnow, vFade;
-
-          void main() {
-            vec2 c = gl_PointCoord - 0.5;
-            float r = length(c);
-            if (r > 0.5) discard;
-            float soft = smoothstep(0.5, 0.1, r);
-            vec3 col = mix(uBase, uSnow, vSnow);
-            col = mix(col, uAccent, vGlow);
-            float a = soft * vFade * uOpacity * (0.32 + vSnow * 0.68 + vGlow * 0.6);
-            gl_FragColor = vec4(col, a);
-          }
-        `,
-      });
-
-      const points = new THREE.Points(geo, mat);
-      scene.add(points);
-
-      // ---- Theme-aware colours from CSS tokens ----
-      function readRGB(name) {
-        const v = getComputedStyle(root).getPropertyValue(name).trim().split(/\s+/).map(Number);
-        return new THREE.Color(v[0] / 255, v[1] / 255, v[2] / 255);
-      }
-      function applyTheme() {
-        const dark = root.classList.contains('dark');
-        const hue = ((parseInt(getComputedStyle(root).getPropertyValue('--hue-color'), 10) || 330) % 360) / 360;
-        const fg = readRGB('--fg'), muted = readRGB('--muted');
-        uniforms.uBase.value.copy(muted);
-        uniforms.uSnow.value.copy(fg);
-        uniforms.uAccent.value.setHSL(hue, dark ? 0.7 : 0.6, dark ? 0.66 : 0.42);
-        mat.blending = dark ? THREE.AdditiveBlending : THREE.NormalBlending;
-        mat.needsUpdate = true;
-      }
-      applyTheme();
-      window.addEventListener('themechange', applyTheme);
-
-      // ---- Sizing ----
-      function resize() {
-        const w = canvas.clientWidth, h = canvas.clientHeight;
-        renderer.setSize(w, h, false);
-        camera.aspect = w / h;
-        camera.fov = w < 768 ? 62 : 50;
-        camera.updateProjectionMatrix();
-      }
-      resize();
-      window.addEventListener('resize', resize, { passive: true });
-
-      // ---- Pointer → terrain ----
-      const ndc = new THREE.Vector2();
-      const ray = new THREE.Raycaster();
-      const ground = new THREE.Plane(new THREE.Vector3(0, 1, 0), -0.6);
-      const hit = new THREE.Vector3();
-      const mouseTarget = new THREE.Vector3(999, 0, 999);
-      let mouseActive = 0, parX = 0, parY = 0;
-
-      const elevEl = document.getElementById('hud-elev');
-      const coordEl = document.getElementById('hud-coord');
-
-      function project(clientX, clientY) {
-        const r = canvas.getBoundingClientRect();
-        ndc.set(((clientX - r.left) / r.width) * 2 - 1, -((clientY - r.top) / r.height) * 2 + 1);
-        ray.setFromCamera(ndc, camera);
-        return ray.ray.intersectPlane(ground, hit);
-      }
-
-      window.addEventListener('pointermove', (e) => {
-        parX = e.clientX / window.innerWidth - 0.5;
-        parY = e.clientY / window.innerHeight - 0.5;
-        if (project(e.clientX, e.clientY) && Math.abs(hit.x) < W / 2 && hit.z < ZF && hit.z > ZF - D) {
-          mouseTarget.copy(hit);
-          mouseActive = 1;
-          // fake-but-consistent survey readout: map terrain onto the Khumbu region
-          const h = heightAt(hit.x, hit.z);
-          if (elevEl) elevEl.textContent = String(Math.round(1200 + (h / maxH) * 7600)).padStart(4, '0');
-          if (coordEl) {
-            const lat = 27.98 - (hit.z + 8) * 0.03, lon = 86.92 + hit.x * 0.03;
-            coordEl.textContent = lat.toFixed(2) + '°N ' + lon.toFixed(2) + '°E';
-          }
-        } else {
-          mouseActive = 0;
-        }
-      }, { passive: true });
-      window.addEventListener('pointerleave', () => { mouseActive = 0; });
-      document.addEventListener('mouseleave', () => { mouseActive = 0; });
-
-      let rippleIdx = 0;
-      const clock = new THREE.Clock();
-      window.addEventListener('pointerdown', (e) => {
-        if (e.target.closest('a, button, input, textarea, [role="dialog"], .spot, figure')) return;
-        if (!project(e.clientX, e.clientY)) return;
-        uniforms.uRipples.value[rippleIdx].set(hit.x, hit.z, clock.getElapsedTime(), 1);
-        rippleIdx = (rippleIdx + 1) % MAX_RIPPLES;
-        if (reduce) renderOnce();
-      }, { passive: true });
-
-      // ---- Scroll-driven flight ----
-      let scrollP = 0;
-      function readScroll() {
-        const vh = window.innerHeight;
-        scrollP = Math.min(window.scrollY / Math.max(document.body.scrollHeight - vh, 1), 1);
-        const end = THREE.MathUtils.smoothstep(scrollP, 0.82, 1.0);
-        uniforms.uOpacity.value = THREE.MathUtils.lerp(1, 0.6, Math.min(window.scrollY / vh, 1)) + end * 0.4;
-      }
-      readScroll();
-      window.addEventListener('scroll', readScroll, { passive: true });
-
-      const camPos = new THREE.Vector3(), look = new THREE.Vector3();
-      let smoothP = scrollP;
-
-      function frame() {
-        const t = clock.getElapsedTime();
-        uniforms.uTime.value = t;
-
-        // ease the swell in/out and chase the cursor
-        uniforms.uMouseAmt.value += (mouseActive - uniforms.uMouseAmt.value) * 0.06;
-        uniforms.uMouse.value.lerp(mouseTarget, 0.12);
-
-        smoothP += (scrollP - smoothP) * 0.06;
-        // start low in the valley, climb over the ridge, end looking down the range
-        const p = smoothP;
-        camPos.set(
-          Math.sin(p * Math.PI * 1.2) * 3.2 + parX * 0.8,
-          1.6 + p * 5.5 - parY * 0.4,
-          8.5 - p * 9.0
-        );
-        look.set(Math.sin(p * Math.PI) * 1.5, 2.2 - p * 2.0, -8 - p * 4);
-        camera.position.lerp(camPos, 0.08);
-        camera.lookAt(look);
-
-        renderer.render(scene, camera);
-      }
-
-      function renderOnce() {
-        camera.position.set(0, 1.6, 8.5);
-        camera.lookAt(0, 2.2, -8);
-        uniforms.uTime.value = clock.getElapsedTime();
-        renderer.render(scene, camera);
-      }
-
-      if (reduce) {
-        renderOnce();
-        window.addEventListener('themechange', renderOnce);
-        window.addEventListener('resize', renderOnce, { passive: true });
-      } else {
-        camera.position.set(0, 1.6, 8.5);
-        let raf = 0, running = false, visible = true;
-        let slow = 0, last = performance.now();
-
-        const loop = () => {
-          const now = performance.now(), dt = now - last; last = now;
-          // if frames keep running long, drop resolution once instead of stuttering
-          if (dt > 24 && dt < 200) slow++; else slow = Math.max(0, slow - 1);
-          if (slow > 45 && dpr > 1) { dpr = 1; renderer.setPixelRatio(dpr); uniforms.uPR.value = dpr; resize(); slow = 0; }
-          frame();
-          raf = requestAnimationFrame(loop);
-        };
-        const start = () => { if (running || !visible || document.hidden) return; running = true; last = performance.now(); loop(); };
-        const stop = () => { running = false; cancelAnimationFrame(raf); };
-
-        // the opaque content sheet hides the canvas mid-page: stop drawing while it covers the screen
-        const sheet = document.getElementById('sheet');
-        if (sheet && 'IntersectionObserver' in window) {
-          new IntersectionObserver(([e]) => {
-            const covered = e.intersectionRect.height >= window.innerHeight - 2;
-            visible = !covered;
-            visible ? start() : stop();
-          }, { threshold: Array.from({ length: 21 }, (_, i) => i / 20) }).observe(sheet);
-        }
-        document.addEventListener('visibilitychange', () => { document.hidden ? stop() : start(); });
-        start();
-      }
-    }
-  </script>
 
   <!--==================== KONAMI GAME OVERLAY ====================-->
   <div id="game-overlay" role="dialog" aria-modal="true" aria-labelledby="game-title"
