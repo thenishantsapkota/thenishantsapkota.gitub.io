@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -7,16 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!--==================== PRIMARY SEO ====================-->
-  <title>Nishant Sapkota — TypeScript Developer & Backend Software Engineer</title>
+  <title>Nishant Sapkota — Senior Full Stack Engineer</title>
   <meta name="description"
-    content="Nishant Sapkota is a TypeScript Developer and Backend Software Engineer from Damak, Nepal. Experienced in Express.js, NestJS, React.js, Django, and Python — building APIs, distributed services, and clean systems." />
+    content="Nishant Sapkota is a Senior Full Stack Engineer from Damak, Nepal, working in TypeScript across React.js, NestJS and Express.js — building products end to end, from the interface to the APIs, queues and payments underneath." />
   <meta name="keywords"
-    content="Nishant Sapkota, thenishantsapkota, snishant306, TypeScript developer, backend developer Nepal, NestJS developer, Express.js developer, React developer, Django developer, software engineer Damak, full stack developer Nepal, Pokhara University computer engineering" />
+    content="Nishant Sapkota, thenishantsapkota, snishant306, senior full stack engineer, full stack developer Nepal, TypeScript developer, backend developer Nepal, NestJS developer, Express.js developer, React developer, Django developer, software engineer Damak, Pokhara University computer engineering" />
   <meta name="author" content="Nishant Sapkota" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow" />
-  <meta name="theme-color" content="#0a0a0f" media="(prefers-color-scheme: dark)" />
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b0b0a" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f1efea" media="(prefers-color-scheme: light)" />
   <meta name="geo.region" content="NP-P1" />
   <meta name="geo.placename" content="Damak, Jhapa, Nepal" />
   <link rel="canonical" href="https://snishant.com.np/" />
@@ -24,9 +24,9 @@
   <!--==================== OPEN GRAPH ====================-->
   <meta property="og:type" content="profile" />
   <meta property="og:site_name" content="Nishant Sapkota" />
-  <meta property="og:title" content="Nishant Sapkota — TypeScript Developer" />
+  <meta property="og:title" content="Nishant Sapkota — Senior Full Stack Engineer" />
   <meta property="og:description"
-    content="TypeScript Developer experienced in Express.js, NestJS, and React.js. Backend software engineer from Damak, Nepal." />
+    content="Senior Full Stack Engineer working in TypeScript across React.js, NestJS and Express.js. Based in Damak, Nepal." />
   <meta property="og:url" content="https://snishant.com.np/" />
   <meta property="og:image" content="https://snishant.com.np/assets/img/perfil.jpg" />
   <meta property="og:image:alt" content="Portrait of Nishant Sapkota" />
@@ -39,13 +39,13 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@snishant306" />
   <meta name="twitter:creator" content="@snishant306" />
-  <meta name="twitter:title" content="Nishant Sapkota — TypeScript Developer" />
-  <meta name="twitter:description" content="TypeScript Developer experienced in Express.js, NestJS, and React.js. Based in Damak, Nepal." />
+  <meta name="twitter:title" content="Nishant Sapkota — Senior Full Stack Engineer" />
+  <meta name="twitter:description" content="Senior Full Stack Engineer working in TypeScript across React.js, NestJS and Express.js. Based in Damak, Nepal." />
   <meta name="twitter:image" content="https://snishant.com.np/assets/img/perfil.jpg" />
 
   <!--==================== ICONS ====================-->
   <link rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E" />
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0a'/%3E%3Cpath d='M10 46 L24 24 L32 34 L40 18 L54 46 Z' fill='none' stroke='%23ece9e2' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E" />
   <link rel="apple-touch-icon" href="assets/img/perfil.jpg" />
 
   <!--==================== HUE-COLOR (rewritten daily by GH Action) ====================-->
@@ -55,8 +55,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
     rel="stylesheet" />
+
+  <!-- Theme before paint: default dark, honour stored choice -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try { if (localStorage.getItem('theme') === 'light') d.classList.remove('dark'); } catch (e) {}
+    })();
+  </script>
 
   <!--==================== TAILWIND CSS ====================-->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -66,54 +75,97 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+            sans: ['Geist', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"Geist Mono"', 'ui-monospace', 'monospace'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
           },
           colors: {
-            accent: {
-              DEFAULT: 'hsl(var(--hue-color) 82% 62%)',
-              soft: 'hsl(var(--hue-color) 88% 75%)',
-              deep: 'hsl(var(--hue-color) 65% 48%)',
-              ink: 'hsl(var(--hue-color) 30% 12%)',
-            },
-          },
-          backgroundImage: {
-            'accent-gradient': 'linear-gradient(135deg, hsl(var(--hue-color) 88% 70%), hsl(var(--hue-color) 65% 50%))',
-            'accent-radial': 'radial-gradient(circle at 30% 30%, hsl(var(--hue-color) 88% 72%), hsl(var(--hue-color) 65% 45%))',
-          },
-          boxShadow: {
-            glow: '0 0 60px -10px hsl(var(--hue-color) 80% 60% / 0.45)',
-            'glow-lg': '0 0 120px -20px hsl(var(--hue-color) 80% 60% / 0.55)',
-          },
-          animation: {
-            'spin-slow': 'spin 16s linear infinite',
-            'float': 'float 9s ease-in-out infinite',
-            'fade-up': 'fadeUp 0.7s ease-out both',
-            'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
-            'blink': 'blink 1s step-end infinite',
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
-              '50%': { transform: 'translate(20px, -30px) scale(1.05)' },
-            },
-            fadeUp: {
-              '0%': { opacity: '0', transform: 'translateY(24px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-            pulseSoft: {
-              '0%, 100%': { opacity: '0.6' },
-              '50%': { opacity: '1' },
-            },
-            blink: {
-              '0%, 50%': { opacity: '1' },
-              '50.01%, 100%': { opacity: '0' },
-            },
+            bg: 'rgb(var(--bg) / <alpha-value>)',
+            fg: 'rgb(var(--fg) / <alpha-value>)',
+            muted: 'rgb(var(--muted) / <alpha-value>)',
+            surface: 'rgb(var(--surface) / <alpha-value>)',
+            accent: 'var(--accent)',
           },
         },
       },
     };
   </script>
+
+  <style>
+    :root {
+      --bg: 241 239 234;
+      --fg: 24 23 21;
+      --muted: 104 100 94;
+      --surface: 250 249 246;
+      --accent: hsl(var(--hue-color) 58% 40%);
+      --ease: cubic-bezier(.2, .8, .2, 1);
+    }
+    .dark {
+      --bg: 11 11 10;
+      --fg: 236 233 226;
+      --muted: 146 142 134;
+      --surface: 21 21 19;
+      --accent: hsl(var(--hue-color) 70% 66%);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: rgb(var(--bg)); }
+    h1, h2, h3 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+    .tnum { font-variant-numeric: tabular-nums; }
+    ::selection { background: var(--accent); color: rgb(var(--bg)); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+    /* Film grain */
+    .grain {
+      position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: .05;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .dark .grain { opacity: .07; }
+
+    /* Scroll reveal (only hides when JS is running) */
+    .js [data-reveal] { opacity: 0; transform: translateY(18px); filter: blur(6px);
+      transition: opacity .9s var(--ease), transform .9s var(--ease), filter .9s var(--ease); transition-delay: var(--d, 0s); }
+    .js [data-reveal].is-in { opacity: 1; transform: none; filter: none; }
+    .js [data-words] .w { display: inline-block; opacity: 0; filter: blur(8px); transform: translateY(.3em);
+      transition: opacity .8s var(--ease), filter .8s var(--ease), transform .8s var(--ease); }
+    .js [data-words].is-in .w { opacity: 1; filter: none; transform: none; }
+
+    /* Spotlight border + wash that follows the cursor */
+    .spot { position: relative; isolation: isolate; --mx: 50%; --my: 50%; }
+    .spot::before, .spot::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+      opacity: 0; transition: opacity .4s var(--ease); }
+    .spot::before { padding: 1px; z-index: 1;
+      background: radial-gradient(260px circle at var(--mx) var(--my), var(--accent), transparent 70%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; }
+    .spot::after { z-index: -1;
+      background: radial-gradient(420px circle at var(--mx) var(--my), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%); }
+    .spot:hover::before, .spot:hover::after { opacity: 1; }
+
+    /* Parallax: uses `translate` so it composes with reveal `transform` */
+    [data-px], [data-px-x] { will-change: translate; }
+
+    /* Marquee */
+    .marquee { mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+    .marquee-track { animation: marquee 38s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* Nav active pill */
+    .nav-link[aria-current="true"] { color: rgb(var(--fg)); background: rgb(var(--fg) / .07); }
+
+    /* 3D portrait tilt */
+    .tilt { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .5s var(--ease); }
+
+    .pulse-dot { box-shadow: 0 0 0 0 var(--accent); animation: ping 2.4s var(--ease) infinite; }
+    @keyframes ping { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent); } 100% { box-shadow: 0 0 0 10px transparent; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track, .pulse-dot { animation: none; }
+      .js [data-reveal], .js [data-words] .w { opacity: 1; transform: none; filter: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
 
   <!--==================== JSON-LD STRUCTURED DATA ====================-->
   <script type="application/ld+json">
@@ -129,8 +181,8 @@
         "familyName": "Sapkota",
         "url": "https://snishant.com.np/",
         "image": "https://snishant.com.np/assets/img/perfil.jpg",
-        "jobTitle": "TypeScript Developer & Backend Software Engineer",
-        "description": "TypeScript Developer experienced in Express.js, NestJS, and React.js. Backend software engineer from Damak, Nepal.",
+        "jobTitle": "Senior Full Stack Engineer",
+        "description": "Senior Full Stack Engineer working in TypeScript across React.js, NestJS and Express.js. Based in Damak, Nepal.",
         "email": "mailto:hello@snishant.com.np",
         "telephone": "+977-9801615642",
         "gender": "Male",
@@ -162,7 +214,7 @@
         "@id": "https://snishant.com.np/#website",
         "url": "https://snishant.com.np/",
         "name": "Nishant Sapkota",
-        "description": "Personal portfolio of Nishant Sapkota — backend software engineer.",
+        "description": "Personal portfolio of Nishant Sapkota — senior full stack engineer.",
         "publisher": { "@id": "https://snishant.com.np/#person" },
         "inLanguage": "en"
       },
@@ -179,88 +231,57 @@
   </script>
 </head>
 
-<body
-  class="bg-zinc-50 dark:bg-[#0a0a0f] text-zinc-700 dark:text-zinc-300 font-sans antialiased selection:bg-accent/30 selection:text-accent overflow-x-hidden"
-  data-secret="↑ ↑ ↓ ↓ ← → ← → B A">
+<body class="bg-bg text-fg/80 font-sans antialiased overflow-x-hidden" data-secret="↑ ↑ ↓ ↓ ← → ← → B A">
 
-  <!-- Skip link for accessibility -->
   <a href="#main"
-    class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-accent focus:text-white">Skip
+    class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-fg focus:text-bg">Skip
     to content</a>
 
-  <!-- Decorative background (3D + blobs + grid) -->
-  <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-    <div
-      class="absolute -top-40 -right-32 h-[36rem] w-[36rem] rounded-full bg-accent-radial opacity-20 dark:opacity-25 blur-3xl animate-float">
-    </div>
-    <div
-      class="absolute top-[40%] -left-32 h-[28rem] w-[28rem] rounded-full bg-accent-radial opacity-15 dark:opacity-20 blur-3xl animate-float"
-      style="animation-delay: -4s;"></div>
-    <canvas id="three-bg" class="absolute inset-0 w-full h-full opacity-70 dark:opacity-80"></canvas>
-    <div
-      class="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.06)_1px,transparent_0)] dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_0)] [background-size:32px_32px]">
-    </div>
-  </div>
+  <!-- 3D ridgeline (three.js) -->
+  <canvas id="ridge" aria-hidden="true" class="fixed inset-0 -z-10 h-[100lvh] w-full"></canvas>
+  <div aria-hidden="true" class="grain"></div>
 
   <!--==================== HEADER ====================-->
-  <header id="header"
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-white/70 dark:bg-[#0a0a0f]/70 border-b border-zinc-200/50 dark:border-white/5">
-    <nav aria-label="Primary" class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#home"
-        class="font-bold text-lg tracking-tight text-zinc-900 dark:text-white hover:text-accent transition-colors">
-        <span class="text-accent">⚡</span> Nishant
+  <header id="header" class="fixed top-4 inset-x-0 z-50 px-4">
+    <nav aria-label="Primary"
+      class="mx-auto flex w-fit max-w-full items-center gap-1 rounded-2xl border border-fg/10 bg-bg/70 p-1.5 backdrop-blur-xl shadow-[0_8px_30px_-12px_rgb(0_0_0/0.35)]">
+      <a href="#home" class="flex h-9 items-center gap-2 rounded-xl px-3 text-sm font-semibold text-fg" aria-label="Nishant Sapkota, home">
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 19 L8.5 9 L12 13.5 L15.5 6 L22 19 Z" />
+        </svg>
+        <span class="hidden sm:inline">nishant</span>
       </a>
-
-      <!-- Desktop nav -->
-      <ul class="hidden md:flex items-center gap-1 text-sm font-medium">
-        <li><a href="#about"
-            class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-accent transition">About</a>
-        </li>
-        <li><a href="#experience"
-            class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-accent transition">Experience</a>
-        </li>
-        <li><a href="#skills"
-            class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-accent transition">Skills</a>
-        </li>
-        <li><a href="#projects"
-            class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-accent transition">Projects</a>
-        </li>
-        <li><a href="#contact"
-            class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5 hover:text-accent transition">Contact</a>
-        </li>
+      <span class="mx-1 hidden h-5 w-px bg-fg/10 md:block"></span>
+      <ul class="hidden md:flex items-center text-sm">
+        <li><a href="#about" class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">About</a></li>
+        <li><a href="#experience" class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">Work</a></li>
+        <li><a href="#skills" class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">Stack</a></li>
+        <li><a href="#projects" class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">Projects</a></li>
+        <li><a href="#contact" class="nav-link block rounded-xl px-3 py-2 text-muted transition-colors hover:text-fg">Contact</a></li>
       </ul>
-
-      <div class="flex items-center gap-2">
-        <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
-          class="h-9 w-9 inline-flex items-center justify-center rounded-lg border border-zinc-200 dark:border-white/10 hover:border-accent hover:text-accent transition">
-          <svg id="icon-sun" class="hidden dark:block h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="4"></circle>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-          </svg>
-          <svg id="icon-moon" class="block dark:hidden h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
-        </button>
-        <button id="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="mobile-menu"
-          aria-expanded="false"
-          class="md:hidden h-9 w-9 inline-flex items-center justify-center rounded-lg border border-zinc-200 dark:border-white/10 hover:border-accent hover:text-accent transition">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 6h18M3 12h18M3 18h18" />
-          </svg>
-        </button>
-      </div>
+      <span class="mx-1 h-5 w-px bg-fg/10"></span>
+      <button id="theme-toggle" type="button" aria-label="Toggle colour theme"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-xl text-muted transition hover:bg-fg/5 hover:text-fg active:scale-95">
+        <svg class="hidden dark:block h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4" /><path d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21M5.6 5.6l1 1M17.4 17.4l1 1M5.6 18.4l1-1M17.4 6.6l1-1" />
+        </svg>
+        <svg class="block dark:hidden h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" />
+        </svg>
+      </button>
+      <button id="nav-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false"
+        class="md:hidden inline-flex h-9 items-center gap-2 rounded-xl px-3 text-sm text-fg transition hover:bg-fg/5 active:scale-95">
+        Menu
+      </button>
     </nav>
-    <!-- Mobile menu -->
-    <div id="mobile-menu" hidden class="md:hidden border-t border-zinc-200/60 dark:border-white/5 bg-white/95 dark:bg-[#0a0a0f]/95">
-      <ul class="px-6 py-4 flex flex-col gap-1 text-sm font-medium">
-        <li><a href="#about" class="block px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5">About</a></li>
-        <li><a href="#experience" class="block px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5">Experience</a></li>
-        <li><a href="#skills" class="block px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5">Skills</a></li>
-        <li><a href="#projects" class="block px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5">Projects</a></li>
-        <li><a href="#contact" class="block px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-white/5">Contact</a></li>
+    <div id="mobile-menu" hidden
+      class="md:hidden mx-auto mt-2 max-w-xs rounded-2xl border border-fg/10 bg-bg/90 p-2 backdrop-blur-xl">
+      <ul class="flex flex-col text-base">
+        <li><a href="#about" class="block rounded-xl px-4 py-3 hover:bg-fg/5">About</a></li>
+        <li><a href="#experience" class="block rounded-xl px-4 py-3 hover:bg-fg/5">Work</a></li>
+        <li><a href="#skills" class="block rounded-xl px-4 py-3 hover:bg-fg/5">Stack</a></li>
+        <li><a href="#projects" class="block rounded-xl px-4 py-3 hover:bg-fg/5">Projects</a></li>
+        <li><a href="#contact" class="block rounded-xl px-4 py-3 hover:bg-fg/5">Contact</a></li>
       </ul>
     </div>
   </header>
@@ -269,405 +290,281 @@
   <main id="main">
 
     <!--==================== HERO ====================-->
-    <section id="home" class="relative pt-32 pb-24 sm:pt-40 sm:pb-32" aria-labelledby="hero-heading">
-      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-        <div class="animate-fade-up order-2 md:order-1">
-          <div
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20 mb-6">
-            <span class="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-soft"></span>
-            Available for new opportunities
-          </div>
+    <section id="home" class="relative flex min-h-[100dvh] flex-col justify-end pt-28 pb-10 sm:pb-14" aria-labelledby="hero-heading">
+      <div class="mx-auto grid w-full max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-12 lg:items-end">
+        <div class="lg:col-span-8" data-px="-0.25" data-px-scroll data-fade>
+          <p data-reveal class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-muted">
+            <span class="inline-flex items-center gap-2 text-fg"><span class="pulse-dot h-1.5 w-1.5 rounded-full bg-accent"></span>Senior Full Stack Engineer at Codexx</span>
+            <span aria-hidden="true">/</span>
+            <span>Damak, Nepal · <span class="js-clock tnum">--:--</span> NPT</span>
+          </p>
 
-          <h1 id="hero-heading" class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.05]">
-            Hi, I'm <span class="bg-clip-text text-transparent bg-accent-gradient">Nishant Sapkota</span>
+          <h1 id="hero-heading" data-reveal style="--d:.08s"
+            class="mt-6 text-[clamp(3.25rem,11vw,9.5rem)] font-semibold leading-[.88] tracking-[-0.055em] text-fg">
+            Nishant<br />Sapkota<span class="text-accent">.</span>
           </h1>
 
-          <p class="mt-5 text-2xl sm:text-3xl font-semibold text-zinc-700 dark:text-zinc-200 min-h-[2.5rem]">
-            I'm a <span id="typewriter" class="text-accent">TypeScript Developer</span><span class="inline-block w-[3px] h-[1.1em] bg-accent ml-1 align-[-0.18em] animate-blink" aria-hidden="true"></span>
+          <p data-words class="mt-8 max-w-[34ch] font-serif text-[clamp(1.6rem,3.2vw,2.5rem)] leading-[1.12] text-fg">
+            I build products end to end — the React on top and the APIs, queues and payments <em class="text-accent">underneath</em>.
           </p>
 
-          <p class="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-            Experienced in <strong class="text-zinc-900 dark:text-white font-semibold">Express.js</strong>, <strong class="text-zinc-900 dark:text-white font-semibold">NestJS</strong>, and <strong class="text-zinc-900 dark:text-white font-semibold">React.js</strong> — building APIs, distributed services, and clean systems. Computer Engineering graduate from Pokhara University, based in Damak, Nepal. Constantly learning new technologies.
-          </p>
-
-          <div class="mt-8 flex flex-wrap items-center gap-3">
+          <div data-reveal style="--d:.5s" class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
             <a href="#contact"
-              class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-accent-gradient text-white font-semibold shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 transition-all">
-              Get in touch
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M13 5l7 7-7 7" />
-              </svg>
+              class="group inline-flex items-center gap-3 rounded-full bg-fg py-2 pl-5 pr-2 text-sm font-medium text-bg transition hover:-translate-y-0.5 active:translate-y-0 active:scale-[.98]">
+              Start a conversation
+              <span class="grid h-8 w-8 place-items-center rounded-full bg-bg/15 transition-transform group-hover:translate-x-0.5">
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+              </span>
             </a>
             <a href="assets/pdf/resume.pdf" download="Nishant-Sapkota-Resume.pdf"
-              class="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-zinc-300 dark:border-white/10 hover:border-accent hover:text-accent font-semibold transition-all">
-              Download CV
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-              </svg>
-            </a>
-          </div>
-
-          <ul class="mt-10 flex items-center gap-4" aria-label="Social links">
-            <li>
-              <a href="https://github.com/thenishantsapkota" target="_blank" rel="me noopener" aria-label="GitHub"
-                class="h-10 w-10 inline-flex items-center justify-center rounded-xl border border-zinc-200 dark:border-white/10 hover:border-accent hover:text-accent transition">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.26 5.69.41.36.78 1.05.78 2.12v3.14c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z" />
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/nishant-sapkota-960a3b14b/" target="_blank" rel="me noopener"
-                aria-label="LinkedIn"
-                class="h-10 w-10 inline-flex items-center justify-center rounded-xl border border-zinc-200 dark:border-white/10 hover:border-accent hover:text-accent transition">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/snishant306" target="_blank" rel="me noopener" aria-label="Twitter"
-                class="h-10 w-10 inline-flex items-center justify-center rounded-xl border border-zinc-200 dark:border-white/10 hover:border-accent hover:text-accent transition">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:hello@snishant.com.np" rel="me" aria-label="Email"
-                class="h-10 w-10 inline-flex items-center justify-center rounded-xl border border-zinc-200 dark:border-white/10 hover:border-accent hover:text-accent transition">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="m3 7 9 6 9-6" />
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Photo -->
-        <div class="order-1 md:order-2 flex justify-center md:justify-end">
-          <div class="relative">
-            <div
-              class="absolute -inset-4 rounded-full bg-accent-gradient opacity-40 blur-2xl animate-pulse-soft">
-            </div>
-            <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full">
-              <div class="absolute inset-0 rounded-full bg-accent-gradient animate-spin-slow"></div>
-              <div class="absolute inset-1 rounded-full bg-white dark:bg-[#0a0a0f]"></div>
-              <div class="absolute inset-3 rounded-full overflow-hidden">
-                <img src="assets/img/perfil.jpg" alt="Portrait of Nishant Sapkota — backend software engineer"
-                  class="w-full h-full object-cover object-[50%_50%] scale-[1.45] origin-[50%_50%]"
-                  loading="eager" decoding="async" />
-              </div>
-            </div>
+              class="text-sm font-medium text-fg underline decoration-fg/30 underline-offset-[6px] transition hover:decoration-accent">Résumé (PDF)</a>
+            <ul class="flex items-center gap-4 font-mono text-xs text-muted" aria-label="Social links">
+              <li><a href="https://github.com/thenishantsapkota" target="_blank" rel="me noopener" class="hover:text-fg transition">GitHub ↗</a></li>
+              <li><a href="https://www.linkedin.com/in/nishant-sapkota-960a3b14b/" target="_blank" rel="me noopener" class="hover:text-fg transition">LinkedIn ↗</a></li>
+              <li><a href="https://twitter.com/snishant306" target="_blank" rel="me noopener" class="hover:text-fg transition">X ↗</a></li>
+            </ul>
           </div>
         </div>
+
+        <!-- Portrait -->
+        <figure data-reveal data-px="0.12" data-px-scroll style="--d:.2s" class="lg:col-span-4 hidden sm:block">
+          <div class="tilt js-tilt relative ml-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[28px] border border-fg/10 bg-surface">
+            <img src="assets/img/perfil.jpg" alt="Nishant Sapkota standing in front of prayer flags and snow-capped Himalayan peaks"
+              class="h-full w-full object-cover object-[50%_45%]" loading="eager" decoding="async" />
+            <figcaption class="absolute inset-x-3 bottom-3 flex items-center justify-between rounded-2xl bg-black/40 px-4 py-2.5 font-mono text-[11px] text-white/85 backdrop-blur-md">
+              <span>Off the clock</span><span>Himalayas, NP</span>
+            </figcaption>
+          </div>
+        </figure>
+      </div>
+
+      <!-- Terrain HUD -->
+      <div class="mx-auto mt-12 flex w-full max-w-7xl items-center justify-between gap-4 px-5 font-mono text-[11px] text-muted sm:px-8" aria-hidden="true">
+        <span class="hidden sm:inline">Move to raise the range · click to send a tremor</span>
+        <span class="sm:hidden">Tap the range</span>
+        <span class="tnum">elev <span id="hud-elev" class="text-fg">0000</span> m · <span id="hud-coord">27.98°N 86.92°E</span></span>
       </div>
     </section>
 
+    <!--==================== MARQUEE ====================-->
+    <div class="marquee border-y border-fg/10 bg-bg/70 py-5 overflow-hidden" aria-label="Technologies I use">
+      <ul class="marquee-track flex w-max items-center gap-10 whitespace-nowrap font-serif text-2xl text-fg/70">
+        <li>TypeScript</li><li class="text-accent" aria-hidden="true">✶</li><li>Node.js</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li>NestJS</li><li class="text-accent" aria-hidden="true">✶</li><li>Express</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li>PostgreSQL</li><li class="text-accent" aria-hidden="true">✶</li><li>Redis</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li>WebSockets</li><li class="text-accent" aria-hidden="true">✶</li><li>AWS S3</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li>Django</li><li class="text-accent" aria-hidden="true">✶</li><li>React</li><li class="text-accent" aria-hidden="true">✶</li>
+        <!-- duplicate for seamless loop -->
+        <li aria-hidden="true">TypeScript</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">Node.js</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li aria-hidden="true">NestJS</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">Express</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li aria-hidden="true">PostgreSQL</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">Redis</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li aria-hidden="true">WebSockets</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">AWS S3</li><li class="text-accent" aria-hidden="true">✶</li>
+        <li aria-hidden="true">Django</li><li class="text-accent" aria-hidden="true">✶</li><li aria-hidden="true">React</li><li class="text-accent" aria-hidden="true">✶</li>
+      </ul>
+    </div>
+
+    <!-- Content sits on a solid sheet so the 3D range stays atmospheric -->
+    <div id="sheet" class="relative bg-bg">
+
     <!--==================== ABOUT ====================-->
-    <section id="about" class="py-24" aria-labelledby="about-heading">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="text-sm font-mono text-accent tracking-widest uppercase">01 — About</p>
-          <h2 id="about-heading" class="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
-            About me
+    <section id="about" class="relative overflow-hidden pt-28 pb-32 sm:pt-36 sm:pb-40" aria-labelledby="about-heading">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-12">
+        <div class="lg:col-span-4 lg:self-start" data-reveal data-px="0.1">
+          <p class="font-mono text-xs text-muted">(01) about</p>
+          <h2 id="about-heading" class="mt-3 text-4xl font-semibold tracking-[-0.035em] text-fg sm:text-5xl">
+            Started in QA. <span class="font-serif font-normal italic text-muted">Stayed for the full stack.</span>
           </h2>
         </div>
 
-        <div class="grid md:grid-cols-5 gap-10 items-center">
-          <div class="md:col-span-2">
-            <div class="relative aspect-square rounded-3xl overflow-hidden border border-zinc-200 dark:border-white/10 shadow-lg">
-              <img src="assets/img/about.jpg" alt="Nishant Sapkota at work"
-                class="w-full h-full object-cover" loading="lazy" decoding="async" />
-              <div
-                class="absolute inset-0 bg-gradient-to-tr from-accent/30 via-transparent to-transparent mix-blend-overlay">
-              </div>
+        <div class="lg:col-span-7 lg:col-start-6">
+          <div class="space-y-6 text-lg leading-relaxed text-fg/75 max-w-[62ch]" data-reveal style="--d:.1s">
+            <p>
+              I'm a full stack engineer, mostly in TypeScript, from <span class="text-fg">Damak, Nepal</span>. I studied Computer Engineering
+              (2019–2024) at <a href="https://mbman.org.np" target="_blank" rel="noopener" class="text-fg underline decoration-fg/30 underline-offset-4 hover:decoration-accent">Madan Bhandari Memorial Academy Nepal</a>
+              under Pokhara University.
+            </p>
+            <p>
+              My first jobs were in QA, which taught me how systems fall over. That shapes how I build across the stack: React
+              interfaces that handle the unhappy paths, and NestJS, Express and Django services that are boring to operate and easy to reason about.
+            </p>
+            <p class="text-muted">
+              Away from the keyboard: algorithms puzzles, the global economy, anime, films, music and the occasional carrom match.
+            </p>
+          </div>
+
+          <dl class="mt-14 grid grid-cols-3 border-t border-fg/10" data-reveal style="--d:.2s">
+            <div class="pt-6 pr-4">
+              <dd class="tnum text-5xl font-semibold tracking-[-0.04em] text-fg sm:text-6xl">4<span class="text-accent">+</span></dd>
+              <dt class="mt-2 text-sm text-muted">years shipping</dt>
             </div>
-          </div>
-
-          <div class="md:col-span-3">
-            <p class="text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-              I'm Nishant — a TypeScript Developer based in <strong class="text-zinc-900 dark:text-white">Damak, Nepal</strong>.
-              I graduated in Computer Engineering (2019–2024) from <a href="https://mbman.org.np" target="_blank" rel="noopener"
-                class="text-accent hover:underline">Madan Bhandari Memorial Academy Nepal</a>, Urlabari-03, Morang under Pokhara University.
-            </p>
-            <p class="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-              I started in QA, learned how systems break, and that knowledge made me a better backend engineer. Today I
-              build APIs and services in Express.js, NestJS, and Django — pragmatic stuff that ships and stays up.
-            </p>
-            <p class="mt-4 text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-              Outside of code: Data Structures &amp; Algorithms, current affairs, technology, music, anime, movies, carrom board, and the global economy.
-            </p>
-
-            <dl class="mt-8 grid grid-cols-3 gap-4">
-              <div class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-4 text-center hover:border-accent transition">
-                <dt class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500">Experience</dt>
-                <dd class="mt-1 text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">4+ <span class="text-base font-medium text-zinc-500">yrs</span></dd>
-              </div>
-              <div class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-4 text-center hover:border-accent transition">
-                <dt class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500">Projects</dt>
-                <dd class="mt-1 text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">10+</dd>
-              </div>
-              <div class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-4 text-center hover:border-accent transition">
-                <dt class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500">Companies</dt>
-                <dd class="mt-1 text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">5</dd>
-              </div>
-            </dl>
-
-            <a href="assets/pdf/resume.pdf" download="Nishant-Sapkota-Resume.pdf"
-              class="mt-8 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-accent-gradient text-white font-semibold shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 transition-all">
-              Download CV
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-              </svg>
-            </a>
-          </div>
+            <div class="border-l border-fg/10 pt-6 px-4">
+              <dd class="tnum text-5xl font-semibold tracking-[-0.04em] text-fg sm:text-6xl">10<span class="text-accent">+</span></dd>
+              <dt class="mt-2 text-sm text-muted">projects</dt>
+            </div>
+            <div class="border-l border-fg/10 pt-6 pl-4">
+              <dd class="tnum text-5xl font-semibold tracking-[-0.04em] text-fg sm:text-6xl">5</dd>
+              <dt class="mt-2 text-sm text-muted">teams, 3 countries</dt>
+            </div>
+          </dl>
         </div>
       </div>
     </section>
 
     <!--==================== EXPERIENCE ====================-->
-    <section id="experience" class="py-24" aria-labelledby="experience-heading">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
-          <p class="text-sm font-mono text-accent tracking-widest uppercase">02 — Journey</p>
-          <h2 id="experience-heading" class="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
-            Experience &amp; education
-          </h2>
+    <section id="experience" class="relative overflow-hidden pb-32 sm:pb-40" aria-labelledby="experience-heading">
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="flex flex-wrap items-end justify-between gap-4" data-reveal>
+          <div>
+            <p class="font-mono text-xs text-muted">(02) work</p>
+            <h2 id="experience-heading" class="mt-3 text-4xl font-semibold tracking-[-0.035em] text-fg sm:text-5xl">Where I've worked</h2>
+          </div>
+          <p class="font-mono text-xs text-muted">2021 → now</p>
         </div>
 
-        <!-- Tabs -->
-        <div role="tablist" aria-label="Journey filter"
-          class="flex justify-center gap-2 mb-12 p-1 max-w-sm mx-auto rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02]">
-          <button role="tab" aria-selected="true" aria-controls="tab-work" id="tab-btn-work"
-            class="js-tab flex-1 px-4 py-2 rounded-xl text-sm font-semibold transition data-[active=true]:bg-accent-gradient data-[active=true]:text-white"
-            data-target="tab-work" data-active="true">
-            Work
-          </button>
-          <button role="tab" aria-selected="false" aria-controls="tab-edu" id="tab-btn-edu"
-            class="js-tab flex-1 px-4 py-2 rounded-xl text-sm font-semibold transition data-[active=true]:bg-accent-gradient data-[active=true]:text-white"
-            data-target="tab-edu" data-active="false">
-            Education
-          </button>
-        </div>
+        <ol class="mt-14 border-t border-fg/10">
+          <li data-reveal class="spot group grid gap-4 rounded-2xl border-b border-fg/10 px-4 py-8 sm:px-6 md:grid-cols-12 md:gap-8">
+            <div class="md:col-span-3">
+              <p class="font-mono text-xs text-accent tnum">Jan 2025 — Present</p>
+              <p class="mt-2 text-sm text-muted">Remote · Kathmandu</p>
+            </div>
+            <div class="md:col-span-9">
+              <h3 class="text-2xl font-semibold tracking-tight text-fg">Senior Full Stack Engineer <span class="font-serif font-normal italic text-muted">at</span> Codexx</h3>
+              <ul class="mt-4 grid gap-x-8 gap-y-2 text-[15px] text-fg/70 sm:grid-cols-2">
+                <li>— Backend services in Node.js and Express</li>
+                <li>— Payment gateway integrations, query tuning</li>
+                <li>— Real-time analytics over WebSockets</li>
+                <li>— Monorepo ownership, mentoring juniors</li>
+              </ul>
+            </div>
+          </li>
+          <li data-reveal class="spot group grid gap-4 rounded-2xl border-b border-fg/10 px-4 py-8 sm:px-6 md:grid-cols-12 md:gap-8">
+            <div class="md:col-span-3">
+              <p class="font-mono text-xs text-accent tnum">Jun 2023 — Apr 2025</p>
+              <p class="mt-2 text-sm text-muted">Remote · Ontario, Canada</p>
+            </div>
+            <div class="md:col-span-9">
+              <h3 class="text-2xl font-semibold tracking-tight text-fg">Software Engineer <span class="font-serif font-normal italic text-muted">at</span> Acid Integrations</h3>
+              <ul class="mt-4 grid gap-x-8 gap-y-2 text-[15px] text-fg/70 sm:grid-cols-2">
+                <li>— Redis-backed queues and batch processing</li>
+                <li>— 11Hype: scouting tool with LLMs + computer vision</li>
+                <li>— Motion-tracking pipelines for physiotherapy</li>
+                <li>— Job Manager for activity tracking and evaluations</li>
+              </ul>
+            </div>
+          </li>
+          <li data-reveal class="spot group grid gap-4 rounded-2xl border-b border-fg/10 px-4 py-8 sm:px-6 md:grid-cols-12 md:gap-8">
+            <div class="md:col-span-3">
+              <p class="font-mono text-xs text-accent tnum">Apr 2024 — Sep 2024</p>
+              <p class="mt-2 text-sm text-muted">Contract · Australia</p>
+            </div>
+            <div class="md:col-span-9">
+              <h3 class="text-2xl font-semibold tracking-tight text-fg">Consultant Backend Engineer <span class="font-serif font-normal italic text-muted">at</span> Manage Vehicle</h3>
+              <ul class="mt-4 grid gap-x-8 gap-y-2 text-[15px] text-fg/70 sm:grid-cols-2">
+                <li>— DVR system integration</li>
+                <li>— Legacy PHP services migrated to Node.js</li>
+                <li>— AWS S3 file operations</li>
+              </ul>
+            </div>
+          </li>
+          <li data-reveal class="spot group grid gap-4 rounded-2xl border-b border-fg/10 px-4 py-8 sm:px-6 md:grid-cols-12 md:gap-8">
+            <div class="md:col-span-3">
+              <p class="font-mono text-xs text-accent tnum">Jan 2022 — Aug 2022</p>
+              <p class="mt-2 text-sm text-muted">Remote · Kathmandu</p>
+            </div>
+            <div class="md:col-span-9">
+              <h3 class="text-2xl font-semibold tracking-tight text-fg">Associate Engineer, QA <span class="font-serif font-normal italic text-muted">at</span> Rasan Technologies</h3>
+              <ul class="mt-4 grid gap-x-8 gap-y-2 text-[15px] text-fg/70 sm:grid-cols-2">
+                <li>— B2B platform on Python and Django</li>
+                <li>— Manual testing across API, web and mobile</li>
+              </ul>
+            </div>
+          </li>
+          <li data-reveal class="spot group grid gap-4 rounded-2xl border-b border-fg/10 px-4 py-8 sm:px-6 md:grid-cols-12 md:gap-8">
+            <div class="md:col-span-3">
+              <p class="font-mono text-xs text-accent tnum">Jun 2021 — Dec 2021</p>
+              <p class="mt-2 text-sm text-muted">Remote · Kathmandu</p>
+            </div>
+            <div class="md:col-span-9">
+              <h3 class="text-2xl font-semibold tracking-tight text-fg">Associate Engineer, QA <span class="font-serif font-normal italic text-muted">at</span> Clamphook</h3>
+              <ul class="mt-4 grid gap-x-8 gap-y-2 text-[15px] text-fg/70 sm:grid-cols-2">
+                <li>— Tested an IOE learning platform in Python</li>
+                <li>— Bug tracking, reproducible regression reports</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
 
-        <!-- Work timeline -->
-        <div id="tab-work" role="tabpanel" aria-labelledby="tab-btn-work" class="js-tab-panel">
-          <ol class="relative border-l border-zinc-200 dark:border-white/10 ml-3 sm:ml-6 space-y-8">
-            <li class="ms-6 sm:ms-10 relative">
-              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
-              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
-                <div class="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Software Engineer (Backend)</h3>
-                  <span class="text-xs font-mono text-accent">Jan 2025 — Present</span>
-                </div>
-                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Codexx Pvt. Ltd. <span class="text-zinc-400">·</span> Remote (Kathmandu)</p>
-                <ul class="mt-3 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400 list-disc list-outside ml-5">
-                  <li>Building backend services with Node.js and Express.</li>
-                  <li>Payment gateway integrations and database query optimization.</li>
-                  <li>Real-time analytics dashboard powered by WebSockets.</li>
-                  <li>Owning monorepo architecture and mentoring junior developers.</li>
-                </ul>
-              </article>
+        <!-- Education -->
+        <div class="mt-20 grid gap-8 lg:grid-cols-12" data-reveal>
+          <h3 class="font-mono text-xs text-muted lg:col-span-3">education</h3>
+          <ul class="grid gap-px overflow-hidden rounded-2xl border border-fg/10 bg-fg/10 sm:grid-cols-3 lg:col-span-9">
+            <li class="bg-bg p-6">
+              <p class="font-mono text-xs text-muted tnum">2019 — 2024</p>
+              <p class="mt-3 font-medium text-fg">B.E. Computer Engineering</p>
+              <p class="mt-1 text-sm text-muted">Madan Bhandari Memorial Academy Nepal, Pokhara University · Urlabari-03, Morang</p>
             </li>
-            <li class="ms-6 sm:ms-10 relative">
-              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
-              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
-                <div class="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Software Engineer</h3>
-                  <span class="text-xs font-mono text-accent">Jun 2023 — Apr 2025</span>
-                </div>
-                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Acid Integrations Pvt. Ltd. <span class="text-zinc-400">·</span> Remote (Ontario, Canada)</p>
-                <ul class="mt-3 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400 list-disc list-outside ml-5">
-                  <li>Designed Redis-based queue and batch-processing systems.</li>
-                  <li>Built 11Hype social media &amp; scouting tool with LLMs and computer vision.</li>
-                  <li>Healthcare motion-tracking pipelines for physiotherapy.</li>
-                  <li>Job Manager for activity tracking and evaluations.</li>
-                </ul>
-              </article>
+            <li class="bg-bg p-6">
+              <p class="font-mono text-xs text-muted tnum">2017 — 2019</p>
+              <p class="mt-3 font-medium text-fg">High School (+2)</p>
+              <p class="mt-1 text-sm text-muted">Siddhartha HSBS</p>
             </li>
-            <li class="ms-6 sm:ms-10 relative">
-              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
-              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
-                <div class="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Consultant Software Engineer (Backend)</h3>
-                  <span class="text-xs font-mono text-accent">Apr 2024 — Sep 2024</span>
-                </div>
-                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Manage Vehicle Pty. Ltd. <span class="text-zinc-400">·</span> Contract (Australia)</p>
-                <ul class="mt-3 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400 list-disc list-outside ml-5">
-                  <li>Integrated DVR systems into the platform.</li>
-                  <li>Migrated legacy PHP services to Node.js.</li>
-                  <li>Implemented AWS S3 file operations.</li>
-                </ul>
-              </article>
+            <li class="bg-bg p-6">
+              <p class="font-mono text-xs text-muted tnum">2017</p>
+              <p class="mt-3 font-medium text-fg">SEE</p>
+              <p class="mt-1 text-sm text-muted">Suryodaya English School</p>
             </li>
-            <li class="ms-6 sm:ms-10 relative">
-              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
-              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
-                <div class="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Associate Software Engineer (QA)</h3>
-                  <span class="text-xs font-mono text-accent">Jan 2022 — Aug 2022</span>
-                </div>
-                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Rasan Technologies Pvt. Ltd. <span class="text-zinc-400">·</span> Remote (Kathmandu)</p>
-                <ul class="mt-3 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400 list-disc list-outside ml-5">
-                  <li>Worked on a B2B platform built with Python and Django.</li>
-                  <li>Manual testing across endpoints, web, and mobile applications.</li>
-                </ul>
-              </article>
-            </li>
-            <li class="ms-6 sm:ms-10 relative">
-              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
-              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
-                <div class="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Associate Software Engineer (QA)</h3>
-                  <span class="text-xs font-mono text-accent">Jun 2021 — Dec 2021</span>
-                </div>
-                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Clamphook Pvt. Ltd. <span class="text-zinc-400">·</span> Remote (Kathmandu)</p>
-                <ul class="mt-3 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400 list-disc list-outside ml-5">
-                  <li>Tested an IOE learning platform built in Python.</li>
-                  <li>Bug tracking and reproducible regression reporting.</li>
-                </ul>
-              </article>
-            </li>
-          </ol>
-        </div>
-
-        <!-- Education timeline -->
-        <div id="tab-edu" role="tabpanel" aria-labelledby="tab-btn-edu" class="js-tab-panel hidden">
-          <ol class="relative border-l border-zinc-200 dark:border-white/10 ml-3 sm:ml-6 space-y-8">
-            <li class="ms-6 sm:ms-10 relative">
-              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
-              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
-                <div class="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">B.E. Computer Engineering</h3>
-                  <span class="text-xs font-mono text-accent">2019 — 2024</span>
-                </div>
-                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Madan Bhandari Memorial Academy Nepal <span class="text-zinc-400">·</span> Pokhara University</p>
-                <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-500">Urlabari-03, Morang</p>
-              </article>
-            </li>
-            <li class="ms-6 sm:ms-10 relative">
-              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
-              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
-                <div class="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">High School (+2)</h3>
-                  <span class="text-xs font-mono text-accent">2017 — 2019</span>
-                </div>
-                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Siddhartha HSBS</p>
-              </article>
-            </li>
-            <li class="ms-6 sm:ms-10 relative">
-              <span class="absolute -left-[31px] sm:-left-[47px] top-6 flex h-3.5 w-3.5 rounded-full bg-accent ring-4 ring-white dark:ring-[#0a0a0f]"></span>
-              <article class="rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent transition">
-                <div class="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 class="text-lg font-bold text-zinc-900 dark:text-white">SEE</h3>
-                  <span class="text-xs font-mono text-accent">2017</span>
-                </div>
-                <p class="text-sm font-medium text-zinc-700 dark:text-zinc-300">Suryodaya English School</p>
-              </article>
-            </li>
-          </ol>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!--==================== SKILLS ====================-->
-    <section id="skills" class="py-24" aria-labelledby="skills-heading">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="text-sm font-mono text-accent tracking-widest uppercase">03 — Toolkit</p>
-          <h2 id="skills-heading" class="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
-            Skills &amp; services
-          </h2>
-          <p class="mt-3 text-zinc-600 dark:text-zinc-400">What I work with day to day.</p>
+    <!--==================== SKILLS (bento) ====================-->
+    <section id="skills" class="relative overflow-hidden pb-32 sm:pb-40" aria-labelledby="skills-heading">
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div data-reveal>
+          <p class="font-mono text-xs text-muted">(03) stack</p>
+          <h2 id="skills-heading" class="mt-3 text-4xl font-semibold tracking-[-0.035em] text-fg sm:text-5xl">What I reach for</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Languages -->
-          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all">
-            <div class="h-12 w-12 rounded-2xl bg-accent/10 text-accent flex items-center justify-center mb-5 group-hover:bg-accent group-hover:text-white transition-colors">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="4 17 10 11 4 5" />
-                <line x1="12" y1="19" x2="20" y2="19" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Languages</h3>
-            <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-500">My daily drivers.</p>
-            <ul class="mt-5 flex flex-wrap gap-2">
-              <li class="px-3 py-1 rounded-lg bg-accent/10 text-accent text-xs font-medium">TypeScript</li>
-              <li class="px-3 py-1 rounded-lg bg-accent/10 text-accent text-xs font-medium">JavaScript</li>
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Python</li>
+        <div class="mt-14 grid gap-3 md:grid-cols-6">
+          <article data-reveal data-px="0.04" class="spot rounded-3xl border border-fg/10 bg-surface/70 p-7 md:col-span-4 md:row-span-2 flex flex-col justify-between min-h-[18rem]">
+            <p class="font-mono text-xs text-muted">languages / daily</p>
+            <ul class="mt-8 space-y-1 text-[clamp(2.5rem,6vw,4.75rem)] font-semibold leading-[1] tracking-[-0.05em] text-fg">
+              <li>TypeScript</li>
+              <li class="text-fg/60">JavaScript</li>
+              <li class="font-serif font-normal italic text-fg/40">Python</li>
             </ul>
           </article>
 
-          <!-- Frameworks -->
-          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all">
-            <div class="h-12 w-12 rounded-2xl bg-accent/10 text-accent flex items-center justify-center mb-5 group-hover:bg-accent group-hover:text-white transition-colors">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="7" height="7" rx="1" />
-                <rect x="14" y="3" width="7" height="7" rx="1" />
-                <rect x="3" y="14" width="7" height="7" rx="1" />
-                <rect x="14" y="14" width="7" height="7" rx="1" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Frameworks</h3>
-            <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-500">What I build with.</p>
-            <ul class="mt-5 flex flex-wrap gap-2">
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Express.js</li>
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">NestJS</li>
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">React.js</li>
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Django</li>
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Node.js</li>
+          <article data-reveal data-px="-0.06" style="--d:.08s" class="spot rounded-3xl border border-fg/10 bg-surface/70 p-7 md:col-span-2">
+            <p class="font-mono text-xs text-muted">right now</p>
+            <p class="mt-6 text-lg leading-snug text-fg">Payments, WebSockets and a monorepo at <span class="text-accent">Codexx</span>.</p>
+          </article>
+
+          <article data-reveal data-px="-0.1" style="--d:.12s" class="spot rounded-3xl border border-fg/10 bg-surface/70 p-7 md:col-span-2">
+            <p class="font-mono text-xs text-muted">frameworks</p>
+            <p class="mt-6 text-lg leading-snug text-fg">NestJS, Express, Node.js, Django, React</p>
+          </article>
+
+          <article data-reveal class="spot rounded-3xl border border-fg/10 bg-surface/70 p-7 md:col-span-3">
+            <p class="font-mono text-xs text-muted">data &amp; infra</p>
+            <ul class="mt-6 flex flex-wrap gap-2 text-sm">
+              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">PostgreSQL</li>
+              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">Redis</li>
+              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">AWS S3</li>
+              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">WebSockets</li>
+              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">Git</li>
+              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">Linux</li>
             </ul>
           </article>
 
-          <!-- Tools & Cloud -->
-          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all">
-            <div class="h-12 w-12 rounded-2xl bg-accent/10 text-accent flex items-center justify-center mb-5 group-hover:bg-accent group-hover:text-white transition-colors">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-bold text-zinc-900 dark:text-white">Tools &amp; Cloud</h3>
-            <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-500">Bread and butter.</p>
-            <ul class="mt-5 flex flex-wrap gap-2">
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">PostgreSQL</li>
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Redis</li>
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">AWS S3</li>
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">WebSockets</li>
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Git</li>
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Linux</li>
-            </ul>
-          </article>
-
-          <!-- QA -->
-          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all">
-            <div class="h-12 w-12 rounded-2xl bg-accent/10 text-accent flex items-center justify-center mb-5 group-hover:bg-accent group-hover:text-white transition-colors">
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 2v6L4 21h16L15 8V2" />
-                <path d="M9 2h6" />
-                <path d="M7 16h10" />
-              </svg>
-            </div>
-            <h3 class="text-lg font-bold text-zinc-900 dark:text-white">QA</h3>
-            <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-500">Where I started.</p>
-            <ul class="mt-5 flex flex-wrap gap-2">
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Postman</li>
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Selenium</li>
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Manual Testing</li>
-              <li class="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 text-xs font-medium">Jira</li>
+          <article data-reveal style="--d:.08s" class="spot rounded-3xl border border-fg/10 bg-surface/70 p-7 md:col-span-3">
+            <p class="font-mono text-xs text-muted">qa roots</p>
+            <ul class="mt-6 flex flex-wrap gap-2 text-sm">
+              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">Postman</li>
+              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">Selenium</li>
+              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">Manual testing</li>
+              <li class="rounded-md border border-fg/10 px-2.5 py-1 text-fg/80">Jira</li>
             </ul>
           </article>
         </div>
@@ -675,507 +572,666 @@
     </section>
 
     <!--==================== PROJECTS ====================-->
-    <section id="projects" class="py-24" aria-labelledby="projects-heading">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="text-sm font-mono text-accent tracking-widest uppercase">04 — Selected work</p>
-          <h2 id="projects-heading" class="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
-            Projects
-          </h2>
+    <section id="projects" class="relative overflow-hidden pb-32 sm:pb-40" aria-labelledby="projects-heading">
+      <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="flex flex-wrap items-end justify-between gap-4" data-reveal>
+          <div>
+            <p class="font-mono text-xs text-muted">(04) projects</p>
+            <h2 id="projects-heading" class="mt-3 text-4xl font-semibold tracking-[-0.035em] text-fg sm:text-5xl">Things I've built</h2>
+          </div>
+          <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener" class="font-mono text-xs text-muted hover:text-fg transition">all repos on GitHub ↗</a>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- PyBlogger -->
-          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all flex flex-col">
-            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-              </svg>
-            </div>
-            <h3 class="mt-5 text-lg font-bold text-zinc-900 dark:text-white">PyBlogger</h3>
-            <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 flex-1">A Django-powered blogging application with clean post management and reader experience.</p>
-            <ul class="mt-4 flex flex-wrap gap-2">
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Python</li>
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Django</li>
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">2022</li>
-            </ul>
-            <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener"
-              class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all">
-              View on GitHub
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
+        <ul class="mt-14 border-t border-fg/10">
+          <li data-reveal>
+            <a href="https://www.deluxehakka.com/" target="_blank" rel="noopener"
+              class="spot group grid items-baseline gap-2 rounded-2xl border-b border-fg/10 px-4 py-7 sm:px-6 md:grid-cols-12 md:gap-6">
+              <span class="font-mono text-xs text-muted tnum md:col-span-1">01</span>
+              <h3 class="text-2xl font-semibold tracking-tight text-fg transition-transform duration-500 group-hover:translate-x-1 md:col-span-4">Deluxe Hakka &amp; Momo</h3>
+              <p class="text-[15px] text-fg/65 md:col-span-5">Online ordering, order tracking and catering requests for a halal Indo-Chinese restaurant in Mississauga.</p>
+              <span class="flex items-center justify-between gap-3 font-mono text-xs text-muted md:col-span-2 md:justify-end">Next.js · 2026
+                <span class="text-fg transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">↗</span></span>
             </a>
-          </article>
-
-          <!-- CCMS -->
-          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all flex flex-col">
-            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="8" r="6"/>
-                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
-              </svg>
-            </div>
-            <h3 class="mt-5 text-lg font-bold text-zinc-900 dark:text-white">Character Certificate Management System</h3>
-            <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 flex-1">A dynamic certificate management system designed for educational institutes — generation, tracking, and verification.</p>
-            <ul class="mt-4 flex flex-wrap gap-2">
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Python</li>
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Django</li>
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">2022</li>
-            </ul>
-            <a href="https://github.com/thenishantsapkota/CCMS" target="_blank" rel="noopener"
-              class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all">
-              View on GitHub
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
-            </a>
-          </article>
-
-          <!-- JobSeeker -->
-          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all flex flex-col">
-            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="7" width="20" height="14" rx="2"/>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-              </svg>
-            </div>
-            <h3 class="mt-5 text-lg font-bold text-zinc-900 dark:text-white">JobSeeker</h3>
-            <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 flex-1">A Django-based job portal connecting applicants with opportunities.</p>
-            <ul class="mt-4 flex flex-wrap gap-2">
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Python</li>
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Django</li>
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">2022</li>
-            </ul>
-            <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener"
-              class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all">
-              View on GitHub
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
-            </a>
-          </article>
-
-          <!-- PU Result PDF to JSON -->
-          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all flex flex-col">
-            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <path d="M9 13h6M9 17h4"/>
-              </svg>
-            </div>
-            <h3 class="mt-5 text-lg font-bold text-zinc-900 dark:text-white">PU Result PDF to JSON</h3>
-            <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 flex-1">A utility that parses Pokhara University result PDFs into structured JSON for downstream tooling.</p>
-            <ul class="mt-4 flex flex-wrap gap-2">
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Python</li>
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">PDF</li>
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">2022</li>
-            </ul>
-            <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener"
-              class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all">
-              View on GitHub
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
-            </a>
-          </article>
-
-          <!-- SpotBee -->
-          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all flex flex-col">
-            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 18V5l12-2v13"/>
-                <circle cx="6" cy="18" r="3"/>
-                <circle cx="18" cy="16" r="3"/>
-              </svg>
-            </div>
-            <h3 class="mt-5 text-lg font-bold text-zinc-900 dark:text-white">SpotBee</h3>
-            <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 flex-1">A Python tool that resolves YouTube URLs for every track in a Spotify playlist link.</p>
-            <ul class="mt-4 flex flex-wrap gap-2">
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Python</li>
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">API</li>
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">2021</li>
-            </ul>
+          </li>
+          <li data-reveal>
             <a href="https://github.com/thenishantsapkota/spotbee" target="_blank" rel="noopener"
-              class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all">
-              View on GitHub
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
+              class="spot group grid items-baseline gap-2 rounded-2xl border-b border-fg/10 px-4 py-7 sm:px-6 md:grid-cols-12 md:gap-6">
+              <span class="font-mono text-xs text-muted tnum md:col-span-1">02</span>
+              <h3 class="text-2xl font-semibold tracking-tight text-fg transition-transform duration-500 group-hover:translate-x-1 md:col-span-4">SpotBee</h3>
+              <p class="text-[15px] text-fg/65 md:col-span-5">Paste a Spotify playlist, get a YouTube link for every track.</p>
+              <span class="flex items-center justify-between gap-3 font-mono text-xs text-muted md:col-span-2 md:justify-end">Python · 2021
+                <span class="text-fg transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">↗</span></span>
             </a>
-          </article>
-
-          <!-- DTown -->
-          <article class="group rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-6 hover:border-accent hover:-translate-y-1 transition-all flex flex-col">
-            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 11h18M5 11V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5M5 11v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-8"/>
-              </svg>
-            </div>
-            <h3 class="mt-5 text-lg font-bold text-zinc-900 dark:text-white">DTown Lounge &amp; Bistro</h3>
-            <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 flex-1">A clean, fast single-page website built for a local lounge &amp; bistro.</p>
-            <ul class="mt-4 flex flex-wrap gap-2">
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">HTML</li>
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">CSS</li>
-              <li class="px-2.5 py-0.5 rounded-md bg-zinc-100 dark:bg-white/5 text-[11px] font-medium">Live</li>
-            </ul>
+          </li>
+          <li data-reveal>
+            <a href="https://github.com/thenishantsapkota/CCMS" target="_blank" rel="noopener"
+              class="spot group grid items-baseline gap-2 rounded-2xl border-b border-fg/10 px-4 py-7 sm:px-6 md:grid-cols-12 md:gap-6">
+              <span class="font-mono text-xs text-muted tnum md:col-span-1">03</span>
+              <h3 class="text-2xl font-semibold tracking-tight text-fg transition-transform duration-500 group-hover:translate-x-1 md:col-span-4">Character Certificate Manager</h3>
+              <p class="text-[15px] text-fg/65 md:col-span-5">Issue, track and verify character certificates for schools and colleges.</p>
+              <span class="flex items-center justify-between gap-3 font-mono text-xs text-muted md:col-span-2 md:justify-end">Django · 2022
+                <span class="text-fg transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">↗</span></span>
+            </a>
+          </li>
+          <li data-reveal>
+            <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener"
+              class="spot group grid items-baseline gap-2 rounded-2xl border-b border-fg/10 px-4 py-7 sm:px-6 md:grid-cols-12 md:gap-6">
+              <span class="font-mono text-xs text-muted tnum md:col-span-1">04</span>
+              <h3 class="text-2xl font-semibold tracking-tight text-fg transition-transform duration-500 group-hover:translate-x-1 md:col-span-4">PU Result → JSON</h3>
+              <p class="text-[15px] text-fg/65 md:col-span-5">Parses Pokhara University result PDFs into structured JSON.</p>
+              <span class="flex items-center justify-between gap-3 font-mono text-xs text-muted md:col-span-2 md:justify-end">Python · 2022
+                <span class="text-fg transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">↗</span></span>
+            </a>
+          </li>
+          <li data-reveal>
+            <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener"
+              class="spot group grid items-baseline gap-2 rounded-2xl border-b border-fg/10 px-4 py-7 sm:px-6 md:grid-cols-12 md:gap-6">
+              <span class="font-mono text-xs text-muted tnum md:col-span-1">05</span>
+              <h3 class="text-2xl font-semibold tracking-tight text-fg transition-transform duration-500 group-hover:translate-x-1 md:col-span-4">PyBlogger</h3>
+              <p class="text-[15px] text-fg/65 md:col-span-5">A small Django blog with post management and a clean reading view.</p>
+              <span class="flex items-center justify-between gap-3 font-mono text-xs text-muted md:col-span-2 md:justify-end">Django · 2022
+                <span class="text-fg transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">↗</span></span>
+            </a>
+          </li>
+          <li data-reveal>
+            <a href="https://github.com/thenishantsapkota" target="_blank" rel="noopener"
+              class="spot group grid items-baseline gap-2 rounded-2xl border-b border-fg/10 px-4 py-7 sm:px-6 md:grid-cols-12 md:gap-6">
+              <span class="font-mono text-xs text-muted tnum md:col-span-1">06</span>
+              <h3 class="text-2xl font-semibold tracking-tight text-fg transition-transform duration-500 group-hover:translate-x-1 md:col-span-4">JobSeeker</h3>
+              <p class="text-[15px] text-fg/65 md:col-span-5">Job portal matching applicants with openings.</p>
+              <span class="flex items-center justify-between gap-3 font-mono text-xs text-muted md:col-span-2 md:justify-end">Django · 2022
+                <span class="text-fg transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">↗</span></span>
+            </a>
+          </li>
+          <li data-reveal>
             <a href="https://dtownbistro.com.np" target="_blank" rel="noopener"
-              class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all">
-              Visit website
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M7 7h10v10"/></svg>
+              class="spot group grid items-baseline gap-2 rounded-2xl border-b border-fg/10 px-4 py-7 sm:px-6 md:grid-cols-12 md:gap-6">
+              <span class="font-mono text-xs text-muted tnum md:col-span-1">07</span>
+              <h3 class="text-2xl font-semibold tracking-tight text-fg transition-transform duration-500 group-hover:translate-x-1 md:col-span-4">DTown Lounge &amp; Bistro</h3>
+              <p class="text-[15px] text-fg/65 md:col-span-5">Single-page site for a local lounge. Live.</p>
+              <span class="flex items-center justify-between gap-3 font-mono text-xs text-muted md:col-span-2 md:justify-end">HTML/CSS · live
+                <span class="text-fg transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">↗</span></span>
             </a>
-          </article>
-        </div>
+          </li>
+        </ul>
       </div>
     </section>
 
+    </div>
+
     <!--==================== CONTACT ====================-->
-    <section id="contact" class="py-24" aria-labelledby="contact-heading">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="text-sm font-mono text-accent tracking-widest uppercase">05 — Contact</p>
-          <h2 id="contact-heading" class="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
-            Let's build something
-          </h2>
-          <p class="mt-3 text-zinc-600 dark:text-zinc-400">Open to new roles, freelance, or a quick chat.</p>
-        </div>
+    <section id="contact" class="relative flex min-h-[90dvh] flex-col justify-center py-32" aria-labelledby="contact-heading">
+      <div class="mx-auto w-full max-w-7xl px-5 sm:px-8">
+        <p class="font-mono text-xs text-muted" data-reveal>(05) contact</p>
+        <h2 id="contact-heading" data-reveal data-px="-0.08" style="--d:.05s"
+          class="mt-4 max-w-[16ch] text-[clamp(2.75rem,8vw,7rem)] font-semibold leading-[.92] tracking-[-0.05em] text-fg">
+          Got a product that needs <span class="font-serif font-normal italic text-accent">care?</span>
+        </h2>
+        <p class="mt-12 max-w-[48ch] text-lg text-fg/70" data-reveal style="--d:.1s">Open to full-time roles, contract work and the odd interesting side project. I usually reply within a day.</p>
 
-        <div class="grid md:grid-cols-3 gap-4 mb-10">
-          <a href="tel:+9779801615642"
-            class="group flex items-center gap-4 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-5 hover:border-accent transition">
-            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="text-xs text-zinc-500 dark:text-zinc-500">Phone</p>
-              <p class="text-sm font-semibold text-zinc-900 dark:text-white">+977 980 161 5642</p>
-            </div>
-          </a>
-
-          <a href="mailto:hello@snishant.com.np"
-            class="group flex items-center gap-4 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-5 hover:border-accent transition">
-            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-white transition">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="5" width="18" height="14" rx="2"/>
-                <path d="m3 7 9 6 9-6"/>
-              </svg>
-            </div>
-            <div>
-              <p class="text-xs text-zinc-500 dark:text-zinc-500">Email</p>
-              <p class="text-sm font-semibold text-zinc-900 dark:text-white">hello@snishant.com.np</p>
-            </div>
-          </a>
-
-          <div class="flex items-center gap-4 rounded-2xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-5">
-            <div class="h-11 w-11 rounded-xl bg-accent/10 text-accent flex items-center justify-center">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-            <div>
-              <p class="text-xs text-zinc-500 dark:text-zinc-500">Location</p>
-              <p class="text-sm font-semibold text-zinc-900 dark:text-white">Damak, Jhapa, Nepal</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="rounded-3xl border border-zinc-200 dark:border-white/10 bg-white dark:bg-white/[0.02] p-8 sm:p-12 text-center relative overflow-hidden">
-          <div class="absolute inset-0 -z-0 bg-accent-radial opacity-10 blur-2xl"></div>
-          <h3 class="relative text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">Have a project in mind?</h3>
-          <p class="relative mt-2 text-zinc-600 dark:text-zinc-400">Drop a line — I'll get back within a day.</p>
+        <div class="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center" data-reveal style="--d:.15s">
           <a href="mailto:hello@snishant.com.np?subject=Hello%20Nishant"
-            class="relative mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent-gradient text-white font-semibold shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 transition-all">
-            Send a message
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7"/>
-            </svg>
+            class="group inline-flex items-center gap-3 text-[clamp(1.4rem,3.4vw,2.5rem)] font-medium tracking-tight text-fg underline decoration-fg/20 underline-offset-8 transition hover:decoration-accent">
+            hello@snishant.com.np
           </a>
+          <button id="copy-email" type="button" data-email="hello@snishant.com.np"
+            class="w-fit rounded-full border border-fg/15 px-4 py-2 font-mono text-xs text-muted transition hover:border-fg/40 hover:text-fg active:scale-95">
+            <span>copy</span>
+          </button>
         </div>
+
+        <dl class="mt-16 grid gap-6 border-t border-fg/10 pt-8 font-mono text-xs sm:grid-cols-3" data-reveal style="--d:.2s">
+          <div><dt class="text-muted">phone</dt><dd class="mt-2 text-sm text-fg"><a href="tel:+9779801615642" class="hover:text-accent transition tnum">+977 980 161 5642</a></dd></div>
+          <div><dt class="text-muted">based in</dt><dd class="mt-2 text-sm text-fg">Damak, Jhapa · <span class="js-clock tnum">--:--</span></dd></div>
+          <div><dt class="text-muted">elsewhere</dt>
+            <dd class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-fg">
+              <a href="https://github.com/thenishantsapkota" target="_blank" rel="me noopener" class="hover:text-accent transition">GitHub</a>
+              <a href="https://www.linkedin.com/in/nishant-sapkota-960a3b14b/" target="_blank" rel="me noopener" class="hover:text-accent transition">LinkedIn</a>
+              <a href="https://twitter.com/snishant306" target="_blank" rel="me noopener" class="hover:text-accent transition">X</a>
+              <a href="https://instagram.com/thenishantsapkota" target="_blank" rel="me noopener" class="hover:text-accent transition">Instagram</a>
+            </dd>
+          </div>
+        </dl>
       </div>
     </section>
   </main>
 
   <!--==================== FOOTER ====================-->
-  <footer class="border-t border-zinc-200 dark:border-white/5 py-10">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="text-sm text-zinc-500 dark:text-zinc-500 text-center sm:text-left">
-        <p>
-          &copy; <span id="year">2026</span> Nishant Sapkota · Built with Tailwind CSS · Hue rotates daily 🎨
-        </p>
-        <p class="mt-1.5 font-mono text-[10px] tracking-[0.35em] text-zinc-400/50 dark:text-zinc-600/60 hover:text-accent dark:hover:text-accent transition-colors cursor-default select-none"
-           title="A wild cheat code appears…">
-          ↑↑↓↓←→←→ba
-        </p>
-      </div>
-      <ul class="flex items-center gap-3" aria-label="Social links">
-        <li><a href="https://github.com/thenishantsapkota" target="_blank" rel="me noopener" class="text-zinc-500 hover:text-accent transition" aria-label="GitHub"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.26 5.69.41.36.78 1.05.78 2.12v3.14c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg></a></li>
-        <li><a href="https://www.linkedin.com/in/nishant-sapkota-960a3b14b/" target="_blank" rel="me noopener" class="text-zinc-500 hover:text-accent transition" aria-label="LinkedIn"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a></li>
-        <li><a href="https://twitter.com/snishant306" target="_blank" rel="me noopener" class="text-zinc-500 hover:text-accent transition" aria-label="Twitter"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li>
-        <li><a href="https://instagram.com/thenishantsapkota" target="_blank" rel="me noopener" class="text-zinc-500 hover:text-accent transition" aria-label="Instagram"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></li>
-      </ul>
+  <footer class="border-t border-fg/10 bg-bg">
+    <div class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-8 font-mono text-[11px] text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8">
+      <p>© <span id="year">2026</span> Nishant Sapkota · accent hue changes every day (today: <span id="hue-val" class="text-accent tnum">—</span>°)</p>
+      <p class="tracking-[0.35em] text-muted/50 transition-colors hover:text-accent cursor-default select-none" title="A wild cheat code appears…">↑↑↓↓←→←→ba</p>
     </div>
   </footer>
 
-  <!-- Scroll up -->
-  <a href="#home" id="scroll-up" aria-label="Scroll to top"
-    class="fixed bottom-6 right-6 z-40 h-11 w-11 rounded-full bg-accent-gradient text-white shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 transition-all opacity-0 pointer-events-none flex items-center justify-center">
-    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 19V5M5 12l7-7 7 7"/>
-    </svg>
-  </a>
-
   <!--==================== INLINE SCRIPT ====================-->
   <script>
-    // Theme: default dark; restore stored preference
     (function () {
-      const stored = localStorage.getItem('theme');
-      if (stored === 'light') document.documentElement.classList.remove('dark');
-      else document.documentElement.classList.add('dark');
-    })();
+      const root = document.documentElement;
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    document.getElementById('theme-toggle').addEventListener('click', () => {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
+      // Theme
+      document.getElementById('theme-toggle').addEventListener('click', () => {
+        const isDark = root.classList.toggle('dark');
+        try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
+        window.dispatchEvent(new Event('themechange'));
+      });
 
-    // Mobile nav
-    const navToggle = document.getElementById('nav-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    navToggle.addEventListener('click', () => {
-      const open = !mobileMenu.hidden;
-      mobileMenu.hidden = open;
-      navToggle.setAttribute('aria-expanded', String(!open));
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      mobileMenu.hidden = true;
-      navToggle.setAttribute('aria-expanded', 'false');
-    }));
+      // Mobile nav
+      const navToggle = document.getElementById('nav-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      navToggle.addEventListener('click', () => {
+        const open = !mobileMenu.hidden;
+        mobileMenu.hidden = open;
+        navToggle.setAttribute('aria-expanded', String(!open));
+        navToggle.textContent = open ? 'Menu' : 'Close';
+      });
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        mobileMenu.hidden = true;
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.textContent = 'Menu';
+      }));
 
-    // Tabs
-    const tabs = document.querySelectorAll('.js-tab');
-    const panels = document.querySelectorAll('.js-tab-panel');
-    tabs.forEach(t => t.addEventListener('click', () => {
-      tabs.forEach(x => { x.dataset.active = 'false'; x.setAttribute('aria-selected', 'false'); });
-      panels.forEach(p => p.classList.add('hidden'));
-      t.dataset.active = 'true';
-      t.setAttribute('aria-selected', 'true');
-      document.getElementById(t.dataset.target).classList.remove('hidden');
-    }));
+      // Year + hue label
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const hue = (parseInt(getComputedStyle(root).getPropertyValue('--hue-color'), 10) || 330) % 360;
+      document.getElementById('hue-val').textContent = hue;
 
-    // Scroll-up + header shadow
-    const scrollUp = document.getElementById('scroll-up');
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        scrollUp.classList.remove('opacity-0', 'pointer-events-none');
+      // Local time in Nepal
+      const fmt = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Kathmandu' });
+      const clocks = document.querySelectorAll('.js-clock');
+      const tickClock = () => { const t = fmt.format(new Date()); clocks.forEach(c => c.textContent = t); };
+      tickClock(); setInterval(tickClock, 15000);
+
+      // Split hero tagline into words for a staggered blur-in
+      document.querySelectorAll('[data-words]').forEach(el => {
+        let i = 0;
+        const wrap = (node) => {
+          [...node.childNodes].forEach(child => {
+            if (child.nodeType === 3) {
+              const frag = document.createDocumentFragment();
+              child.textContent.split(/(\s+)/).forEach(part => {
+                if (!part) return;
+                if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+                const s = document.createElement('span');
+                s.className = 'w'; s.textContent = part;
+                s.style.transitionDelay = (0.25 + i++ * 0.045) + 's';
+                frag.appendChild(s);
+              });
+              child.replaceWith(frag);
+            } else if (child.nodeType === 1) wrap(child);
+          });
+        };
+        wrap(el);
+      });
+
+      // Reveal on scroll
+      const revealables = document.querySelectorAll('[data-reveal], [data-words]');
+      if ('IntersectionObserver' in window && !reduce) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        revealables.forEach(el => io.observe(el));
       } else {
-        scrollUp.classList.add('opacity-0', 'pointer-events-none');
+        revealables.forEach(el => el.classList.add('is-in'));
       }
-      if (window.scrollY > 20) {
-        header.classList.add('shadow-sm');
-      } else {
-        header.classList.remove('shadow-sm');
+
+      // Active section in nav
+      const links = [...document.querySelectorAll('.nav-link')];
+      if ('IntersectionObserver' in window) {
+        const so = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            links.forEach(l => l.setAttribute('aria-current', String(l.getAttribute('href') === '#' + e.target.id)));
+          });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        document.querySelectorAll('main section[id]').forEach(s => so.observe(s));
       }
-    }, { passive: true });
 
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+      // Spotlight follow
+      document.querySelectorAll('.spot').forEach(el => {
+        el.addEventListener('pointermove', (e) => {
+          const r = el.getBoundingClientRect();
+          el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+          el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+        });
+      });
 
-    // Hue helper
-    function getHue() {
-      const v = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hue-color'), 10);
-      return Number.isFinite(v) ? v : 330;
-    }
+      // Portrait tilt
+      if (!reduce) document.querySelectorAll('.js-tilt').forEach(el => {
+        el.addEventListener('pointermove', (e) => {
+          const r = el.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+          el.style.setProperty('--ry', (x * 10) + 'deg');
+          el.style.setProperty('--rx', (-y * 10) + 'deg');
+        });
+        el.addEventListener('pointerleave', () => { el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); });
+      });
 
-    // Typewriter
-    (function () {
-      const target = document.getElementById('typewriter');
-      if (!target) return;
-      const phrases = [
-        'TypeScript Developer',
-        'Backend Engineer',
-        'Express.js Developer',
-        'NestJS Developer',
-        'React.js Developer',
-      ];
-      const TYPE = 70, DEL = 35, HOLD = 1500, PAUSE = 400;
-      let pi = 0, ci = 0, deleting = false;
-
-      function tick() {
-        const phrase = phrases[pi];
-        if (!deleting) {
-          ci++;
-          target.textContent = phrase.slice(0, ci);
-          if (ci === phrase.length) {
-            deleting = true;
-            return setTimeout(tick, HOLD);
+      // Parallax: one rAF-coalesced scroll pass, transform-only, skipped off-screen
+      const pxEls = [...document.querySelectorAll('[data-px], [data-px-x]')];
+      if (!reduce && pxEls.length) {
+        const desktop = matchMedia('(min-width: 768px)');
+        let ticking = false;
+        const update = () => {
+          ticking = false;
+          const vh = window.innerHeight, mid = vh / 2, strength = desktop.matches ? 1 : 0.5;
+          for (const el of pxEls) {
+            const r = el.getBoundingClientRect();
+            const ty = parseFloat(el.style.translate ? el.style.translate.split(' ')[1] || 0 : 0) || 0;
+            const top = r.top - ty;
+            if (top > vh * 1.5 || top + r.height < -vh * 0.5) continue;
+            const delta = el.hasAttribute('data-px-scroll') ? -window.scrollY : (top + r.height / 2 - mid) * strength;
+            if (el.dataset.pxX) {
+              el.style.translate = (delta * parseFloat(el.dataset.pxX)).toFixed(1) + 'px 0';
+            } else {
+              el.style.translate = '0 ' + (delta * parseFloat(el.dataset.px)).toFixed(1) + 'px';
+            }
+            if (el.hasAttribute('data-fade')) el.style.opacity = Math.max(0, 1 - window.scrollY / (vh * 0.8)).toFixed(3);
           }
-          return setTimeout(tick, TYPE);
-        } else {
-          ci--;
-          target.textContent = phrase.slice(0, ci);
-          if (ci === 0) {
-            deleting = false;
-            pi = (pi + 1) % phrases.length;
-            return setTimeout(tick, PAUSE);
-          }
-          return setTimeout(tick, DEL);
+        };
+        const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
+        update();
+      }
+
+      // Copy email
+      const copyBtn = document.getElementById('copy-email');
+      copyBtn.addEventListener('click', async () => {
+        const label = copyBtn.querySelector('span');
+        try {
+          await navigator.clipboard.writeText(copyBtn.dataset.email);
+          label.textContent = 'copied';
+        } catch (e) {
+          label.textContent = 'press ⌘C';
         }
-      }
-      target.textContent = '';
-      tick();
+        setTimeout(() => { label.textContent = 'copy'; }, 1800);
+      });
     })();
   </script>
 
-  <!--==================== KONAMI GAME OVERLAY ====================-->
-  <div id="game-overlay" role="dialog" aria-modal="true" aria-labelledby="game-title"
-    class="hidden fixed inset-0 z-[200] bg-black/85 backdrop-blur-md items-center justify-center p-4">
-    <div class="w-full max-w-3xl rounded-3xl border border-accent/40 bg-zinc-950 shadow-glow-lg overflow-hidden">
-
-      <!-- Header -->
-      <header class="flex items-center justify-between px-5 py-3 border-b border-white/10">
-        <div class="flex items-center gap-2">
-          <button id="game-back" type="button" aria-label="Back to menu" hidden
-            class="h-8 w-8 inline-flex items-center justify-center rounded-lg text-zinc-400 hover:text-accent hover:bg-white/5 transition">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-          <h2 id="game-title" class="text-sm font-mono text-accent tracking-widest uppercase">
-            🎮 Cheat code unlocked
-          </h2>
-        </div>
-        <button id="game-close" type="button" aria-label="Close"
-          class="h-8 w-8 inline-flex items-center justify-center rounded-lg text-zinc-400 hover:text-accent hover:bg-white/5 transition">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 6 6 18M6 6l12 12" />
-          </svg>
-        </button>
-      </header>
-
-      <!-- Chooser -->
-      <section id="view-chooser" class="p-6 sm:p-8">
-        <p class="text-zinc-300 mb-5 text-sm">Pick your poison.</p>
-        <div class="grid sm:grid-cols-2 gap-4">
-          <button data-game="dino" type="button"
-            class="group text-left p-6 rounded-2xl border border-white/10 hover:border-accent hover:-translate-y-0.5 transition-all bg-white/[0.02]">
-            <div class="text-3xl mb-3">🦖</div>
-            <h3 class="text-white font-bold text-lg">Dino Run</h3>
-            <p class="text-zinc-400 text-sm mt-1">Jump cacti, duck birds. Don't die.</p>
-            <p class="mt-4 text-xs font-mono text-accent inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-              Play
-              <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </p>
-          </button>
-          <button data-game="reaction" type="button"
-            class="group text-left p-6 rounded-2xl border border-white/10 hover:border-accent hover:-translate-y-0.5 transition-all bg-white/[0.02]">
-            <div class="text-3xl mb-3">⚡</div>
-            <h3 class="text-white font-bold text-lg">Reaction Time</h3>
-            <p class="text-zinc-400 text-sm mt-1">Wait for green. Click as fast as you can.</p>
-            <p class="mt-4 text-xs font-mono text-accent inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-              Play
-              <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </p>
-          </button>
-        </div>
-      </section>
-
-      <!-- Dino Run -->
-      <section id="view-dino" hidden>
-        <div class="relative">
-          <canvas id="dino-canvas" width="800" height="240" class="block w-full bg-zinc-950"></canvas>
-          <div id="dino-hud" class="absolute top-3 right-4 font-mono text-xs text-accent">
-            <span>HI <span id="dino-hi">00000</span></span>
-            <span class="ml-3">SCORE <span id="dino-score">00000</span></span>
-          </div>
-          <div id="dino-msg"
-            class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center pointer-events-none"></div>
-        </div>
-      </section>
-
-      <!-- Reaction Time -->
-      <section id="view-reaction" hidden>
-        <div id="reaction-stage"
-          class="aspect-[16/6] flex flex-col items-center justify-center cursor-pointer select-none transition-colors duration-150 px-6 bg-zinc-900 hover:bg-zinc-800">
-          <p id="reaction-msg" class="text-white text-2xl sm:text-3xl font-extrabold text-center">Click to start</p>
-          <p id="reaction-sub" class="mt-2 text-zinc-400 text-sm text-center">Wait for green, then click as fast as you can.</p>
-        </div>
-        <div class="px-5 py-3 flex items-center justify-between text-xs font-mono text-zinc-500 border-t border-white/10">
-          <span>Best: <span id="reaction-best" class="text-accent">— ms</span></span>
-          <span>Last: <span id="reaction-last" class="text-zinc-300">— ms</span></span>
-        </div>
-      </section>
-
-      <p class="px-5 py-3 text-[11px] font-mono text-zinc-500 border-t border-white/10">
-        Konami: ↑ ↑ ↓ ↓ ← → ← → B A · Esc to go back · close to exit
-      </p>
-    </div>
-  </div>
-
-  <!--==================== THREE.JS BACKGROUND ====================-->
+  <!--==================== THREE.JS RIDGELINE ====================-->
   <script type="module">
     import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 
-    const canvas = document.getElementById('three-bg');
-    if (canvas && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const reduceForMobile = window.innerWidth < 768;
-      const PARTICLE_COUNT = reduceForMobile ? 80 : 220;
+    const canvas = document.getElementById('ridge');
+    const root = document.documentElement;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const small = window.innerWidth < 768;
 
-      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
+    } catch (e) { canvas.remove(); }
+
+    if (renderer) {
+      let dpr = Math.min(window.devicePixelRatio, small ? 1.5 : 1.75);
+      renderer.setPixelRatio(dpr);
 
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(70, 1, 0.1, 100);
-      camera.position.z = 5;
+      const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 120);
 
-      const hueDeg = (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hue-color'), 10) || 330) % 360;
-      const accent = new THREE.Color().setHSL(hueDeg / 360, 0.82, 0.62);
+      // ---- Heightfield (CPU, so the HUD can read exact elevations) ----
+      const W = 40, D = 30, ZF = 7; // width, depth, front edge z
+      const NX = small ? 120 : 220, NZ = small ? 80 : 140;
 
-      // Particle cloud
-      const positions = new Float32Array(PARTICLE_COUNT * 3);
-      for (let i = 0; i < PARTICLE_COUNT; i++) {
-        positions[i * 3] = (Math.random() - 0.5) * 14;
-        positions[i * 3 + 1] = (Math.random() - 0.5) * 14;
-        positions[i * 3 + 2] = (Math.random() - 0.5) * 14;
+      function hash(x, y) {
+        const s = Math.sin(x * 127.1 + y * 311.7) * 43758.5453;
+        return s - Math.floor(s);
       }
-      const pgeo = new THREE.BufferGeometry();
-      pgeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-      const particles = new THREE.Points(
-        pgeo,
-        new THREE.PointsMaterial({ color: accent, size: 0.04, transparent: true, opacity: 0.7, sizeAttenuation: true })
-      );
-      scene.add(particles);
+      function vnoise(x, y) {
+        const ix = Math.floor(x), iy = Math.floor(y), fx = x - ix, fy = y - iy;
+        const ux = fx * fx * (3 - 2 * fx), uy = fy * fy * (3 - 2 * fy);
+        const a = hash(ix, iy), b = hash(ix + 1, iy), c = hash(ix, iy + 1), d = hash(ix + 1, iy + 1);
+        return a + (b - a) * ux + (c - a) * uy + (a - b - c + d) * ux * uy;
+      }
+      // Ridged fbm: sharp crests like the Himalaya
+      function ridged(x, y) {
+        let sum = 0, amp = 0.55, freq = 1, prev = 1;
+        for (let o = 0; o < 5; o++) {
+          let n = 1 - Math.abs(vnoise(x * freq, y * freq) * 2 - 1);
+          n = n * n;
+          sum += n * amp * prev;
+          prev = n;
+          freq *= 2.05; amp *= 0.5;
+        }
+        return sum;
+      }
+      function heightAt(x, z) {
+        // range rises toward the back (negative z) and leaves a valley up front
+        const zn = (ZF - z) / D; // 0 = front edge, 1 = far edge
+        const back = THREE.MathUtils.smoothstep(zn, 0.3, 0.8);
+        const h = ridged(x * 0.15 + 3.1, z * 0.15 + 7.7);
+        return Math.pow(h, 2.1) * (0.25 + back * 13.0);
+      }
 
-      // Resize handling
+      const count = NX * NZ;
+      const pos = new Float32Array(count * 3);
+      const hts = new Float32Array(count);
+      const seeds = new Float32Array(count);
+      let maxH = 0, k = 0;
+      for (let j = 0; j < NZ; j++) {
+        for (let i = 0; i < NX; i++) {
+          const x = (i / (NX - 1) - 0.5) * W;
+          const z = ZF - (j / (NZ - 1)) * D;
+          const h = heightAt(x, z);
+          pos[k * 3] = x; pos[k * 3 + 1] = 0; pos[k * 3 + 2] = z;
+          hts[k] = h; seeds[k] = Math.random();
+          if (h > maxH) maxH = h;
+          k++;
+        }
+      }
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      geo.setAttribute('aH', new THREE.BufferAttribute(hts, 1));
+      geo.setAttribute('aSeed', new THREE.BufferAttribute(seeds, 1));
+
+      const MAX_RIPPLES = 6;
+      const uniforms = {
+        uTime: { value: 0 },
+        uPR: { value: renderer.getPixelRatio() },
+        uSize: { value: small ? 30 : 36 },
+        uMaxH: { value: maxH },
+        uMouse: { value: new THREE.Vector3(999, 0, 999) },
+        uMouseAmt: { value: 0 },
+        uRipples: { value: Array.from({ length: MAX_RIPPLES }, () => new THREE.Vector4(0, 0, -100, 0)) },
+        uBase: { value: new THREE.Color() },
+        uAccent: { value: new THREE.Color() },
+        uSnow: { value: new THREE.Color() },
+        uOpacity: { value: 1 },
+      };
+
+      const mat = new THREE.ShaderMaterial({
+        uniforms,
+        transparent: true,
+        depthWrite: false,
+        vertexShader: /* glsl */`
+          attribute float aH;
+          attribute float aSeed;
+          uniform float uTime, uPR, uSize, uMaxH, uMouseAmt;
+          uniform vec3 uMouse;
+          uniform vec4 uRipples[${MAX_RIPPLES}];
+          varying float vGlow, vSnow, vFade;
+
+          void main() {
+            vec3 p = position;
+            p.y = aH;
+
+            // cursor: a soft swell that pushes the range upward
+            float dm = distance(p.xz, uMouse.xz);
+            float swell = exp(-dm * dm * 0.45) * uMouseAmt;
+            p.y += swell * 1.1;
+
+            // click tremors: expanding rings
+            float ring = 0.0;
+            for (int i = 0; i < ${MAX_RIPPLES}; i++) {
+              vec4 r = uRipples[i];
+              float t = uTime - r.z;
+              if (t < 0.0 || t > 4.0) continue;
+              float d = distance(p.xz, r.xy);
+              float front = t * 5.5;
+              float w = exp(-pow((d - front) * 1.6, 2.0)) * exp(-t * 0.9) * r.w;
+              ring += w;
+            }
+            p.y += ring * 0.75;
+
+            // the air moves a little
+            p.y += sin(p.x * 0.7 + uTime * 0.5 + aSeed * 6.2831) * 0.025;
+
+            vec4 mv = modelViewMatrix * vec4(p, 1.0);
+            gl_Position = projectionMatrix * mv;
+
+            float hn = aH / uMaxH;
+            vGlow = clamp(swell * 1.2 + ring * 1.4, 0.0, 1.0);
+            vSnow = smoothstep(0.25, 0.75, hn);
+            vFade = smoothstep(60.0, 22.0, -mv.z) * smoothstep(1.0, 4.5, -mv.z);
+            gl_PointSize = max(uSize * uPR * (0.35 + hn * 1.4 + vGlow * 1.6) / -mv.z, (1.4 + hn * 1.6) * uPR);
+          }
+        `,
+        fragmentShader: /* glsl */`
+          uniform vec3 uBase, uAccent, uSnow;
+          uniform float uOpacity;
+          varying float vGlow, vSnow, vFade;
+
+          void main() {
+            vec2 c = gl_PointCoord - 0.5;
+            float r = length(c);
+            if (r > 0.5) discard;
+            float soft = smoothstep(0.5, 0.1, r);
+            vec3 col = mix(uBase, uSnow, vSnow);
+            col = mix(col, uAccent, vGlow);
+            float a = soft * vFade * uOpacity * (0.32 + vSnow * 0.68 + vGlow * 0.6);
+            gl_FragColor = vec4(col, a);
+          }
+        `,
+      });
+
+      const points = new THREE.Points(geo, mat);
+      scene.add(points);
+
+      // ---- Theme-aware colours from CSS tokens ----
+      function readRGB(name) {
+        const v = getComputedStyle(root).getPropertyValue(name).trim().split(/\s+/).map(Number);
+        return new THREE.Color(v[0] / 255, v[1] / 255, v[2] / 255);
+      }
+      function applyTheme() {
+        const dark = root.classList.contains('dark');
+        const hue = ((parseInt(getComputedStyle(root).getPropertyValue('--hue-color'), 10) || 330) % 360) / 360;
+        const fg = readRGB('--fg'), muted = readRGB('--muted');
+        uniforms.uBase.value.copy(muted);
+        uniforms.uSnow.value.copy(fg);
+        uniforms.uAccent.value.setHSL(hue, dark ? 0.7 : 0.6, dark ? 0.66 : 0.42);
+        mat.blending = dark ? THREE.AdditiveBlending : THREE.NormalBlending;
+        mat.needsUpdate = true;
+      }
+      applyTheme();
+      window.addEventListener('themechange', applyTheme);
+
+      // ---- Sizing ----
       function resize() {
         const w = canvas.clientWidth, h = canvas.clientHeight;
         renderer.setSize(w, h, false);
         camera.aspect = w / h;
+        camera.fov = w < 768 ? 62 : 50;
         camera.updateProjectionMatrix();
       }
       resize();
       window.addEventListener('resize', resize, { passive: true });
 
-      // Mouse interaction
-      let mouseX = 0, mouseY = 0;
-      window.addEventListener('mousemove', (e) => {
-        mouseX = (e.clientX / window.innerWidth) - 0.5;
-        mouseY = (e.clientY / window.innerHeight) - 0.5;
+      // ---- Pointer → terrain ----
+      const ndc = new THREE.Vector2();
+      const ray = new THREE.Raycaster();
+      const ground = new THREE.Plane(new THREE.Vector3(0, 1, 0), -0.6);
+      const hit = new THREE.Vector3();
+      const mouseTarget = new THREE.Vector3(999, 0, 999);
+      let mouseActive = 0, parX = 0, parY = 0;
+
+      const elevEl = document.getElementById('hud-elev');
+      const coordEl = document.getElementById('hud-coord');
+
+      function project(clientX, clientY) {
+        const r = canvas.getBoundingClientRect();
+        ndc.set(((clientX - r.left) / r.width) * 2 - 1, -((clientY - r.top) / r.height) * 2 + 1);
+        ray.setFromCamera(ndc, camera);
+        return ray.ray.intersectPlane(ground, hit);
+      }
+
+      window.addEventListener('pointermove', (e) => {
+        parX = e.clientX / window.innerWidth - 0.5;
+        parY = e.clientY / window.innerHeight - 0.5;
+        if (project(e.clientX, e.clientY) && Math.abs(hit.x) < W / 2 && hit.z < ZF && hit.z > ZF - D) {
+          mouseTarget.copy(hit);
+          mouseActive = 1;
+          // fake-but-consistent survey readout: map terrain onto the Khumbu region
+          const h = heightAt(hit.x, hit.z);
+          if (elevEl) elevEl.textContent = String(Math.round(1200 + (h / maxH) * 7600)).padStart(4, '0');
+          if (coordEl) {
+            const lat = 27.98 - (hit.z + 8) * 0.03, lon = 86.92 + hit.x * 0.03;
+            coordEl.textContent = lat.toFixed(2) + '°N ' + lon.toFixed(2) + '°E';
+          }
+        } else {
+          mouseActive = 0;
+        }
+      }, { passive: true });
+      window.addEventListener('pointerleave', () => { mouseActive = 0; });
+      document.addEventListener('mouseleave', () => { mouseActive = 0; });
+
+      let rippleIdx = 0;
+      const clock = new THREE.Clock();
+      window.addEventListener('pointerdown', (e) => {
+        if (e.target.closest('a, button, input, textarea, [role="dialog"], .spot, figure')) return;
+        if (!project(e.clientX, e.clientY)) return;
+        uniforms.uRipples.value[rippleIdx].set(hit.x, hit.z, clock.getElapsedTime(), 1);
+        rippleIdx = (rippleIdx + 1) % MAX_RIPPLES;
+        if (reduce) renderOnce();
       }, { passive: true });
 
-      // Pause when tab hidden
-      let running = true;
-      document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) animate(); });
+      // ---- Scroll-driven flight ----
+      let scrollP = 0;
+      function readScroll() {
+        const vh = window.innerHeight;
+        scrollP = Math.min(window.scrollY / Math.max(document.body.scrollHeight - vh, 1), 1);
+        const end = THREE.MathUtils.smoothstep(scrollP, 0.82, 1.0);
+        uniforms.uOpacity.value = THREE.MathUtils.lerp(1, 0.6, Math.min(window.scrollY / vh, 1)) + end * 0.4;
+      }
+      readScroll();
+      window.addEventListener('scroll', readScroll, { passive: true });
 
-      function animate() {
-        if (!running) return;
-        requestAnimationFrame(animate);
-        particles.rotation.y += (mouseX * 0.3 - particles.rotation.y) * 0.02 + 0.0008;
-        particles.rotation.x += (mouseY * 0.2 - particles.rotation.x) * 0.02 + 0.0004;
+      const camPos = new THREE.Vector3(), look = new THREE.Vector3();
+      let smoothP = scrollP;
+
+      function frame() {
+        const t = clock.getElapsedTime();
+        uniforms.uTime.value = t;
+
+        // ease the swell in/out and chase the cursor
+        uniforms.uMouseAmt.value += (mouseActive - uniforms.uMouseAmt.value) * 0.06;
+        uniforms.uMouse.value.lerp(mouseTarget, 0.12);
+
+        smoothP += (scrollP - smoothP) * 0.06;
+        // start low in the valley, climb over the ridge, end looking down the range
+        const p = smoothP;
+        camPos.set(
+          Math.sin(p * Math.PI * 1.2) * 3.2 + parX * 0.8,
+          1.6 + p * 5.5 - parY * 0.4,
+          8.5 - p * 9.0
+        );
+        look.set(Math.sin(p * Math.PI) * 1.5, 2.2 - p * 2.0, -8 - p * 4);
+        camera.position.lerp(camPos, 0.08);
+        camera.lookAt(look);
+
         renderer.render(scene, camera);
       }
-      animate();
+
+      function renderOnce() {
+        camera.position.set(0, 1.6, 8.5);
+        camera.lookAt(0, 2.2, -8);
+        uniforms.uTime.value = clock.getElapsedTime();
+        renderer.render(scene, camera);
+      }
+
+      if (reduce) {
+        renderOnce();
+        window.addEventListener('themechange', renderOnce);
+        window.addEventListener('resize', renderOnce, { passive: true });
+      } else {
+        camera.position.set(0, 1.6, 8.5);
+        let raf = 0, running = false, visible = true;
+        let slow = 0, last = performance.now();
+
+        const loop = () => {
+          const now = performance.now(), dt = now - last; last = now;
+          // if frames keep running long, drop resolution once instead of stuttering
+          if (dt > 24 && dt < 200) slow++; else slow = Math.max(0, slow - 1);
+          if (slow > 45 && dpr > 1) { dpr = 1; renderer.setPixelRatio(dpr); uniforms.uPR.value = dpr; resize(); slow = 0; }
+          frame();
+          raf = requestAnimationFrame(loop);
+        };
+        const start = () => { if (running || !visible || document.hidden) return; running = true; last = performance.now(); loop(); };
+        const stop = () => { running = false; cancelAnimationFrame(raf); };
+
+        // the opaque content sheet hides the canvas mid-page: stop drawing while it covers the screen
+        const sheet = document.getElementById('sheet');
+        if (sheet && 'IntersectionObserver' in window) {
+          new IntersectionObserver(([e]) => {
+            const covered = e.intersectionRect.height >= window.innerHeight - 2;
+            visible = !covered;
+            visible ? start() : stop();
+          }, { threshold: Array.from({ length: 21 }, (_, i) => i / 20) }).observe(sheet);
+        }
+        document.addEventListener('visibilitychange', () => { document.hidden ? stop() : start(); });
+        start();
+      }
     }
   </script>
+
+  <!--==================== KONAMI GAME OVERLAY ====================-->
+  <div id="game-overlay" role="dialog" aria-modal="true" aria-labelledby="game-title"
+    class="hidden fixed inset-0 z-[200] bg-black/90 items-center justify-center p-4">
+    <div class="w-full max-w-3xl overflow-hidden rounded-3xl border border-white/10 bg-[#0b0b0a] text-zinc-300">
+      <header class="flex items-center justify-between border-b border-white/10 px-5 py-3">
+        <div class="flex items-center gap-2">
+          <button id="game-back" type="button" aria-label="Back to menu" hidden
+            class="inline-flex h-8 w-8 items-center justify-center rounded-lg text-zinc-400 transition hover:bg-white/5 hover:text-white">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+          </button>
+          <h2 id="game-title" class="font-mono text-xs text-white">🎮 Cheat code unlocked</h2>
+        </div>
+        <button id="game-close" type="button" aria-label="Close"
+          class="inline-flex h-8 w-8 items-center justify-center rounded-lg text-zinc-400 transition hover:bg-white/5 hover:text-white">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
+        </button>
+      </header>
+
+      <section id="view-chooser" class="p-6 sm:p-8">
+        <p class="mb-5 font-serif text-2xl italic text-white">Pick your poison.</p>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <button data-game="dino" type="button"
+            class="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-left transition hover:-translate-y-0.5 hover:border-white/30 active:scale-[.98]">
+            <div class="mb-3 text-3xl">🦖</div>
+            <h3 class="text-lg font-semibold text-white">Dino Run</h3>
+            <p class="mt-1 text-sm text-zinc-400">Jump cacti, duck birds. Don't die.</p>
+            <p class="mt-4 font-mono text-xs text-accent">play →</p>
+          </button>
+          <button data-game="reaction" type="button"
+            class="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-left transition hover:-translate-y-0.5 hover:border-white/30 active:scale-[.98]">
+            <div class="mb-3 text-3xl">⚡</div>
+            <h3 class="text-lg font-semibold text-white">Reaction Time</h3>
+            <p class="mt-1 text-sm text-zinc-400">Wait for green. Click as fast as you can.</p>
+            <p class="mt-4 font-mono text-xs text-accent">play →</p>
+          </button>
+        </div>
+      </section>
+
+      <section id="view-dino" hidden>
+        <div class="relative">
+          <canvas id="dino-canvas" width="800" height="240" class="block w-full bg-[#0b0b0a]"></canvas>
+          <div id="dino-hud" class="absolute right-4 top-3 font-mono text-xs text-accent">
+            <span>HI <span id="dino-hi">00000</span></span>
+            <span class="ml-3">SCORE <span id="dino-score">00000</span></span>
+          </div>
+          <div id="dino-msg" class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-2 text-center"></div>
+        </div>
+      </section>
+
+      <section id="view-reaction" hidden>
+        <div id="reaction-stage"
+          class="aspect-[16/6] flex flex-col items-center justify-center cursor-pointer select-none transition-colors duration-150 px-6 bg-zinc-900 hover:bg-zinc-800">
+          <p id="reaction-msg" class="text-center text-2xl font-extrabold text-white sm:text-3xl">Click to start</p>
+          <p id="reaction-sub" class="mt-2 text-center text-sm text-zinc-400">Wait for green, then click as fast as you can.</p>
+        </div>
+        <div class="flex items-center justify-between border-t border-white/10 px-5 py-3 font-mono text-xs text-zinc-500">
+          <span>Best: <span id="reaction-best" class="text-accent">— ms</span></span>
+          <span>Last: <span id="reaction-last" class="text-zinc-300">— ms</span></span>
+        </div>
+      </section>
+
+      <p class="border-t border-white/10 px-5 py-3 font-mono text-[11px] text-zinc-500">
+        Konami: ↑ ↑ ↓ ↓ ← → ← → B A · Esc to go back · close to exit
+      </p>
+    </div>
+  </div>
 
   <!--
     psst — there's a classic cheat code hiding on this page.
