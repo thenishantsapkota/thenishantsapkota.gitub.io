@@ -446,7 +446,8 @@ async function start() {
     return new THREE.Vector3(r * Math.cos(p) * Math.sin(l), r * Math.sin(p), r * Math.cos(p) * Math.cos(l));
   };
 
-  const occluder = new THREE.Mesh(new THREE.SphereGeometry(GLOBE.r * 0.985, 48, 32), new THREE.MeshBasicMaterial({ fog: false }));
+  const occluder = new THREE.Mesh(new THREE.SphereGeometry(GLOBE.r * 0.985, 48, 32), new THREE.MeshBasicMaterial({ fog: false, transparent: true }));
+  occluder.renderOrder = -1; // draw first so it hides the far side of the dots
   globeSpin.add(occluder);
 
   // land dots from a small water/land mask
@@ -471,7 +472,7 @@ async function start() {
     }
   }
   const landGeo = new THREE.BufferGeometry().setFromPoints(landPts);
-  const gU = { uColor: { value: new THREE.Color() }, uPR: { value: dpr }, uSize: { value: mobile ? 34 : 40 } };
+  const gU = { uColor: { value: new THREE.Color() }, uPR: { value: dpr }, uSize: { value: mobile ? 34 : 40 }, uOpacity: { value: 1 } };
   const landMat = new THREE.ShaderMaterial({
     uniforms: gU, transparent: true, depthWrite: false,
     vertexShader: /* glsl */`
@@ -483,11 +484,11 @@ async function start() {
         gl_PointSize = uSize * uPR / -mv.z;
       }`,
     fragmentShader: /* glsl */`
-      uniform vec3 uColor; varying float vFacing;
+      uniform vec3 uColor; uniform float uOpacity; varying float vFacing;
       void main() {
         float r = length(gl_PointCoord - 0.5);
         if (r > 0.5) discard;
-        gl_FragColor = vec4(uColor, smoothstep(0.5, 0.15, r) * smoothstep(-0.1, 0.45, vFacing) * 0.9);
+        gl_FragColor = vec4(uColor, smoothstep(0.5, 0.15, r) * smoothstep(-0.1, 0.45, vFacing) * 0.9 * uOpacity);
       }`,
   });
   globeSpin.add(new THREE.Points(landGeo, landMat));
@@ -499,7 +500,7 @@ async function start() {
 
   // pin + pulse on Damak
   const damak = ll(...PLACES.damak, GLOBE.r);
-  const pin = new THREE.Mesh(new THREE.SphereGeometry(0.06, 16, 12), new THREE.MeshBasicMaterial({ fog: false }));
+  const pin = new THREE.Mesh(new THREE.SphereGeometry(0.06, 16, 12), new THREE.MeshBasicMaterial({ fog: false, transparent: true }));
   pin.position.copy(damak).multiplyScalar(1.005);
   globeSpin.add(pin);
   const pulse = new THREE.Mesh(new THREE.RingGeometry(0.07, 0.1, 48), new THREE.MeshBasicMaterial({ transparent: true, side: THREE.DoubleSide, fog: false, depthWrite: false }));
@@ -508,17 +509,17 @@ async function start() {
   globeSpin.add(pulse);
 
   // arcs to where the teams were
-  const arcU = { uTime: { value: 0 }, uColor: { value: new THREE.Color() } };
+  const arcU = { uTime: { value: 0 }, uColor: { value: new THREE.Color() }, uOpacity: { value: 1 } };
   const arcMat = new THREE.ShaderMaterial({
     uniforms: arcU, transparent: true, depthWrite: false,
     vertexShader: /* glsl */`
       attribute float aT; attribute float aOff; varying float vT; varying float vOff;
       void main() { vT = aT; vOff = aOff; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
     fragmentShader: /* glsl */`
-      uniform float uTime; uniform vec3 uColor; varying float vT; varying float vOff;
+      uniform float uTime, uOpacity; uniform vec3 uColor; varying float vT; varying float vOff;
       void main() {
         float head = fract(vT - uTime * 0.35 + vOff);
-        gl_FragColor = vec4(uColor, 0.22 + 0.78 * smoothstep(0.82, 1.0, head));
+        gl_FragColor = vec4(uColor, (0.22 + 0.78 * smoothstep(0.82, 1.0, head)) * uOpacity);
       }`,
   });
   const endDots = [];
@@ -531,7 +532,7 @@ async function start() {
     g.setAttribute('aT', new THREE.BufferAttribute(new Float32Array(pts.map((_, i) => i / (pts.length - 1))), 1));
     g.setAttribute('aOff', new THREE.BufferAttribute(new Float32Array(pts.length).fill(k * 0.33), 1));
     globeSpin.add(new THREE.Line(g, arcMat));
-    const dot = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 10), new THREE.MeshBasicMaterial({ fog: false }));
+    const dot = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 10), new THREE.MeshBasicMaterial({ fog: false, transparent: true }));
     dot.position.copy(end).multiplyScalar(1.004);
     globeSpin.add(dot);
     endDots.push(dot);
@@ -605,9 +606,9 @@ async function start() {
       m.position.set(workX(i), WORK.y, WORK.z0 - i * WORK.gap);
       m.rotation.y = -Math.sign(workX(i)) * 0.2;
     });
-    stackGroup.position.copy(STACK_C).add(mobile ? new THREE.Vector3(0, -0.2, 0) : new THREE.Vector3(2.4, 0, 0));
+    stackGroup.position.copy(STACK_C).add(mobile ? new THREE.Vector3(0, -0.75, 0) : new THREE.Vector3(2.4, 0, 0));
     ringGroup.position.copy(RING.c).add(mobile ? new THREE.Vector3(0, 0.5, 0) : new THREE.Vector3(0.9, 0.05, 0));
-    globeGroup.position.copy(GLOBE.c).add(mobile ? new THREE.Vector3(0, -4.2, 0) : new THREE.Vector3(2.8, 0, 0));
+    globeGroup.position.copy(GLOBE.c).add(mobile ? new THREE.Vector3(0, -2.4, 0) : new THREE.Vector3(2.8, 0, 0));
     globeTilt.rotation.x = THREE.MathUtils.degToRad(PLACES.damak[0]) * 0.8;
   }
 
@@ -640,6 +641,14 @@ async function start() {
   }
   const rangeOf = (name) => ranges.find((r) => r.name === name);
   const progressOf = (r, y) => clamp((y - r.top) / r.span, 0, 1);
+  // 0 → 1 as the section's top reaches the top of the screen, 1 → 0 as its end scrolls away
+  function visOf(name, y) {
+    const r = rangeOf(name), vh = window.innerHeight;
+    if (!r) return 1;
+    const fadeIn = 1 - smoothstep((r.top - y) / vh, 0, 0.25);
+    const fadeOut = smoothstep((r.end - y) / vh, 0.72, 1);
+    return fadeIn * fadeOut;
+  }
   const dwell = (x) => { const i = Math.floor(x); return i + smootherstep(x - i, 0.2, 0.8); };
 
   function scrollToChapter(name, u) {
@@ -654,7 +663,7 @@ async function start() {
     work: (u, o) => {
       const f = dwell(u * (JOBS.length - 1));
       const i = Math.min(Math.floor(f), JOBS.length - 2), t = f - i;
-      const dist = mobile ? 8.8 : 6.2;
+      const dist = mobile ? 7.8 : 6.2;
       const xa = workX(i) * 0.75, xb = workX(i + 1) * 0.75;
       const za = WORK.z0 - i * WORK.gap, zb = WORK.z0 - (i + 1) * WORK.gap;
       o.pos.set(lerp(xa, xb, t), WORK.y + 0.35, lerp(za, zb, t) + dist);
@@ -720,6 +729,8 @@ async function start() {
     lastWork = idx;
     if (workCount) workCount.textContent = `${String(idx + 1).padStart(2, '0')} / ${String(JOBS.length).padStart(2, '0')}`;
     workRail.forEach((b, k) => b.setAttribute('aria-current', String(k === idx)));
+    const active = $('work-active');
+    if (active) active.textContent = `${JOBS[idx].company} · ${JOBS[idx].dates.replace('Education · ', '')}`;
   }
 
   const projTitle = $('proj-title'), projDesc = $('proj-desc'), projMeta = $('proj-meta'), projLink = $('proj-link'), projIndex = $('proj-index');
@@ -744,13 +755,16 @@ async function start() {
   // stack legend highlight
   let stackHL = null;
   document.querySelectorAll('[data-cat]').forEach((b) => {
-    const on = () => { stackHL = b.dataset.cat; };
-    const off = () => { stackHL = null; };
+    const on = (e) => { if (!e.pointerType || e.pointerType === 'mouse') stackHL = b.dataset.cat; };
+    const off = (e) => { if (!e.pointerType || e.pointerType === 'mouse') stackHL = null; };
     b.addEventListener('pointerenter', on);
     b.addEventListener('pointerleave', off);
     b.addEventListener('focus', on);
     b.addEventListener('blur', off);
-    b.addEventListener('click', () => { stackHL = stackHL === b.dataset.cat ? null : b.dataset.cat; });
+    b.addEventListener('click', () => {
+      if (matchMedia('(hover: hover)').matches) return; // mouse already highlights on hover
+      stackHL = stackHL === b.dataset.cat ? null : b.dataset.cat;
+    });
   });
 
   // ===========================================================================
@@ -900,8 +914,16 @@ async function start() {
     camera.lookAt(camTgt);
     const cz = camera.position.z;
 
+    const y = window.scrollY;
+    const vWork = visOf('work', y), vStack = visOf('stack', y), vProj = visOf('projects', y);
+    const toBottom = (document.documentElement.scrollHeight - window.innerHeight - y) / window.innerHeight;
+    const vGlobe = visOf('contact', y) * (mobile ? 1 - smoothstep(toBottom, 0.08, 0.55) : 1);
+    const about = rangeOf('about');
+    const vMountains = about ? smoothstep((about.end - y) / window.innerHeight, 0.3, 1) : 1;
+
     // mountains
     mU.uTime.value = time;
+    mU.uOpacity.value = vMountains;
     mU.uMouseAmt.value += (mouseActive - mU.uMouseAmt.value) * 0.06;
     mU.uMouse.value.lerp(mouseTarget, 0.12);
     mountains.visible = cz > -40;
@@ -913,8 +935,8 @@ async function start() {
       jobCards.forEach((m, i) => {
         const d = Math.min(Math.abs(f - i), 1);
         // cards ahead dim; cards already passed fade out fast so they never sit between camera and the current one
-        const passed = i < f ? clamp(1 - (f - i) * 1.8, 0, 1) : 1;
-        m.material.opacity = (1 - d * 0.7) * passed;
+        const passed = i < f ? clamp(1 - (f - i) * 3, 0, 1) : 1;
+        m.material.opacity = (1 - d * 0.7) * passed * vWork;
         m.visible = m.material.opacity > 0.01;
         m.position.y = WORK.y + Math.sin(time * 0.6 + i * 1.7) * 0.06;
         m.scale.setScalar(1 - d * 0.06);
@@ -934,7 +956,7 @@ async function start() {
         const target = stackHL ? (s.userData.cat === stackHL ? 1 : 0) : 0.5;
         s.userData.hl += (target - s.userData.hl) * 0.15;
         const base = 0.25 + 0.75 * smoothstep(depth, -1, 1);
-        s.material.opacity = stackHL ? base * (0.12 + s.userData.hl * 0.88) : base;
+        s.material.opacity = (stackHL ? base * (0.12 + s.userData.hl * 0.88) : base) * vStack;
         const sc = s.userData.base * (1 + (stackHL ? s.userData.hl * 0.35 : 0));
         s.scale.set(sc * (s.userData.aspect || 3), sc, 1);
       });
@@ -946,6 +968,8 @@ async function start() {
       const f = dwell((U.projects || 0) * (PROJECTS.length - 1));
       projCards.forEach((m, i) => {
         placeCard(m, i - f);
+        m.material.opacity *= vProj;
+        m.visible = m.material.opacity > 0.01;
         m.position.y += Math.sin(time * 0.7 + i) * 0.03;
         const s = 1 + (projHover === i && i === Math.round(f) ? 0.035 : 0);
         m.scale.x += (s - m.scale.x) * 0.2; m.scale.y = m.scale.x;
@@ -960,12 +984,15 @@ async function start() {
       globeSpin.rotation.y = -THREE.MathUtils.degToRad(PLACES.damak[1]) + Math.sin(time * 0.15) * 0.35 + ((U.contact || 0) - 0.3) * 0.5 + gRotY;
       globeTilt.rotation.x = THREE.MathUtils.degToRad(PLACES.damak[0]) * 0.8 + gRotX;
       arcU.uTime.value = time;
+      gU.uOpacity.value = arcU.uOpacity.value = vGlobe;
+      occluder.material.opacity = halo.material.opacity = pin.material.opacity = vGlobe;
+      endDots.forEach((d) => { d.material.opacity = vGlobe; });
       const pt = (time * 0.6) % 1;
       pulse.scale.setScalar(1 + pt * 3);
-      pulse.material.opacity = 1 - pt;
+      pulse.material.opacity = (1 - pt) * vGlobe;
       labelSprites.forEach((s) => {
         tmp.copy(s.position).applyMatrix4(globeSpin.matrixWorld).sub(globeGroup.position);
-        s.material.opacity = smoothstep(tmp.z / GLOBE.r, 0.1, 0.5);
+        s.material.opacity = smoothstep(tmp.z / GLOBE.r, 0.1, 0.5) * vGlobe;
       });
     }
 
