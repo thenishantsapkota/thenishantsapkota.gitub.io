@@ -332,8 +332,8 @@
         <div class="lg:col-span-8" data-px="-0.25" data-fade>
           <p data-reveal class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-muted">
             <span class="inline-flex items-center gap-2 text-fg"><span class="pulse-dot h-1.5 w-1.5 rounded-full bg-accent"></span>Senior Full Stack Engineer at Codexx</span>
-            <span aria-hidden="true">/</span>
-            <span>Damak, Nepal · <span class="js-clock tnum">--:--</span> NPT</span>
+            <span class="hidden sm:inline" aria-hidden="true">/</span>
+            <span class="basis-full sm:basis-auto">Damak, Nepal · <span class="js-clock tnum">--:--</span> NPT</span>
           </p>
 
           <h1 id="hero-heading" data-reveal style="--d:.08s"
@@ -376,8 +376,8 @@
 
       <div class="only-3d mx-auto mt-12 flex w-full max-w-7xl items-center justify-between gap-4 px-5 font-mono text-[11px] text-muted sm:px-8" aria-hidden="true">
         <span class="hidden sm:inline">Move to raise the range · click to send a tremor · scroll to climb</span>
-        <span class="sm:hidden">Tap the range · scroll to climb</span>
-        <span class="tnum">elev <span id="hud-elev" class="text-fg">0000</span> m · <span id="hud-coord">27.98°N 86.92°E</span></span>
+        <span class="sm:hidden">Tap the range</span>
+        <span class="tnum whitespace-nowrap">elev <span id="hud-elev" class="text-fg">0000</span> m<span class="hidden sm:inline"> · <span id="hud-coord">27.98°N 86.92°E</span></span></span>
       </div>
     </section>
 
@@ -440,7 +440,7 @@
               <p class="font-mono text-xs text-muted" data-scramble>(02) work</p>
               <h2 id="experience-heading" class="mt-3 text-4xl font-semibold tracking-[-0.035em] text-fg sm:text-6xl">Where I've worked</h2>
             </div>
-            <p id="work-count" class="only-3d font-mono text-sm text-fg tnum" aria-hidden="true">01 / 06</p>
+            <p id="work-count" class="only-3d shrink-0 whitespace-nowrap font-mono text-sm text-fg tnum" aria-hidden="true">01 / 06</p>
           </div>
 
           <div class="only-3d">
@@ -455,6 +455,7 @@
               <li><button type="button" data-i="4" class="group flex w-full flex-col items-start gap-2 text-left"><span class="rail-dot h-1.5 w-1.5 rounded-full bg-fg/30 transition"></span><span class="rail-label hidden font-mono text-[11px] text-muted transition sm:block">Clamphook · 2021</span></button></li>
               <li><button type="button" data-i="5" class="group flex w-full flex-col items-start gap-2 text-left"><span class="rail-dot h-1.5 w-1.5 rounded-full bg-fg/30 transition"></span><span class="rail-label hidden font-mono text-[11px] text-muted transition sm:block">Education · 2019</span></button></li>
             </ol>
+            <p id="work-active" class="mt-3 font-mono text-xs text-fg sm:hidden" aria-hidden="true">Codexx · Jan 2025 — Present</p>
           </div>
 
           <!-- Plain list: read by screen readers, shown when WebGL is unavailable -->
@@ -480,21 +481,21 @@
           <div class="md:max-w-sm">
             <p class="font-mono text-xs text-muted" data-scramble>(03) stack</p>
             <h2 id="skills-heading" class="mt-3 text-4xl font-semibold tracking-[-0.035em] text-fg sm:text-6xl">What I reach for</h2>
-            <p class="only-3d mt-4 text-fg/65">Drag the sphere to spin it. Hover a group to light it up.</p>
+            <p class="only-3d mt-4 text-fg/65"><span class="hidden md:inline">Drag the sphere to spin it. Hover a group to light it up.</span><span class="md:hidden">Drag to spin. Tap a group to light it up.</span></p>
           </div>
           <ul class="mt-8 grid grid-cols-2 gap-2 md:max-w-sm md:grid-cols-1">
-            <li><button type="button" data-cat="lang" class="w-full rounded-xl border border-fg/10 bg-bg/40 px-4 py-3 text-left">
+            <li><button type="button" data-cat="lang" class="w-full rounded-xl border border-fg/10 bg-bg/85 px-4 py-3 text-left md:bg-bg/40">
               <span class="flex items-center gap-2 text-sm font-medium text-fg"><span class="h-2 w-2 rounded-full bg-accent"></span>Languages</span>
-              <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-muted"><span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/typescript.svg);--c:#3178C6"></i>TypeScript</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/javascript.svg);--c:#F7DF1E"></i>JavaScript</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/python.svg);--c:#3776AB"></i>Python</span></span></button></li>
-            <li><button type="button" data-cat="fw" class="w-full rounded-xl border border-fg/10 bg-bg/40 px-4 py-3 text-left">
+              <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-muted max-md:sr-only"><span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/typescript.svg);--c:#3178C6"></i>TypeScript</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/javascript.svg);--c:#F7DF1E"></i>JavaScript</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/python.svg);--c:#3776AB"></i>Python</span></span></button></li>
+            <li><button type="button" data-cat="fw" class="w-full rounded-xl border border-fg/10 bg-bg/85 px-4 py-3 text-left md:bg-bg/40">
               <span class="flex items-center gap-2 text-sm font-medium text-fg"><span class="h-2 w-2 rounded-full bg-fg"></span>Frameworks</span>
-              <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-muted"><span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/react.svg);--c:#61DAFB"></i>React</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/nextdotjs.svg)"></i>Next.js</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/nestjs.svg);--c:#E0234E"></i>NestJS</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/express.svg)"></i>Express</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/nodedotjs.svg);--c:#5FA04E"></i>Node.js</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/django.svg);--c:#44B78B"></i>Django</span></span></button></li>
-            <li><button type="button" data-cat="data" class="w-full rounded-xl border border-fg/10 bg-bg/40 px-4 py-3 text-left">
+              <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-muted max-md:sr-only"><span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/react.svg);--c:#61DAFB"></i>React</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/nextdotjs.svg)"></i>Next.js</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/nestjs.svg);--c:#E0234E"></i>NestJS</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/express.svg)"></i>Express</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/nodedotjs.svg);--c:#5FA04E"></i>Node.js</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/django.svg);--c:#44B78B"></i>Django</span></span></button></li>
+            <li><button type="button" data-cat="data" class="w-full rounded-xl border border-fg/10 bg-bg/85 px-4 py-3 text-left md:bg-bg/40">
               <span class="flex items-center gap-2 text-sm font-medium text-fg"><span class="h-2 w-2 rounded-full bg-muted"></span>Data &amp; infra</span>
-              <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-muted"><span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/postgresql.svg);--c:#4169E1"></i>PostgreSQL</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/redis.svg);--c:#FF4438"></i>Redis</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/amazons3.svg);--c:#569A31"></i>AWS S3</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/socketdotio.svg)"></i>WebSockets</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/git.svg);--c:#F05032"></i>Git</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/linux.svg);--c:#FCC624"></i>Linux</span></span></button></li>
-            <li><button type="button" data-cat="qa" class="w-full rounded-xl border border-fg/10 bg-bg/40 px-4 py-3 text-left">
+              <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-muted max-md:sr-only"><span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/postgresql.svg);--c:#4169E1"></i>PostgreSQL</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/redis.svg);--c:#FF4438"></i>Redis</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/amazons3.svg);--c:#569A31"></i>AWS S3</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/socketdotio.svg)"></i>WebSockets</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/git.svg);--c:#F05032"></i>Git</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/linux.svg);--c:#FCC624"></i>Linux</span></span></button></li>
+            <li><button type="button" data-cat="qa" class="w-full rounded-xl border border-fg/10 bg-bg/85 px-4 py-3 text-left md:bg-bg/40">
               <span class="flex items-center gap-2 text-sm font-medium text-fg"><span class="h-2 w-2 rounded-full bg-fg/35"></span>QA roots</span>
-              <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-muted"><span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/postman.svg);--c:#FF6C37"></i>Postman</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/selenium.svg);--c:#43B02A"></i>Selenium</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/jira.svg);--c:#2684FF"></i>Jira</span> <span class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>manual testing</span></span></button></li>
+              <span class="mt-2 flex flex-wrap gap-x-3 gap-y-1.5 text-xs text-muted max-md:sr-only"><span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/postman.svg);--c:#FF6C37"></i>Postman</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/selenium.svg);--c:#43B02A"></i>Selenium</span> <span class="inline-flex items-center gap-1.5"><i class="ico" style="--i:url(assets/img/icons/jira.svg);--c:#2684FF"></i>Jira</span> <span class="inline-flex items-center gap-1.5"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>manual testing</span></span></button></li>
           </ul>
         </div>
       </div>
@@ -542,12 +543,8 @@
     </section>
 
     <!--==================== CONTACT (globe) ====================-->
-    <section id="contact" data-chapter="contact" class="relative flex min-h-[100svh] flex-col justify-center py-32" aria-labelledby="contact-heading">
+    <section id="contact" data-chapter="contact" class="relative flex min-h-[100svh] flex-col justify-center pt-28 md:py-32" aria-labelledby="contact-heading">
       <div aria-hidden="true" class="only-3d scrim-l absolute inset-0 hidden md:block"></div>
-      <div aria-hidden="true" class="only-3d absolute inset-x-0 top-0 h-[80%] md:hidden" style="background: linear-gradient(180deg, rgb(var(--bg) / .9) 55%, transparent)"></div>
-      <div id="globe-drag" aria-hidden="true" class="only-3d absolute bottom-0 right-0 left-0 top-[58%] md:left-1/2 md:top-0">
-        <span class="pointer-events-none absolute bottom-6 right-5 font-mono text-[11px] text-muted sm:right-8">drag the globe ↻</span>
-      </div>
       <div class="pointer-events-none relative mx-auto w-full max-w-7xl px-5 sm:px-8 [&>*]:pointer-events-auto">
         <p class="font-mono text-xs text-muted" data-scramble>(05) contact</p>
         <h2 id="contact-heading" data-reveal style="--d:.05s"
@@ -567,10 +564,10 @@
           </button>
         </div>
 
-        <dl class="mt-14 grid max-w-2xl gap-6 border-t border-fg/10 pt-8 font-mono text-xs sm:grid-cols-3" data-reveal style="--d:.2s">
+        <dl class="mt-14 grid max-w-2xl grid-cols-2 gap-6 border-t border-fg/10 pt-8 font-mono text-xs sm:grid-cols-3" data-reveal style="--d:.2s">
           <div><dt class="text-muted">phone</dt><dd class="mt-2 text-sm text-fg"><a href="tel:+9779801615642" class="tnum transition hover:text-accent">+977 980 161 5642</a></dd></div>
           <div><dt class="text-muted">based in</dt><dd class="mt-2 text-sm text-fg">Damak, Jhapa · <span class="js-clock tnum">--:--</span></dd></div>
-          <div><dt class="text-muted">elsewhere</dt>
+          <div class="col-span-2 sm:col-span-1"><dt class="text-muted">elsewhere</dt>
             <dd class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-fg">
               <a href="https://github.com/thenishantsapkota" target="_blank" rel="me noopener" class="transition hover:text-accent">GitHub</a>
               <a href="https://www.linkedin.com/in/nishant-sapkota-960a3b14b/" target="_blank" rel="me noopener" class="transition hover:text-accent">LinkedIn</a>
@@ -579,6 +576,9 @@
             </dd>
           </div>
         </dl>
+      </div>
+      <div id="globe-drag" aria-hidden="true" class="only-3d relative mt-4 h-[46svh] md:absolute md:inset-y-0 md:right-0 md:left-1/2 md:mt-0 md:h-auto">
+        <span class="pointer-events-none absolute bottom-3 right-5 font-mono text-[11px] text-muted sm:right-8 md:bottom-6">drag the globe ↻</span>
       </div>
     </section>
   </main>
@@ -615,6 +615,13 @@
       };
       navToggle.addEventListener('click', () => setMenu(mobileMenu.hidden));
       mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+      document.addEventListener('pointerdown', (e) => { if (!mobileMenu.hidden && !e.target.closest('#header')) setMenu(false); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !mobileMenu.hidden) setMenu(false); });
+      let menuY = 0;
+      window.addEventListener('scroll', () => {
+        if (mobileMenu.hidden) { menuY = window.scrollY; return; }
+        if (Math.abs(window.scrollY - menuY) > 40) setMenu(false);
+      }, { passive: true });
 
       // Year + hue label
       document.getElementById('year').textContent = new Date().getFullYear();
@@ -724,8 +731,9 @@
         ticking = false;
         const y = window.scrollY, vh = window.innerHeight;
         if (!reduce && y < vh * 1.2) {
-          hero.style.translate = '0 ' + (y * 0.25).toFixed(1) + 'px';
-          hero.style.opacity = Math.max(0, 1 - y / (vh * 0.8)).toFixed(3);
+          const phone = window.innerWidth < 768;
+          hero.style.translate = phone ? '0 0' : '0 ' + (y * 0.25).toFixed(1) + 'px';
+          hero.style.opacity = Math.max(0, 1 - y / (vh * (phone ? 0.45 : 0.8))).toFixed(3);
           if (heroFig) heroFig.style.translate = '0 ' + (-y * 0.12).toFixed(1) + 'px';
         }
         const r = aboutSec.getBoundingClientRect();
